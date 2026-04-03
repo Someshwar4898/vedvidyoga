@@ -178,16 +178,5 @@ export async function getRelatedPosts(categoryIds, excludePostId) {
 }
 
 // ── Testimonials CPT ──────────────────────────────────────────────────────────
-// Expects a WP CPT registered as "testimonial" (REST base: wp/v2/testimonial).
-// Maps: title → name, content → testimonial text, meta.designation → role,
-// featured image → avatar.
-export async function getTestimonials() {
-  const data = await get("/testimonial?per_page=6&_embed");
-  return data.map(t => ({
-    id:          t.id,
-    name:        t.title?.rendered ?? "",
-    designation: t.meta?.designation ?? t.acf?.designation ?? "",
-    content:     (t.content?.rendered ?? "").replace(/<[^>]+>/g, "").trim(),
-    avatar:      t._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? null,
-  }));
-}
+// Testimonials are now hardcoded in mockTestimonials.js
+// Removed getTestimonials() function as testimonials are kept static
