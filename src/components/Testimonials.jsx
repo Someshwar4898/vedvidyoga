@@ -15,9 +15,7 @@ function Testimonials() {
         let data = [];
         if (isWPConnected()) {
           data = await getTestimonials();
-          if (!data || data.length === 0) {
-            data = mockTestimonials;
-          }
+          if (!data || data.length === 0) data = mockTestimonials;
         } else {
           data = mockTestimonials;
         }

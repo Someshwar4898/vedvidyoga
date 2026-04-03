@@ -102,8 +102,6 @@ function PostPage() {
         <RelatedPosts
           postId={post.id}
           categoryIds={post.categoryIds}
-          categorySlug={post.categorySlug}
-          subcategorySlug={post.subcategorySlug}
         />
 
         {/* Back link */}

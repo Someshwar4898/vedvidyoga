@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { Flame } from "lucide-react";
 import PostCard from "./PostCard";
-import { getTrendingPosts, isWPConnected } from "../services/api";
-import { posts as mockPosts } from "../data/mockPosts";
+import { getTrendingPosts } from "../services/api";
 
 function TrendingPosts() {
   const [posts, setPosts] = useState([]);
@@ -14,19 +13,10 @@ function TrendingPosts() {
     async function load() {
       setLoading(true);
       try {
-        let data;
-        if (isWPConnected()) {
-          data = await getTrendingPosts();
-          // If WP returns nothing, fall back to mock trending posts
-          if (data.length === 0) {
-            data = mockPosts.filter(p => p.trending).slice(0, 4);
-          }
-        } else {
-          data = mockPosts.filter(p => p.trending).slice(0, 4);
-        }
+        const data = await getTrendingPosts();
         if (!cancelled) setPosts(data);
       } catch {
-        if (!cancelled) setPosts(mockPosts.filter(p => p.trending).slice(0, 4));
+        if (!cancelled) setPosts([]);
       } finally {
         if (!cancelled) setLoading(false);
       }
