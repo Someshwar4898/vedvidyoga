@@ -10,7 +10,7 @@ import AboutAuthor from "../components/AboutAuthor";
 import Testimonials from "../components/Testimonials";
 import HomeFAQ from "../components/HomeFAQ";
 import Newsletter from "../components/Newsletter";
-import heroImg from "../assets/hero_image.png";
+import heroImg from "../assets/hero_image-vedvidyoga.webp";
 
 
 function Home() {

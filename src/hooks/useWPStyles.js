@@ -95,13 +95,13 @@ function injectStyles(styles) {
   });
 }
 
-// postId  — WordPress post ID (integer). Used to build /?p=ID URL.
-// Pass null/undefined to harvest from the WordPress homepage instead.
+// postId  — WordPress post ID (integer). Uses WP REST API endpoint.
+// Avoids frontend page routes (`/` and `/?p=`) that can redirect and break CORS.
 export function useWPStyles(postId) {
   useEffect(() => {
-    if (!BASE) return;
+    if (!BASE || !postId) return;
 
-    const url = postId ? `${BASE}/?p=${postId}` : `${BASE}/`;
+    const url = `${BASE}/wp-json/wp/v2/posts/${postId}?_embed`;
     harvestStylesFromURL(url).then(injectStyles);
   }, [postId]);
 }
