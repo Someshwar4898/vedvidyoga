@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight, ArrowRight, Search, Menu, X } from "lucide-react";
 import SearchModal from "./SearchModal";
 import CategoryName from "./CategoryName";
-import logo from "../assets/logo.png";
+import logo from "../assets/vedvidyoga-logo.webp";
 import { useCategories } from "../hooks/useCategories";
 
 function Navbar() {

@@ -1,4 +1,4 @@
-import logo from "../assets/logo.png";
+import logo from "../assets/vedvidyoga-logo.webp";
 
 function LogoLoader() {
   return (

@@ -1,17 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowRight, Eye } from "lucide-react";
-
-function formatViews(n) {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M views`;
-  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K views`;
-  return `${n} ${n === 1 ? "view" : "views"}`;
-}
+import { ArrowRight } from "lucide-react";
 
 function PostCard({ post, onPostClick }) {
   const navigate = useNavigate();
-  const url = post.subcategorySlug
-    ? `/${post.categorySlug}/${post.subcategorySlug}/${post.slug}`
-    : `/post/${post.slug}`;
+  const url = `/${post.categorySlug}/${post.subcategorySlug}/${post.slug}`;
 
   function handleCardClick() {
     onPostClick(post.slug);
@@ -24,22 +16,13 @@ function PostCard({ post, onPostClick }) {
       className="group overflow-hidden rounded-[1.75rem] border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-700 shadow-[0_18px_50px_rgba(102,74,44,0.08)] transition hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(102,74,44,0.13)] flex flex-col cursor-pointer"
     >
 
-      {/* Image — uses WordPress featured image; shows branded placeholder if none set */}
-      <div className="overflow-hidden bg-[#f5ede0] flex items-center justify-center h-56">
-        {post.image ? (
-          <img
-            src={post.image}
-            alt={post.title}
-            className="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
-            onError={(e) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src = "/vedvidyoga-logo.webp";
-              e.currentTarget.className = "h-32 w-32 object-contain opacity-20";
-            }}
-          />
-        ) : (
-          <img src="/vedvidyoga-logo.webp" alt="VedVidYoga" className="h-24 w-24 object-contain opacity-20" />
-        )}
+      {/* Image */}
+      <div className="overflow-hidden">
+        <img
+          src={post.image}
+          alt={post.title}
+          className="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
+        />
       </div>
 
       {/* Content */}
@@ -73,13 +56,10 @@ function PostCard({ post, onPostClick }) {
           {post.excerpt}
         </p>
 
-        {/* Author + views (falls back to read time for mock data) */}
+        {/* Author + read time */}
         <div className="mt-5 flex items-center justify-between text-sm text-stone-500 dark:text-stone-500">
           <span>{post.author}</span>
-          <span className="inline-flex items-center gap-1.5">
-            <Eye size={13} />
-            {post.views != null ? formatViews(post.views) : post.readTime}
-          </span>
+          <span>{post.readTime}</span>
         </div>
 
         {/* Date + Read more */}
