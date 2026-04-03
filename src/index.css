@@ -1,0 +1,312 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-cream: #fef5d4;
+  --color-saffron: #f28c28;
+  --color-saffron-dark: #e67d17;
+  --color-saffron-muted: #b96a1b;
+  --color-saffron-medium: #c26f1d;
+  --color-saffron-light: #fff6ea;
+  --color-saffron-pill: #fff3e3;
+  --color-sub-pill: #f7f1e7;
+  --color-warm-beige: #eadbc7;
+  --color-border-mid: #f0e3d3;
+  --color-border-soft: #f3e7d8;
+}
+
+:root {
+  color: #292524;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Logo loader ─────────────────────────────────────────────────────────────
+   Flips the logo left → right while fading it in and out */
+@keyframes logo-flip-fade {
+  0%   { opacity: 0.2; transform: scaleX(1);    }
+  25%  { opacity: 1;   transform: scaleX(1);    }
+  50%  { opacity: 1;   transform: scaleX(-1);   }
+  75%  { opacity: 1;   transform: scaleX(-1);   }
+  100% { opacity: 0.2; transform: scaleX(1);    }
+}
+
+.logo-loader {
+  animation: logo-flip-fade 1.6s ease-in-out infinite;
+}
+
+/* ── Nav dropdown scroll ─────────────────────────────────────────────────────
+   Thin, on-brand scrollbar for the navbar category/subcategory panels */
+.nav-scroll::-webkit-scrollbar        { width: 4px; }
+.nav-scroll::-webkit-scrollbar-track  { background: transparent; }
+.nav-scroll::-webkit-scrollbar-thumb  { background: #eadbc7; border-radius: 9999px; }
+.nav-scroll::-webkit-scrollbar-thumb:hover { background: #f28c28; }
+
+/* ── Sanskrit term display rules ─────────────────────────────────────────────
+   Three spans inside <SanskritTerm>:
+     .sanskrit-romanized    — e.g. "Vedāngas"   (Latin script)
+     .sanskrit-devanagari   — e.g. "वेदाङ्ग"     (Sanskrit script)
+     .sanskrit-translation  — e.g. " (meaning)" (translatable bracket)
+
+   Devanagari languages covered: hi (Hindi), mr (Marathi), ne (Nepali), sa (Sanskrit)
+   [lang|="hi"] matches "hi", "hi-IN", "hi-*" etc.
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* Default (English): romanized visible, Devanagari hidden, bracket hidden */
+.sanskrit-romanized    { display: inline; }
+.sanskrit-devanagari   { display: none; }
+.sanskrit-translation  { display: none; }
+
+/* Devanagari languages: swap to Sanskrit script, hide romanized & bracket */
+:root[lang|="hi"] .sanskrit-romanized,
+:root[lang|="mr"] .sanskrit-romanized,
+:root[lang|="ne"] .sanskrit-romanized,
+:root[lang|="sa"] .sanskrit-romanized  { display: none; }
+
+:root[lang|="hi"] .sanskrit-devanagari,
+:root[lang|="mr"] .sanskrit-devanagari,
+:root[lang|="ne"] .sanskrit-devanagari,
+:root[lang|="sa"] .sanskrit-devanagari { display: inline; }
+
+/* Other translated languages (Spanish, French, etc.): romanized + bracket */
+:root:not([lang|="en"]):not([lang|="hi"]):not([lang|="mr"]):not([lang|="ne"]):not([lang|="sa"]) .sanskrit-translation {
+  display: inline;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, rgba(194, 120, 10, 0.12), transparent 24%),
+    linear-gradient(180deg, #fefae6 0%, #fef5d4 100%);
+  background-attachment: fixed;
+}
+
+.dark {
+  color: #e7e5e4;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(242, 140, 40, 0.04), transparent 22%),
+    linear-gradient(180deg, #1a1611 0%, #130f0a 100%);
+}
+
+@layer base {
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: #f28c28; }
+  button { font: inherit; cursor: pointer; }
+  /* Scoped to UI — not post content (blocks need inline/inline-block) */
+  :not(.entry-content) > img { display: block; max-width: 100%; }
+}
+
+/* Light mode: invert restores flame colors, multiply blends white bg into cream */
+.logo-img {
+  filter: invert(1) hue-rotate(180deg);
+  mix-blend-mode: multiply;
+}
+/* Dark mode: screen blend removes the black background cleanly */
+.dark .logo-img {
+  filter: none;
+  mix-blend-mode: screen;
+}
+
+.wp-content {
+  color: #44403c;
+  line-height: 1.8;
+}
+.wp-content p { margin-bottom: 1.5rem; }
+.wp-content h1 { font-size: 2rem; font-weight: 700; color: #1c1917; margin: 2.5rem 0 1rem; }
+.wp-content h2 { font-size: 1.5rem; font-weight: 600; color: #1c1917; margin: 2rem 0 1rem; }
+.wp-content h3 { font-size: 1.25rem; font-weight: 600; color: #1c1917; margin: 1.5rem 0 0.75rem; }
+.wp-content h4 { font-size: 1.1rem; font-weight: 600; color: #1c1917; margin: 1.25rem 0 0.5rem; }
+.wp-content img { border-radius: 1rem; margin: 2rem 0; width: 100%; }
+.wp-content a { color: #f28c28; text-decoration: underline; }
+.wp-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+.wp-content ol { list-style-type: decimal; padding-left: 1.5rem; margin-bottom: 1.5rem; }
+.wp-content li { margin-bottom: 0.5rem; }
+.wp-content li > ul { margin-top: 0.5rem; margin-bottom: 0.5rem; list-style-type: circle; }
+.wp-content strong, .wp-content b { font-weight: 600; color: #1c1917; }
+.wp-content em, .wp-content i { font-style: italic; }
+.wp-content hr { border: none; border-top: 1px solid #f0e3d3; margin: 2.5rem 0; }
+.wp-content blockquote { border-left: 3px solid #f28c28; padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #57534e; }
+.wp-content figure { margin: 2rem 0; }
+.wp-content figcaption { text-align: center; font-size: 0.875rem; color: #78716c; margin-top: 0.5rem; }
+
+.dark .wp-content { color: #a8a29e; }
+.dark .wp-content h1, .dark .wp-content h2, .dark .wp-content h3, .dark .wp-content h4 { color: #f5f5f4; }
+.dark .wp-content strong, .dark .wp-content b { color: #f5f5f4; }
+.dark .wp-content a { color: #f28c28; }
+.dark .wp-content blockquote { color: #78716c; }
+.dark .wp-content hr { border-top-color: #44403c; }
+.dark .wp-content figcaption { color: #57534e; }
+
+.post-content {
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.post-content p {
+  margin-bottom: 16px;
+}
+
+.post-content ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.post-content li {
+  margin-bottom: 8px;
+}
+
+.post-content img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.entry-content {
+  max-width: 800px;
+  margin: auto;
+  /* Transparent so the app's cream background shows through by default.
+     WordPress's white default is in @layer wp-imported and loses to this.
+     Blocks where the client explicitly sets a colour use inline style=""
+     which always wins regardless of layers. */
+  background: transparent;
+}
+
+/* ── Gutenberg block overrides ───────────────────────────────────────────────
+   WordPress block library CSS is loaded globally (index.html).
+   Rules here fix conflicts with our own resets and apply brand styling.
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Our base reset sets img { display: block } which breaks inline images inside
+   columns. Allow images inside blocks to be inline-block so they size correctly. */
+.entry-content .wp-block-image img,
+.entry-content .wp-block-columns img {
+  display: inline-block;
+  width: 100%;
+  border-radius: 12px;
+  margin: 0;
+}
+
+/* Columns: ensure flex layout even if WordPress CSS doesn't load */
+.entry-content .wp-block-columns {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.entry-content .wp-block-column {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Figures */
+.entry-content figure {
+  margin: 24px 0;
+}
+.entry-content figcaption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #78716c;
+  margin-top: 6px;
+}
+
+/* Calendar block — brand colours on top of WP defaults */
+.entry-content .wp-block-calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.entry-content .wp-block-calendar caption {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1c1917;
+}
+.entry-content .wp-block-calendar th {
+  background: #fff6ea;
+  color: #b96a1b;
+  padding: 4px 6px;
+  text-align: center;
+}
+.entry-content .wp-block-calendar td {
+  padding: 4px 6px;
+  text-align: center;
+  border: 1px solid #f0e3d3;
+}
+.entry-content .wp-block-calendar td a {
+  color: #f28c28;
+  font-weight: 600;
+}
+
+/* Post author block */
+.entry-content .wp-block-post-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-top: 1px solid #f0e3d3;
+  border-bottom: 1px solid #f0e3d3;
+  margin: 24px 0;
+}
+.entry-content .wp-block-post-author img {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+.entry-content .wp-block-post-author__name {
+  font-weight: 600;
+  color: #1c1917;
+}
+.entry-content .wp-block-post-author__bio {
+  font-size: 0.875rem;
+  color: #78716c;
+}
+
+/* Blockquote */
+.entry-content blockquote,
+.entry-content .wp-block-quote {
+  border-left: 4px solid #f28c28;
+  padding-left: 16px;
+  color: #57534e;
+  font-style: italic;
+  margin: 24px 0;
+}
+
+/* Separator */
+.entry-content .wp-block-separator,
+.entry-content hr {
+  border: none;
+  border-top: 1px solid #f0e3d3;
+  margin: 2.5rem 0;
+}
+
+/* Code */
+.entry-content code {
+  background: #f5f0e8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+.entry-content pre {
+  background: #f5f0e8;
+  padding: 16px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 24px 0;
+}

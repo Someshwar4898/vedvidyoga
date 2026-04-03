@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:saffron-journal-blog.designarena.ai)",
+      "Bash(npm install:*)",
+      "Bash(curl -s https://saffronstories-backend.totan.in/wp-json/wp/v2/categories?per_page=100)",
+      "Bash(curl -s \"https://saffronstories-backend.totan.in/wp-json/wp/v2/categories?per_page=100\" -o C:/tmp/cats.json)",
+      "Bash(node -e \"const j=require\\(''C:/tmp/cats.json''\\); j.forEach\\(c=>console.log\\(c.id, c.parent, JSON.stringify\\(c.slug\\), JSON.stringify\\(\\(c.description||''''\\).replace\\(/<[^>]+>/g,''''\\).trim\\(\\).slice\\(0,50\\)\\)\\)\\)\")",
+      "Bash(curl -s -u \"Shiva Kaviya:h6TgwIB15MIjFqHikJVMA3Uk\" \"https://saffronstories-backend.totan.in/wp-json/wp/v2/categories?per_page=100\")",
+      "Bash(curl -s -u \"Shiva Kaviya:h6TgwIB15MIjFqHikJVMA3Uk\" \"https://saffronstories-backend.totan.in/wp-json/wp/v2/posts?per_page=5&_embed\")",
+      "Bash(curl -s -u \"Shiva Kaviya:h6TgwIB15MIjFqHikJVMA3Uk\" \"https://saffronstories-backend.totan.in/wp-json/wp/v2/posts?per_page=100&_embed\")",
+      "Bash(npx vite:*)",
+      "Bash(node -e \":*)",
+      "Bash(curl -s \"https://saffronstories-backend.totan.in/wp-json/wp/v2/posts?per_page=5\")",
+      "Bash(node -e \"process.stdin.resume\\(\\);let d='''''''';process.stdin.on\\(''''data'''',c=>d+=c\\);process.stdin.on\\(''''end'''',\\(\\)=>{try{const j=JSON.parse\\(d\\);console.log\\(''''posts without auth:'''',j.length\\)}catch\\(e\\){console.log\\(''''error:'''',d.slice\\(0,100\\)\\)}}\\)\")",
+      "Bash(node -e \"process.stdin.resume\\(\\);let d='''''''';process.stdin.on\\(''''data'''',c=>d+=c\\);process.stdin.on\\(''''end'''',\\(\\)=>{try{const j=JSON.parse\\(d\\);console.log\\(''''categories without auth:'''',j.length\\)}catch\\(e\\){console.log\\(''''error:'''',d.slice\\(0,100\\)\\)}}\\)\")",
+      "Bash(curl -s -o /tmp/posts_response.txt -w \"%{http_code}\" \"https://saffronstories-backend.totan.in/wp-json/wp/v2/posts?per_page=100&_embed\")",
+      "Bash(curl -s -o /tmp/categories_response.txt -w \"%{http_code}\" \"https://saffronstories-backend.totan.in/wp-json/wp/v2/categories?per_page=100&hide_empty=false\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s \"https://saffronstories-backend.totan.in/wp-json/wp/v2/posts/43?_embed\")",
+      "Bash(python3 -c \":*)",
+      "WebFetch(domain:saffronstories-backend.totan.in)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(echo \"=== $f ===\")",
+      "Read(//c/Projects/Blog/**)",
+      "Bash(done)",
+      "Bash(curl -s \"https://vedvidyoga.totan.in/wp-json/wp/v2/posts?per_page=5&_embed\")",
+      "WebFetch(domain:vedvidyoga.totan.in)"
+    ]
+  }
+}
