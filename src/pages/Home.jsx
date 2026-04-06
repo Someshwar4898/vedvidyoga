@@ -26,15 +26,15 @@ function Home() {
         <div className="max-w-2xl">
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#f6d7b3] bg-white dark:bg-stone-900 dark:border-stone-700 px-4 py-2 text-sm font-medium text-saffron-muted shadow-sm">
             <Sparkles size={16} />
-            Decoding the Rishi-Science
+            Decoding Ancient Vedic Wisdom with Scientific Logic.
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-stone-900 dark:text-stone-100 leading-tight">
-            Explore the Foundations of Vedic Knowledge
+            Understanding Vedic Cult: A Scientific Perspective. 
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-8 text-stone-600 dark:text-stone-400">
-            A structured journey through Vedic science, philosophy, healing systems, and value-based education — explained with clarity and logic.
+            A structured journey through Vedic cult, science, methodology, philosophy, lifestyle, healing systems, and value-based education — explained with clarity and logic.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -64,7 +64,7 @@ function Home() {
             />
             <div className="absolute right-8 bottom-8 left-8 rounded-[1.5rem] border border-white/70 bg-cream/92 dark:bg-stone-900/92 p-5 shadow-lg backdrop-blur">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-saffron-muted">Vedic Knowledge</p>
-              <h2 className="mt-2 text-xl font-semibold text-stone-900 dark:text-stone-100 leading-snug">Vedic knowledge is not a belief; it is a technology for the Soul.</h2>
+              <h2 className="mt-2 text-xl font-semibold text-stone-900 dark:text-stone-100 leading-snug">Vedic knowledge explores every aspect of life and creation.</h2>
               <p className="mt-2 text-sm leading-6 text-stone-600 dark:text-stone-400">
                 — Kaptan Singh Choudhary (Kapil)
               </p>

@@ -19,7 +19,7 @@ const pillars = [
   },
   {
     icon: Library,
-    title: "Vedanga – The Science Behind the Vedas",
+    title: "Vedanga – The Ganit Behind the Vedas",
     slug: "vedanga",
     content:
       "Śikṣā (phonetics), Kalpa (ritual logic), Vyākaraṇa (grammar), Nirukta (etymology), Jyotiṣa (astronomy), and Chanda (meter) — the technical framework of Vedic knowledge.",
