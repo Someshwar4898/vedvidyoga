@@ -4,67 +4,75 @@ import {
   Lightbulb,
   Brain,
   BookMarked,
-  Leaf,
   Activity,
   GraduationCap,
+  Flame,
+  Users,
 } from "lucide-react";
 
 const pillars = [
   {
     icon: ScrollText,
-    title: "The Four Vedas",
+    title: "Vedas",
     slug: "vedas",
     content:
-      "Rigveda, Yajurveda, Samveda, and Atharvaveda — the foundational texts that define knowledge, nature, and universal principles.",
+      "The 4 Vedas are God’s infallible word, revealed at creation as the source of all true science. They provide the divine methodology for understanding knowledge, nature, and the universal laws of the cosmos.",
   },
   {
     icon: Library,
-    title: "Vedanga – The Ganit Behind the Vedas",
+    title: "Vedangas (The 6 Limbs of Vedas)",
     slug: "vedanga",
     content:
-      "Śikṣā (phonetics), Kalpa (ritual logic), Vyākaraṇa (grammar), Nirukta (etymology), Jyotiṣa (astronomy), and Chanda (meter) — the technical framework of Vedic knowledge.",
+      "Śikṣā – Phonetics & pronunciation; Vyākaraṇa – grammar & logic; Nirukta – etymology; Chanda – meter & prosody; Jyotiṣa – astronomy & time; Kalpa – rituals & methodology of conduct.",
   },
   {
     icon: Lightbulb,
-    title: "Upanishads – Philosophy of Truth",
+    title: "Upvedas (Applied Vedic Sciences)",
+    slug: "upvedas",
+    content:
+      "Āyurveda – life & medicine; Dhanurveda – warfare & defense; Gāndharvaveda – music & aesthetics; Arthaveda – economics & resources for society.",
+  },
+  {
+    icon: Flame,
+    title: "Upanishads (11 Ārsh Upanishads)",
     slug: "upanishads",
     content:
-      "The principal Upanishads explore self-realization, monotheism, and the deeper understanding of existence and consciousness.",
+      "Īśa–Kena (God), Kaṭha–Praśna (life & prana), Muṇḍaka–Māṇḍūkya (knowledge & consciousness), Taittirīya–Aitareya (soul & existence), Chāndogya–Bṛhadāraṇyaka (reality), Śvetāśvatara (one supreme).",
   },
   {
     icon: Brain,
-    title: "The Six Darshans – Rational Philosophy",
-    slug: "darshans",
+    title: "Darshanas (Six Systems of Philosophy)",
+    slug: "darshanas",
     content:
-      "Nyaya, Vaisheshika, Sankhya, Yoga, Mimamsa, and Vedanta — logical systems of inquiry focused on truth, reasoning, and reality.",
+      "Nyāya – logic; Vaiśeṣika – atoms & cosmology; Sānkhya – matter & spirit; Yoga – discipline; Mīmāṁsā – action & dharma; Vedānta – ultimate knowledge.",
+  },
+  {
+    icon: Users,
+    title: "The Rishi Legacy",
+    slug: "rishi-legacy",
+    content:
+      "The pure 'Ārsh' knowledge passed by sages through sacrifice and realization. Includes Aarsh Vidya — the original discoveries of Vedic seers.",
   },
   {
     icon: BookMarked,
     title: "Scriptures – Truth vs Interpretation",
     slug: "scriptures",
     content:
-      "Analysis of texts like Manusmriti, Ramayana, Mahabharata, and Bhagavad Gita — understanding their logic beyond myths.",
-  },
-  {
-    icon: Leaf,
-    title: "Ayurvedic Lifestyle",
-    slug: "ayurvedic-lifestyle",
-    content:
-      "Guidance from Charak, Sushrut, and Ashtanghridayam — covering diet, habits, and natural healing principles.",
-  },
-  {
-    icon: Activity,
-    title: "Yoga Therapy & Natural Healing",
-    slug: "yoga-naturopathy",
-    content:
-      "Therapeutic use of asanas, pranayama, shatkarmas, and natural therapies like mud, hydro, and diet therapy.",
+      "Logical analysis of texts like Manusmriti, Ramayana, Mahabharata, and Bhagavad Gita. Understanding their true meaning beyond myths and distortions.",
   },
   {
     icon: GraduationCap,
-    title: "Vedic Value Education",
+    title: "Vedic Education",
     slug: "vedic-education",
     content:
-      "Stories and teachings designed to build strong values and logical thinking in children through Vedic wisdom.",
+      "Stories and teachings designed to build strong values and logical thinking. Helping children grow with clarity through authentic Vedic wisdom.",
+  },
+  {
+    icon: Activity,
+    title: "Yoga Therapy, Ayurveda & Naturopathy",
+    slug: "yoga-naturopathy",
+    content:
+      "Integration of Aṣṭāṅga Yoga, Āyurveda, and Prakṛtika Cikitsā. Applying cosmic laws to restore physical balance and inner purity.",
   },
 ];
 
@@ -77,12 +85,12 @@ function KnowledgePillars() {
             What We Explore
           </p>
           <h3 className="mt-2 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">
-            Eight pillars of Vedic knowledge
+            The system and dimensions of Vedic knowledge.
           </h3>
+          <p className="max-w-3xl text-sm leading-7 text-stone-500 dark:text-stone-400">
+            Discover the intersection of ancient logic and spiritual insight. We break down the organized systems and diverse dimensions that make Vedic knowledge relevant today.
+          </p>
         </div>
-        <p className="max-w-xs text-sm leading-7 text-stone-500 dark:text-stone-400">
-          Each pillar is a structured branch of the Vedic tradition — independent yet interconnected.
-        </p>
       </div>
 
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">

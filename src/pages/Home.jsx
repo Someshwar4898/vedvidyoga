@@ -7,6 +7,7 @@ import FeaturedPosts from "../components/FeaturedPosts";
 import TrendingPosts from "../components/TrendingPosts";
 import LatestPosts from "../components/LatestPosts";
 import AboutAuthor from "../components/AboutAuthor";
+import Gallery from "../components/Gallery";
 import Testimonials from "../components/Testimonials";
 import HomeFAQ from "../components/HomeFAQ";
 import Newsletter from "../components/Newsletter";
@@ -90,6 +91,9 @@ function Home() {
 
       {/* ── ABOUT AUTHOR ─────────────────────────────────────────── */}
       <AboutAuthor />
+
+      {/* ── GALLERY ──────────────────────────────────────────────── */}
+      <Gallery />
 
       {/* ── TESTIMONIALS ─────────────────────────────────────────── */}
       <Testimonials />

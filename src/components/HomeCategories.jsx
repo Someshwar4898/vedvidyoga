@@ -34,12 +34,9 @@ function HomeCategories() {
             What We Cover
           </p>
           <h3 className="mt-2 text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">
-            Explore the knowledge pillars
+            The system and dimensions of Vedic Knowledge.
           </h3>
         </div>
-        <p className="max-w-xs text-sm leading-7 text-stone-500 dark:text-stone-400">
-          Each category leads you into a dedicated collection of articles, case studies, and Vedic analysis.
-        </p>
       </div>
 
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4">

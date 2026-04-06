@@ -1,4 +1,5 @@
 import { Sparkles, FlaskConical, BookOpen } from "lucide-react";
+import authorImg from "../assets/author_image.jpg";
 import SanskritTerm from "../components/SanskritTerm";
 
 const differentiators = [
@@ -54,14 +55,46 @@ function About() {
 
       {/* Kapil bio */}
       <section className="rounded-[2rem] border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-700 p-8 sm:p-10 shadow-[0_20px_60px_rgba(102,74,44,0.08)]">
-        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-saffron-muted">The Architect Behind the Vision</p>
-        <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">Kaptan Singh Choudhary</h2>
-        <p className="mt-4 text-sm font-medium text-stone-500 dark:text-stone-400 leading-7">
-          M.A. (Yoga) · B.P.Ed. · Consultant Yoga Therapist (IIAS) · Certified Naturopath · Ayurveda Wellness Coach · Vedic Meditation Expert · Visharad (Indian Classical Vocal) · Prathama (Bamboo Flute) · Black Belt 1st Dan (Taekwondo) · National Referee & Licensed Coach · Writer, Poet & Researcher
-        </p>
+        <div className="grid md:grid-cols-[260px_1fr] gap-8 items-start">
+          {/* Author photo */}
+          <div className="overflow-hidden rounded-[1.5rem] w-full md:w-[260px] h-[300px] shrink-0 border-2 border-saffron/30 dark:border-saffron/20">
+            <img
+              src={authorImg}
+              alt="Kaptan Singh Choudhary (Kapil)"
+              className="h-full w-full object-cover object-top"
+            />
+          </div>
+
+          {/* Text */}
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-saffron-muted">The Architect Behind the Vision</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">Kaptan Singh Choudhary</h2>
+            <p className="mt-4 text-sm font-medium text-stone-500 dark:text-stone-400 leading-7">
+              M.A. (Yoga) · B.P.Ed. · Consultant Yoga Therapist (IIAS) · Certified Naturopath · Ayurveda Wellness Coach · Vedic Meditation Expert · Visharad (Indian Classical Vocal) · Prathama (Bamboo Flute) · Black Belt 1st Dan (Taekwondo) · National Referee & Licensed Coach · Writer, Poet & Researcher
+            </p>
+          </div>
+        </div>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-stone-600 dark:text-stone-400">
-          With over 15 years of clinical experience — including foundational work at the Baba Balwant Singh Yoga and Naturopathy Centre — Kapil has dedicated his life to proving that our Sages (<SanskritTerm term="Rishis" devanagari="ऋषि" meaning="Vedic seers" />) were the world's first scientists.
+          With over 15 years of clinical experience, Kapil has dedicated his life to proving that our Sages (<SanskritTerm term="Rishis" devanagari="ऋषि" meaning="Vedic seers" />) were the world's first scientists.
         </p>
+
+        {/* Experience card */}
+        <div className="mt-6 rounded-[1.5rem] border border-[#f6d7b3] bg-[#fffaf4] dark:bg-stone-800 dark:border-stone-700 p-6 flex flex-col sm:flex-row sm:items-center gap-5">
+          <div className="h-14 w-14 shrink-0 rounded-full bg-saffron/15 flex items-center justify-center">
+            <span className="text-saffron text-2xl font-bold leading-none">✦</span>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-muted mb-1">
+              Clinical Experience — Institution
+            </p>
+            <p className="text-xl font-semibold text-stone-900 dark:text-stone-100 leading-7">
+              Baba Balwant Singh Panchgavga
+            </p>
+            <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
+              Served as <span className="font-semibold text-stone-800 dark:text-stone-200">Yoga Therapist &amp; Naturopath</span> — delivering Panchagavya-based natural healing alongside classical yoga therapy for patients with chronic and lifestyle disorders.
+            </p>
+          </div>
+        </div>
         <p className="mt-4 max-w-3xl text-lg leading-8 text-stone-600 dark:text-stone-400">
           His career is built on Case-Based Studies. He has successfully treated patients with Slip Disc, Asthma, Sinusitis, and Depression using only Nature Cure and Ayurvedic principles. As a Visharad in Classical Music, he also integrates Raga-Chikitsa and the precise Physics of Sanskrit Sound to heal the human nervous system.
         </p>
