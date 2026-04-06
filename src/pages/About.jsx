@@ -79,21 +79,24 @@ function About() {
         </p>
 
         {/* Experience card */}
-        <div className="mt-6 rounded-[1.5rem] border border-[#f6d7b3] bg-[#fffaf4] dark:bg-stone-800 dark:border-stone-700 p-6 flex flex-col sm:flex-row sm:items-center gap-5">
-          <div className="h-14 w-14 shrink-0 rounded-full bg-saffron/15 flex items-center justify-center">
-            <span className="text-saffron text-2xl font-bold leading-none">✦</span>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-muted mb-1">
-              Clinical Experience — Institution
-            </p>
-            <p className="text-xl font-semibold text-stone-900 dark:text-stone-100 leading-7">
-              Baba Balwant Singh Panchgavga
-            </p>
-            <p className="mt-1 text-sm text-stone-600 dark:text-stone-400">
-              Served as <span className="font-semibold text-stone-800 dark:text-stone-200">Yoga Therapist &amp; Naturopath</span> — delivering Panchagavya-based natural healing alongside classical yoga therapy for patients with chronic and lifestyle disorders.
-            </p>
-          </div>
+        <div className="mt-6 rounded-[1.5rem] border border-[#f6d7b3] bg-[#fffaf4] dark:bg-stone-800 dark:border-stone-700 p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-muted mb-4">
+            Clinical Experience — Yoga Therapist &amp; Naturopath
+          </p>
+          <ul className="space-y-3">
+            {[
+              "VEDVIDYOGA Institute of Yoga Therapy & Wellness",
+              "Baba Balwant Singh Panchgavya Chikitsa and Anusandhan Kendra",
+              "AMBAA Yoga and Naturopathy Centre",
+              "Inaya Foundation, Jaipur",
+              "Lions Club, Jaipur",
+            ].map((place, i) => (
+              <li key={i} className="flex items-start gap-3 text-stone-700 dark:text-stone-300 leading-7">
+                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-saffron/60" />
+                <span className="text-base font-medium">{place}</span>
+              </li>
+            ))}
+          </ul>
         </div>
         <p className="mt-4 max-w-3xl text-lg leading-8 text-stone-600 dark:text-stone-400">
           His career is built on Case-Based Studies. He has successfully treated patients with Slip Disc, Asthma, Sinusitis, and Depression using only Nature Cure and Ayurvedic principles. As a Visharad in Classical Music, he also integrates Raga-Chikitsa and the precise Physics of Sanskrit Sound to heal the human nervous system.

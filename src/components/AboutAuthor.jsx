@@ -40,19 +40,24 @@ function AboutAuthor() {
         </p>
 
         {/* Experience highlight */}
-        <div className="rounded-[1.25rem] border border-[#f6d7b3] bg-[#fffaf4] dark:bg-stone-800 dark:border-stone-700 px-5 py-4 flex items-start gap-4">
-          <div className="mt-0.5 h-9 w-9 shrink-0 rounded-full bg-saffron/15 flex items-center justify-center">
-            <span className="text-saffron text-base font-bold leading-none">✦</span>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-muted mb-1">Clinical Experience</p>
-            <p className="text-sm font-semibold text-stone-800 dark:text-stone-100 leading-6">
-              Yoga Therapist &amp; Naturopath
-            </p>
-            <p className="text-sm text-stone-600 dark:text-stone-400 leading-6">
-              Baba Balwant Singh Panchgavga
-            </p>
-          </div>
+        <div className="rounded-[1.25rem] border border-[#f6d7b3] bg-[#fffaf4] dark:bg-stone-800 dark:border-stone-700 px-5 py-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-muted mb-3">
+            Clinical Experience — Yoga Therapist &amp; Naturopath
+          </p>
+          <ul className="space-y-2">
+            {[
+              "VEDVIDYOGA Institute of Yoga Therapy & Wellness",
+              "Baba Balwant Singh Panchgavya Chikitsa and Anusandhan Kendra",
+              "AMBAA Yoga and Naturopathy Centre",
+              "Inaya Foundation, Jaipur",
+              "Lions Club, Jaipur",
+            ].map((place, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300 leading-6">
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-saffron/60" />
+                {place}
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* Links row */}
