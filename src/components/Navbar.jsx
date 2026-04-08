@@ -56,6 +56,7 @@ function Navbar() {
             Home
           </Link>
           <Link to="/about" className={`text-sm font-medium transition ${isActive("/about") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>About Us</Link>
+          <Link to="/case-studies" className={`text-sm font-medium transition ${isActive("/case-studies") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>Case Studies</Link>
           {/* Blog mega dropdown */}
           <div
             className="relative"
@@ -68,7 +69,7 @@ function Navbar() {
               aria-expanded={desktopBlogOpen}
               className={`flex items-center gap-1 text-sm font-medium transition ${desktopBlogOpen ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}
             >
-              Blog <ChevronDown size={16} />
+              Blogs <ChevronDown size={16} />
             </button>
 
             {/* pt-4 bridges the gap between button and panel so hover doesn't break */}
@@ -168,12 +169,14 @@ function Navbar() {
       {mobileOpen && (
         <div className="lg:hidden border-t border-[#eadbc7] dark:border-stone-800 px-5 py-4 space-y-2 overflow-y-auto max-h-[calc(100dvh-64px)]">
           <Link to="/" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Home</Link>
+          <Link to="/about" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">About Us</Link>
+          <Link to="/case-studies" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Case Studies</Link>
 
           <button
             onClick={() => setMobileBlogOpen((v) => !v)}
             className="flex w-full items-center justify-between rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700"
           >
-            Blog <ChevronDown size={16} className={mobileBlogOpen ? "rotate-180 transition" : "transition"} />
+            Blogs <ChevronDown size={16} className={mobileBlogOpen ? "rotate-180 transition" : "transition"} />
           </button>
 
           {mobileBlogOpen && (
@@ -219,7 +222,6 @@ function Navbar() {
             </div>
           )}
 
-          <Link to="/about" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">About Us</Link>
           <Link to="/contact" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Contact Us</Link>
           <Link to="/privacy" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Privacy Policy</Link>
         </div>

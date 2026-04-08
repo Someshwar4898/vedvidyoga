@@ -1,17 +1,9 @@
-import { Mail, MessageCircle, Linkedin, ExternalLink } from "lucide-react";
+import { Mail, MessageCircle, Linkedin, ExternalLink, ArrowUpRight } from "lucide-react";
 
 const contactItems = [
   { icon: Mail, label: "Email", value: "vedvidyoga@gmail.com", href: "mailto:vedvidyoga@gmail.com" },
   { icon: MessageCircle, label: "WhatsApp Business", value: "+91 7976066236", href: "https://wa.me/917976066236" },
   { icon: Linkedin, label: "LinkedIn", value: "Kaptan Singh Choudhary", href: "https://www.linkedin.com/in/kaptan-singh-choudhary-75a649180" },
-];
-
-const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/kaptan-singh-choudhary-75a649180" },
-  { label: "Facebook", href: "#" },
-  { label: "Instagram", href: "#" },
-  { label: "UrbanPro", href: "#" },
-  { label: "Superprof", href: "#" },
 ];
 
 function Contact() {
@@ -23,24 +15,20 @@ function Contact() {
         <div className="rounded-[2rem] border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-700 p-8 sm:p-10 shadow-[0_20px_60px_rgba(102,74,44,0.08)]">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-saffron-muted">Contact Us</p>
           <h1 className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">
-            We would love to hear from you.
+            Connect for Healing & Vedic Wisdom.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-600 dark:text-stone-400">
-            Discover Kapil's research, case studies, and certifications on LinkedIn, Facebook, Instagram, UrbanPro, and Superprof.
+            Expert guidance for Yoga Therapy, Naturopathy, and Vedic Science. Reach out for a clinical consultation to overcome mental stress, anxiety, and depression through the proven power of Vedic Meditation. Begin your research-based journey toward Pure Righteousness (Dharma) today.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {socialLinks.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-[#eadbc7] bg-[#fffdf9] dark:bg-stone-800 dark:border-stone-700 dark:text-stone-300 px-4 py-2 text-sm font-medium text-stone-700 hover:border-saffron/40 hover:text-saffron transition"
-              >
-                {s.label} <ExternalLink size={13} />
-              </a>
-            ))}
-          </div>
+          <a
+            href="https://wa.me/917976066236"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-saffron px-7 py-3.5 text-sm font-semibold text-white shadow-md hover:opacity-90 transition"
+          >
+            Start Consultation
+            <ArrowUpRight size={16} />
+          </a>
         </div>
 
         {/* Right */}

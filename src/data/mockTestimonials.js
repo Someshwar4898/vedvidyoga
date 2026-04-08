@@ -1,34 +1,42 @@
 const testimonials = [
   {
     id: 1,
-    name: "Dr. Vijendra Parashar",
-    designation: "Sujok Therapist & Naturopath, Jaipur",
+    name: "Manisha Kumari",
+    designation: "Housewife, Jaipur",
     content:
-      "Systematic and well-described yoga postures for stroke condition. I am feeling better after counselling. Highly recommended.",
+      "Kapil's yogic purification and nature cure healed my son's chronic fever. Now, he thrives naturally without any pills.",
     avatar: null,
   },
   {
     id: 2,
-    name: "Kaushal Yogi",
-    designation: "Branch Manager, Rajasthan Marudhara Gramin Bank, Udaipur",
+    name: "Vedprakash Pande",
+    designation: "Mechanical Engineer, Indore",
     content:
-      "Yoga and therapy sessions have been transformative. Improved flexibility, reduced stress, and better mental clarity. Truly holistic healing.",
+      "Vedic sound therapy and Ayurvedic diet plan fixed my old painful gastric issues. A simple, scientific, and instant cure.",
     avatar: null,
   },
   {
     id: 3,
-    name: "Kanwaljeet Sarowa",
-    designation: "Assistant Audit Officer, Defence Services, New Delhi",
+    name: "Aditya Chaturvedi",
+    designation: "Priest, Hanuman Temple, RajAngan (NRI) Colony, Jaipur",
     content:
-      "He has true knowledge and knows how to apply it for therapy and healing. Rare to find such authentic expertise.",
+      "Vedic logic and Supreme instructions are revealed here with such clarity. A profound, scientific way to understand our ancient scriptures.",
     avatar: null,
   },
   {
     id: 4,
-    name: "Ravinder Singh Kalsi",
-    designation: "Scientific Officer, RIICO, Jaipur",
+    name: "Rajesh Sain",
+    designation: "Hair Dresser, Main Market, Jagatpura, Jaipur",
     content:
-      "Helped me with allergy, asthma, and anxiety issues through yoga practices. Feeling relaxed and much better now.",
+      "Acharya ji's Vedic meditation and logic replaced my superstitions with true Dharma. Now, I live by the scientific wisdom of the Rishis.",
+    avatar: null,
+  },
+  {
+    id: 5,
+    name: "Anto Jacob",
+    designation: "Ex-Principal, K-Twelve Schools, Jaipur",
+    content:
+      "Kaptan sir's deep study of the Vedic Formless God and logical wisdom is truly profound. He reveals the hidden, scientific Vedas.",
     avatar: null,
   },
 ];

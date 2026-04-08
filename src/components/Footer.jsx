@@ -11,6 +11,7 @@ function Footer() {
         </Link>
         <div className="flex flex-wrap gap-5 text-sm text-stone-500">
           <Link to="/privacy" className="hover:text-saffron transition">Privacy Policy</Link>
+          <Link to="/terms" className="hover:text-saffron transition">Terms &amp; Conditions</Link>
           <Link to="/medical-disclaimer" className="hover:text-saffron transition">Medical Disclaimer</Link>
           <Link to="/about" className="hover:text-saffron transition">About Us</Link>
           <Link to="/contact" className="hover:text-saffron transition">Contact Us</Link>

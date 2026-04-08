@@ -15,7 +15,8 @@ const faqs = [
   {
     question: "Where does the content come from?",
     answer:
-      "Directly from primary Sanskrit sources — Vedas, Upanishads, classical commentaries — with modern contextual framing. Secondary sources are only used where they accurately represent the original texts.",
+      `The content on VedVidYoga is drawn directly from the 4 Vedas, Vedangas, and Upvedas, along with the 11 Arsh Upanishads and the Six Darshanas (Systems of Philosophy). We follow the authorized scriptures of ancient Vedic Sages and the logical, scientific foundations of Panini Vyakaran (Vedic Grammar) to ensure every teaching is technically sound.
+      To bridge this wisdom with modern life, we integrate clinical insights from core Ayurvedic texts like the Charak Samhita, Sushrut Samhita, and Ashtanga-Hridayam. This scriptural foundation is then validated by the Founder’s own case studies, independent research, and methodologies used by both Vedic and modern scientists. By merging these primary sources with real-world recovery, we provide a living system of Vedic spirituality and Pure Righteousness (Dharma) that can be trusted by anyone seeking logical, practical results.`,
   },
   {
     question: "How are Sanskrit terms handled?",

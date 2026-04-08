@@ -1,5 +1,5 @@
 import { Sparkles, FlaskConical, BookOpen } from "lucide-react";
-import authorImg from "../assets/author_image.jpg";
+import authorImg from "../assets/author_image.webp";
 import SanskritTerm from "../components/SanskritTerm";
 
 const differentiators = [
@@ -43,7 +43,7 @@ function About() {
       <section className="rounded-[2rem] border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-700 p-8 sm:p-10 shadow-[0_20px_60px_rgba(102,74,44,0.08)]">
         <p className="text-sm font-semibold uppercase tracking-[0.24em] text-saffron-muted">About Us</p>
         <h1 className="mt-3 text-4xl sm:text-5xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">
-          Decoding the Rishi-Science: Logic, Nature & The Vedic Cult
+          Decoding the Vedic-Science: Logic, Nature & The Vedic Cult
         </h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-600 dark:text-stone-400">
           Welcome to VedVidYoga. We don't just teach rituals; we decode the technical methodology of the Universe.

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import authorImg from "../assets/author_image.jpg";
+import authorImg from "../assets/author_image.webp";
 
 function AboutAuthor() {
   return (
@@ -29,14 +29,11 @@ function AboutAuthor() {
         </div>
 
         <p className="text-sm leading-7 text-stone-600 dark:text-stone-400">
-          A researcher, teacher, and practitioner of Vedic sciences with decades of study across the Vedas,
-          Upanishads, Ayurveda, and Classical Yoga. His work bridges ancient Sanskrit knowledge with the
-          questions of modern life — making Rishi-science accessible without diluting its depth.
+          Kaptan Singh Choudhary (Kapil) is a dedicated practitioner of the Vedic Cult, bridging the gap between ancient Rishi-wisdom and modern clinical therapy. As a Yoga Teacher and Sports Teacher, he has helped children, youth, and the elderly overcome the most hardcore struggling and depressed phases of life. By connecting them with Vedic education and the true stories of Vedic Sages, he guides people of all ages toward pure righteousness (Dharma) and mental resilience.
         </p>
 
         <p className="text-sm leading-7 text-stone-600 dark:text-stone-400">
-          Every article on VedVidYoga is written or curated with the intent to present Vedic knowledge as a
-          living, logical system — one that can be engaged with rigorously, not just admired.
+          His life’s work is rooted in independent research into Vedic spirituality and specific techniques of healing. Through VedVidYoga, he merges his clinical experience in Naturopathy and Ayurveda to restore health and purpose without drugs. His methodical approach transforms how individuals behave toward themselves and others, using the scientific depth of ancient traditions to simplify the path to the Almighty.
         </p>
 
         {/* Experience highlight */}

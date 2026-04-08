@@ -1,11 +1,19 @@
-import gallery1 from "../assets/gallery_1.jpg";
-import gallery2 from "../assets/gallery_2.jpg";
-import gallery3 from "../assets/gallery_3.jpg";
-import gallery4 from "../assets/gallery_4.jpg";
-import gallery5 from "../assets/gallery_5.png";
-import gallery6 from "../assets/gallery_6.png";
-import gallery7 from "../assets/gallery_7.png";
-import gallery8 from "../assets/gallery_8.jpg";
+import gallery1 from "../assets/gallery_1.webp";
+import gallery2 from "../assets/gallery_2.webp";
+import gallery3 from "../assets/gallery_3.webp";
+import gallery4 from "../assets/gallery_4.webp";
+import gallery5 from "../assets/gallery_5.webp";
+import gallery6 from "../assets/gallery_6.webp";
+import gallery7 from "../assets/gallery_7.webp";
+import gallery8 from "../assets/gallery_8.webp";
+import gallery9 from "../assets/gallery_9.webp";
+import gallery10 from "../assets/gallery_10.webp";
+import gallery11 from "../assets/gallery_11.webp";
+import gallery12 from "../assets/gallery_12.webp";
+import gallery13 from "../assets/gallery_13.webp";
+import gallery14 from "../assets/gallery_14.webp";
+import gallery15 from "../assets/gallery_15.webp";
+import gallery16 from "../assets/gallery_16.webp";
 
 const images = [
   { src: gallery1, alt: "Gallery image 1" },
@@ -16,6 +24,14 @@ const images = [
   { src: gallery6, alt: "Gallery image 6" },
   { src: gallery7, alt: "Gallery image 7" },
   { src: gallery8, alt: "Gallery image 8" },
+  { src: gallery9, alt: "Gallery image 9" },
+  { src: gallery10, alt: "Gallery image 10" },
+  { src: gallery11, alt: "Gallery image 11" },
+  { src: gallery12, alt: "Gallery image 12" },
+  { src: gallery13, alt: "Gallery image 13" },
+  { src: gallery14, alt: "Gallery image 14" },
+  { src: gallery15, alt: "Gallery image 15" },
+  { src: gallery16, alt: "Gallery image 16" },
 ];
 
 function Gallery() {
