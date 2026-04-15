@@ -4,11 +4,12 @@ import { ArrowRight } from "lucide-react";
 import caseStudies from "../data/mockCaseStudies";
 
 const categories = [
-  { value: "all",        label: "All Stories" },
-  { value: "depression", label: "Mental Wellness" },
-  { value: "back-pain",  label: "Physical Healing" },
-  { value: "diabetes",   label: "Metabolic Health" },
-  { value: "vedic-logic",label: "Vedic Research" },
+  { value: "all",          label: "All Stories" },
+  { value: "depression",   label: "Mental Wellness" },
+  { value: "digestive",    label: "Digestive Health" },
+  { value: "respiratory",  label: "Respiratory Health" },
+  { value: "child-health", label: "Child Wellness" },
+  { value: "vedic-logic",  label: "Vedic Research" },
 ];
 
 function CaseStudies() {
