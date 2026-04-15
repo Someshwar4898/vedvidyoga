@@ -26,7 +26,8 @@
       "Read(//c/Projects/Blog/**)",
       "Bash(done)",
       "Bash(curl -s \"https://vedvidyoga.totan.in/wp-json/wp/v2/posts?per_page=5&_embed\")",
-      "WebFetch(domain:vedvidyoga.totan.in)"
+      "WebFetch(domain:vedvidyoga.totan.in)",
+      "Bash(node -e \"const icons = require\\('lucide-react'\\); const names = Object.keys\\(icons\\).filter\\(k => /grad|school|book|learn|teach|academy|tutor|pen|award|star|badge/i.test\\(k\\)\\); console.log\\(names.join\\('\\\\n'\\)\\)\")"
     ]
   }
 }

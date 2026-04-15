@@ -1,9 +1,10 @@
-import { Mail, MessageCircle, Linkedin, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Mail, MessageCircle, Linkedin, GraduationCap, ArrowUpRight } from "lucide-react";
 
 const contactItems = [
   { icon: Mail, label: "Email", value: "vedvidyoga@gmail.com", href: "mailto:vedvidyoga@gmail.com" },
   { icon: MessageCircle, label: "WhatsApp Business", value: "+91 7976066236", href: "https://wa.me/917976066236" },
   { icon: Linkedin, label: "LinkedIn", value: "Kaptan Singh Choudhary", href: "https://www.linkedin.com/in/kaptan-singh-choudhary-75a649180" },
+  { icon: GraduationCap, label: "Urban Pro", value: "Kaptan Singh Choudhary", href: "https://kapilvedvidyoga.urbanpro.com/" },
 ];
 
 function Contact() {
@@ -18,7 +19,7 @@ function Contact() {
             Connect for Healing & Vedic Wisdom.
           </h1>
           <p className="mt-5 max-w-2xl text-lg leading-8 text-stone-600 dark:text-stone-400">
-            Expert guidance for Yoga Therapy, Naturopathy, and Vedic Science. Reach out for a clinical consultation to overcome mental stress, anxiety, and depression through the proven power of Vedic Meditation. Begin your research-based journey toward Pure Righteousness (Dharma) today.
+            Book a consultation for the natural management of chronic ailments, musculoskeletal issues, and mental stress. Explore the depth of Vedic Wisdom through our methodical approach to Vedic Meditation and the science of Hawan. We offer a research-based path to wellness using Yoga Therapy, Naturopathy, and Ayurvedic Lifestyle principles.
           </p>
           <a
             href="https://wa.me/917976066236"
