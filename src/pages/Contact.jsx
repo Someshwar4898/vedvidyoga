@@ -1,7 +1,7 @@
 import { Mail, MessageCircle, Linkedin, GraduationCap, ArrowUpRight } from "lucide-react";
 
 const contactItems = [
-  { icon: Mail, label: "Email", value: "vedvidyoga@gmail.com", href: "mailto:vedvidyoga@gmail.com" },
+  { icon: Mail, label: "Email", value: "vedvidyoga@gmail.com", href: "mailto:info@vedvidyoga.com" },
   { icon: MessageCircle, label: "WhatsApp Business", value: "+91 7976066236", href: "https://wa.me/917976066236" },
   { icon: Linkedin, label: "LinkedIn", value: "Kaptan Singh Choudhary", href: "https://www.linkedin.com/in/kaptan-singh-choudhary-75a649180" },
   { icon: GraduationCap, label: "Urban Pro", value: "Kaptan Singh Choudhary", href: "https://kapilvedvidyoga.urbanpro.com/" },
