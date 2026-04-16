@@ -307,9 +307,9 @@ const caseStudies = [
     age: 49,
     duration: "12 weeks",
     summary:
-      "Ravinder, a Scientific Officer in a government IT office, had lived with claustrophobia and managed asthma since his thirties. Elevators, crowded rooms, and small spaces triggered panic. His asthma inhaler was never out of reach. Kapil's methodical Vedic Pranayama protocol addressed both conditions at their shared root — respiratory and nervous system dysregulation — curing the claustrophobia and reducing inhaler dependency by 75%.",
+      "Everything changed when I met Kaptan Singh Choudhary. He didn't just give me general advice; he created a special diet and taught me specific Vedic Pranayama just for my condition. It’s like a miracle—I’m finally off the inhaler for good! Before this, he also helped me completely get over my claustrophobia with just one technique. I used to be so nervous in front of my boss, but his spiritual therapy gave me the confidence to lead my own team meetings now. If you're tired of pills and want a therapist who actually understands how the body works, you have to talk to Kaptan sir.",
     result: "Claustrophobia fully resolved, asthma inhaler use reduced by 75%",
-    quote: "I hadn't taken a lift alone in eight years. I planned every journey around avoiding enclosed spaces. My inhaler was my security blanket — I was terrified of losing it.",
+    quote: "I’ve been dealing with chronic asthma since 2007. I tried everything—Allopathy, Homeopathy, even different Ayurveda doctors—but I was still stuck using my inhaler every day. I even joined yoga groups, but nothing really stuck.",
     closeQuote: "A real expert in technical, medicine-free healing. He understood my body better than I did — and he gave it back to me.",
     startingPoints: [
       { label: "Claustrophobia", description: "Severe anxiety in lifts, crowded rooms, and enclosed vehicles — avoided for years through elaborate planning" },
