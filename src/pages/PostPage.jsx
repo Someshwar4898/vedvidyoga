@@ -1,11 +1,17 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Eye } from "lucide-react";
 import { usePosts } from "../hooks/usePosts";
 import { useWPStyles } from "../hooks/useWPStyles";
 import LogoLoader from "../components/LogoLoader";
 import RelatedPosts from "../components/RelatedPosts";
 import { incrementPostView } from "../services/views";
+
+function formatViews(n) {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M views`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K views`;
+  return `${n} ${n === 1 ? "view" : "views"}`;
+}
 
 function PostPage() {
   const { slug } = useParams();
@@ -70,7 +76,10 @@ function PostPage() {
           <span>·</span>
           <span>{post.date}</span>
           <span>·</span>
-          <span>{post.readTime}</span>
+          <span className="inline-flex items-center gap-1.5">
+            <Eye size={13} />
+            {post.views != null ? formatViews(post.views) : "—"}
+          </span>
         </div>
 
         {/* Hero image — WordPress featured image */}

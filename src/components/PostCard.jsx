@@ -73,12 +73,12 @@ function PostCard({ post, onPostClick }) {
           {post.excerpt}
         </p>
 
-        {/* Author + views (falls back to read time for mock data) */}
+        {/* Author + views */}
         <div className="mt-5 flex items-center justify-between text-sm text-stone-500 dark:text-stone-500">
           <span>{post.author}</span>
           <span className="inline-flex items-center gap-1.5">
             <Eye size={13} />
-            {post.views != null ? formatViews(post.views) : post.readTime}
+            {post.views != null ? formatViews(post.views) : "—"}
           </span>
         </div>
 
