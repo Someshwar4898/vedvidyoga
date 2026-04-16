@@ -332,6 +332,43 @@ const caseStudies = [
     understandingPattern:
       "Claustrophobia and asthma are typically treated as entirely separate conditions by separate specialists. This case demonstrates that both arise from the same physiological root — chronic respiratory pattern dysfunction and autonomic nervous system dysregulation. Kapil's methodical Vedic Pranayama protocol addresses this shared root, resolving both conditions simultaneously without pharmaceutical escalation.",
   },
+  {
+    id: 10,
+    slug: "ibs-constipation-shankha-prakshalan",
+    caseNumber: "Case Study #10",
+    category: "digestive",
+    tag: "Digestive Health",
+    title: "Chronic Constipation and IBS Completely Cured Through Shankha Prakshalan",
+    patient: "Kuldeep Gurjar",
+    location: "Jaipur",
+    age: 42,
+    duration: "6 weeks",
+    summary:
+      "Kuldeep, a mathematics teacher at DAV IOS School in Jaipur, had battled constipation and IBS for years. Laxatives offered temporary relief but no resolution — bloating, irregular bowel habits, and post-meal discomfort had become an accepted part of life. Kapil's clinical, systematic application of the ancient Shankha Prakshalan methodology addressed the condition at its root — completely curing both constipation and IBS within six weeks, with no medication required.",
+    result: "Constipation and IBS completely cured, no further laxatives or medication",
+    quote: "I had been relying on laxatives for so long that I forgot what natural digestion felt like. Doctors kept telling me to eat more fibre. Nothing changed.",
+    closeQuote: "Life-changing — that is the only word for it. A clinical, scientific approach that finally addressed what was actually wrong.",
+    startingPoints: [
+      { label: "Constipation", description: "Chronic constipation persisting for several years — infrequent, effortful, and incomplete bowel movements" },
+      { label: "IBS Symptoms", description: "Bloating, cramping, alternating constipation and loose stools — classic IBS presentation with no clear dietary trigger identified" },
+      { label: "Medication Dependency", description: "Regular laxative use with diminishing effectiveness and growing dependency" },
+      { label: "Gut Health", description: "Accumulated bowel toxicity, sluggish peristalsis, and disrupted gut-brain signalling" },
+      { label: "Life Context", description: "Schoolteacher managing a full timetable — chronic digestive distress affecting energy, focus, and daily comfort" },
+    ],
+    progressPoints: [
+      { title: "Gut purification initiated", description: "Shankha Prakshalan protocol systematically cleared accumulated bowel toxicity and restored peristaltic function" },
+      { title: "IBS symptoms resolved", description: "Bloating, cramping, and irregular bowel movements normalised within the first three weeks of the protocol" },
+      { title: "Complete cure at six weeks", description: "Regular, effortless bowel function restored — laxatives discontinued entirely with no relapse" },
+    ],
+    keyInsights: [
+      "Shankha Prakshalan is a complete intestinal cleansing system — not just a detox, but a clinical reset of bowel function from mouth to colon",
+      "Chronic constipation and IBS are typically driven by accumulated bowel toxicity and disrupted gut motility — both addressable through Vedic gut cleansing",
+      "Laxative dependency worsens gut muscle tone over time; the Shankha Prakshalan method restores autonomous function",
+      "A clinical, systematic approach to ancient gut cleansing produces results that years of dietary modification alone cannot achieve",
+    ],
+    understandingPattern:
+      "IBS and chronic constipation are among the most prevalent and poorly managed conditions in modern gastroenterology. Patients are typically given symptom management — laxatives, antispasmodics, dietary advice — without addressing the toxic accumulation and motility dysfunction at the root. This case demonstrates that Kapil's clinical application of the Shankha Prakshalan methodology delivers a complete cure where conventional management repeatedly fails. The results are not just symptomatic relief — they represent a full restoration of natural gut function.",
+  },
 ];
 
 export default caseStudies;
