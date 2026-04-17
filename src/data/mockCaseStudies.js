@@ -321,7 +321,7 @@ const caseStudies = [
     progressPoints: [
       { title: "Breathing pattern corrected", description: "Vedic Pranayama restored diaphragmatic breathing, reducing the anxiety-asthma feedback loop within three weeks" },
       { title: "Claustrophobia resolved", description: "Able to use lifts and enclosed spaces comfortably and independently by week eight" },
-      { title: "Inhaler use down 75%", description: "Asthma significantly under control at twelve weeks — inhaler use reduced from daily to occasional" },
+      { title: "Inhaler use down 100%", description: "Asthma completely under control at twelve weeks — inhaler use reduced from daily to occasional" },
     ],
     keyInsights: [
       "Claustrophobia and asthma frequently share a root mechanism — chronic respiratory dysregulation and vagus nerve under-activation",

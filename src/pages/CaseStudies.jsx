@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import caseStudies from "../data/mockCaseStudies";
+import { useCaseStudies } from "../hooks/useCaseStudies";
 
 const categories = [
   { value: "all",          label: "All Stories" },
@@ -13,6 +13,7 @@ const categories = [
 ];
 
 function CaseStudies() {
+  const { caseStudies } = useCaseStudies();
   const [activeFilter, setActiveFilter] = useState("all");
 
   const filtered =
