@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import mockCaseStudies from "../data/mockCaseStudies";
 
 const WP_API = "https://api.vedvidyoga.com/wp-json/wp/v2/case-studies?per_page=100";
 
@@ -195,7 +194,7 @@ function transformWpPost(post, index) {
 }
 
 export function useCaseStudies() {
-  const [caseStudies, setCaseStudies] = useState(mockCaseStudies);
+  const [caseStudies, setCaseStudies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -207,7 +206,7 @@ export function useCaseStudies() {
       })
       .then((posts) => {
         const transformed = posts.map((post, i) => transformWpPost(post, i));
-        setCaseStudies([...mockCaseStudies, ...transformed]);
+        setCaseStudies(transformed);
       })
       .catch((err) => setError(err))
       .finally(() => setLoading(false));

@@ -178,5 +178,4 @@ export async function getRelatedPosts(categoryIds, excludePostId) {
 }
 
 // ── Testimonials CPT ──────────────────────────────────────────────────────────
-// Testimonials are now hardcoded in mockTestimonials.js
-// Removed getTestimonials() function as testimonials are kept static
+// Testimonials are fetched via useTestimonials() hook from the WordPress REST API

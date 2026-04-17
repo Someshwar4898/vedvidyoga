@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { MessageSquareQuote, X, Send, ImagePlus } from "lucide-react";
-import mockTestimonials from "../data/mockTestimonials";
+import { MessageSquareQuote, X, Send, ImagePlus, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTestimonials } from "../hooks/useTestimonials";
+import LogoLoader from "./LogoLoader";
 
 const EMPTY_FORM = { name: "", occupation: "", location: "", content: "", photoName: "" };
 
 function Testimonials() {
-  const [testimonials] = useState(mockTestimonials);
+  const { testimonials, loading } = useTestimonials();
   const [showModal, setShowModal] = useState(false);
   const [form, setForm] = useState(EMPTY_FORM);
   const [errors, setErrors] = useState({});
@@ -96,6 +97,15 @@ function Testimonials() {
     setErrors({});
   }
 
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  function goPrev() {
+    setActiveIndex((i) => (i - 1 + testimonials.length) % testimonials.length);
+  }
+  function goNext() {
+    setActiveIndex((i) => (i + 1) % testimonials.length);
+  }
+
   if (testimonials.length === 0) return null;
 
   return (
@@ -124,48 +134,94 @@ function Testimonials() {
         </button>
       </div>
 
-      {/* ── Testimonial cards ── */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {testimonials.map((t) => {
-          const initials = t.name
-            .split(" ")
-            .map((w) => w[0])
-            .slice(0, 2)
-            .join("")
-            .toUpperCase();
+      {/* ── Testimonial carousel ── */}
+      {loading ? (
+        <LogoLoader />
+      ) : (
+        <div className="relative">
 
-          return (
-            <div
-              key={t.id}
-              className="rounded-[1.75rem] border border-[#f0e3d3] dark:border-stone-700 bg-white dark:bg-stone-900 p-6 shadow-[0_18px_50px_rgba(102,74,44,0.07)] flex flex-col gap-4"
-            >
-              <div className="text-6xl font-serif text-saffron/30 leading-none -mb-4">"</div>
-              <p className="text-sm leading-7 text-stone-600 dark:text-stone-400 flex-1">
-                {t.content}
-              </p>
-              <div className="flex items-center gap-3 mt-auto pt-2 border-t border-[#f0e3d3] dark:border-stone-700">
-                {t.avatar ? (
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    className="w-10 h-10 rounded-full object-cover shrink-0"
-                  />
-                ) : (
-                  <div className="w-10 h-10 rounded-full bg-saffron/15 text-saffron flex items-center justify-center text-sm font-semibold shrink-0">
-                    {initials}
+          {/* Prev / Next arrows */}
+          <button
+            onClick={goPrev}
+            className="absolute -left-4 top-[38%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-saffron text-white flex items-center justify-center shadow-[0_8px_24px_rgba(242,140,40,0.35)] hover:bg-saffron-dark transition"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={goNext}
+            className="absolute -right-4 top-[38%] -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-saffron text-white flex items-center justify-center shadow-[0_8px_24px_rgba(242,140,40,0.35)] hover:bg-saffron-dark transition"
+          >
+            <ChevronRight size={18} />
+          </button>
+
+          {/* Three visible slots: prev · active · next */}
+          <div className="grid grid-cols-[1fr_2fr_1fr] gap-5 items-start">
+            {[-1, 0, 1].map((offset) => {
+              const idx = (activeIndex + offset + testimonials.length) % testimonials.length;
+              const t = testimonials[idx];
+              const isCenter = offset === 0;
+              const initials = t.name
+                .split(" ")
+                .map((w) => w[0])
+                .slice(0, 2)
+                .join("")
+                .toUpperCase();
+
+              return (
+                <div
+                  key={`${offset}-${idx}`}
+                  className={`transition-all duration-500 ${isCenter ? "opacity-100" : "opacity-40 pointer-events-none select-none"}`}
+                >
+                  {/* Card */}
+                  <div className="rounded-[1.75rem] border border-[#f0e3d3] dark:border-stone-700 bg-white dark:bg-stone-900 p-5 shadow-[0_18px_50px_rgba(102,74,44,0.08)] text-center overflow-hidden">
+                    <h4 className="font-bold text-saffron text-base leading-snug">{t.name}</h4>
+                    <p className="text-xs text-stone-400 mt-0.5">{t.designation}</p>
+                    <div className="border-t border-[#f0e3d3] dark:border-stone-700 my-3" />
+                    <p className={`text-stone-600 dark:text-stone-400 leading-6 text-sm ${!isCenter ? "line-clamp-3" : ""}`}>
+                      {t.content}
+                    </p>
                   </div>
-                )}
-                <div>
-                  <p className="font-semibold text-sm text-stone-900 dark:text-stone-100 leading-5">
-                    {t.name}
-                  </p>
-                  <p className="text-xs text-stone-400">{t.designation}</p>
+
+                  {/* Avatar bubble — center card only */}
+                  {isCenter && (
+                    <div className="flex flex-col items-center">
+                      <div className="w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-l-transparent border-r-transparent border-t-white dark:border-t-stone-900" />
+                      {t.avatar ? (
+                        <img
+                          src={t.avatar}
+                          alt={t.name}
+                          className="w-12 h-12 rounded-full object-cover ring-2 ring-saffron/20"
+                        />
+                      ) : (
+                        <div className="w-12 h-12 rounded-full bg-saffron/15 text-saffron flex items-center justify-center font-bold text-sm ring-2 ring-saffron/20">
+                          {initials}
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+              );
+            })}
+          </div>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center gap-2 mt-8">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  i === activeIndex
+                    ? "w-5 h-2 bg-saffron"
+                    : "w-2 h-2 bg-stone-300 dark:bg-stone-600 hover:bg-saffron/40"
+                }`}
+              />
+            ))}
+          </div>
+
+        </div>
+      )}
+
 
       {/* ── Modal ── */}
       {showModal && (
