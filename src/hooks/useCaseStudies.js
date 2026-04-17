@@ -138,7 +138,7 @@ function parseWpContent(html) {
 
 function detectCategory(text) {
   const t = text.toLowerCase();
-  if (t.match(/cancer|fever|child|kid|son|daughter|paediatric/))
+  if (t.match(/fever|child|kid|son|daughter|paediatric/))
     return { category: "child-health", tag: "Child Wellness" };
   if (t.match(/gastric|digestion|ibs|constipation|stomach|gut|bowel/))
     return { category: "digestive", tag: "Digestive Health" };

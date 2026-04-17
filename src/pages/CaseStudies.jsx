@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useCaseStudies } from "../hooks/useCaseStudies";
 
-const categories = [
-  { value: "all",          label: "All Stories" },
-  { value: "depression",   label: "Mental Wellness" },
-  { value: "digestive",    label: "Digestive Health" },
-  { value: "respiratory",  label: "Respiratory Health" },
-  { value: "child-health", label: "Child Wellness" },
-  { value: "vedic-logic",  label: "Vedic Research" },
-];
-
 function CaseStudies() {
   const { caseStudies } = useCaseStudies();
   const [activeFilter, setActiveFilter] = useState("all");
+
+  // Build pills from whatever categories actually exist in the data
+  const categories = [
+    { value: "all", label: "All Stories" },
+    ...Array.from(
+      new Map(caseStudies.map((c) => [c.category, c.tag])).entries()
+    ).map(([value, label]) => ({ value, label })),
+  ];
 
   const filtered =
     activeFilter === "all"
