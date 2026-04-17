@@ -1,374 +1,505 @@
 const caseStudies = [
-    {
+
+  // ─── CASE STUDY #1 ────────────────────────────────────────────────────────
+  {
+    // Card Meta
     id: 1,
     slug: "claustrophobia-asthma-vedic-pranayama",
     caseNumber: "Case Study #1",
     category: "respiratory",
     tag: "Respiratory Health",
     title: "From Chronic Suffering to 100% Recovery: How Vedic Science Defeated Asthma, Claustrophobia, and Anxiety",
+
+    // 01 · Patient Snapshot
     patient: "Ravinder Singh Kalsi",
     location: "Jaipur",
     age: 49,
     duration: "12 weeks",
-    summary:
-      `Everything changed when I met Kaptan Singh Choudhary. Instead of giving generic advice, he designed a personalized lifestyle and guided me through specific Vedic Pranayama tailored to my condition. After struggling with chronic asthma for 15 years, I’ve now completely come off inhalers—it honestly feels like a miracle. He also helped me overcome claustrophobia with a single powerful technique, something I never thought was possible. Earlier, I used to feel extremely nervous even speaking in front of my boss, but through his spiritual therapy and methodical approach, I’ve gained the confidence to lead my own team meetings with clarity and control. Today, I’m free from pills, physically stronger, and mentally sharper. If you’re tired of depending on medications and want someone who truly understands how the body and mind work together, Kaptan sir is the person to trust.`,
-    result: "Claustrophobia fully resolved, 100% recovery from asthma",
-    quote: "I’ve been dealing with chronic asthma since 2007. I tried everything—Allopathy, Homeopathy, even different Ayurveda doctors—but I was still stuck using my inhaler every day. I even joined yoga groups, but nothing really stuck.",
-    closeQuote: "A real expert in technical, medicine-free healing. He understood my body better than I did — and he gave it back to me.",
+    summary: "Everything changed when I met Kaptan Singh Choudhary. Instead of giving generic advice, he designed a personalized lifestyle and guided me through specific Vedic Pranayama tailored to my condition. After struggling with chronic asthma for 15 years, I've now completely come off inhalers—it honestly feels like a miracle. He also helped me overcome claustrophobia with a single powerful technique, something I never thought was possible. Earlier, I used to feel extremely nervous even speaking in front of my boss, but through his spiritual therapy and methodical approach, I've gained the confidence to lead my own team meetings with clarity and control. Today, I'm free from pills, physically stronger, and mentally sharper. If you're tired of depending on medications and want someone who truly understands how the body and mind work together, Kaptan sir is the person to trust.",
+
+    // 02 · The Problem
     startingPoints: [
-      { label: "Claustrophobia", description: "Severe anxiety in lifts, crowded rooms, and enclosed vehicles — avoided for years through elaborate planning" },
-      { label: "Asthma", description: "Persistent moderate asthma requiring daily reliever inhaler use, triggered by stress and enclosed environments" },
-      { label: "Breathing Pattern", description: "Chronic shallow chest breathing — the mechanical root of both the anxiety and asthma severity" },
-      { label: "Medication Dependency", description: "Daily inhaler use for over a decade, with bronchodilator dependency increasing year on year" },
-      { label: "Life Context", description: "Scientific professional — sought a mechanistic, evidence-based explanation for any approach before engaging" },
+      { label: "Claustrophobia",       description: "Severe anxiety in lifts, crowded rooms, and enclosed vehicles — avoided for years through elaborate planning" },
+      { label: "Asthma",               description: "Persistent moderate asthma requiring daily reliever inhaler use, triggered by stress and enclosed environments" },
+      { label: "Breathing Pattern",    description: "Chronic shallow chest breathing — the mechanical root of both the anxiety and asthma severity" },
+      { label: "Medication Dependency",description: "Daily inhaler use for over a decade, with bronchodilator dependency increasing year on year" },
+      { label: "Life Context",         description: "Scientific professional — sought a mechanistic, evidence-based explanation for any approach before engaging" },
     ],
+
+    // 03 · Life Impact
+    quote: "I've been dealing with chronic asthma since 2007. I tried everything—Allopathy, Homeopathy, even different Ayurveda doctors—but I was still stuck using my inhaler every day. I even joined yoga groups, but nothing really stuck.",
+
+    // 04 · Treatment Plan
     progressPoints: [
-      { title: "Breathing pattern corrected", description: "Vedic Pranayama restored diaphragmatic breathing, reducing the anxiety-asthma feedback loop within three weeks" },
-      { title: "Claustrophobia resolved", description: "Able to use lifts and enclosed spaces comfortably and independently by week eight" },
-      { title: "Inhaler use down 100%", description: "Asthma completely under control at twelve weeks — inhaler use reduced from daily to occasional" },
+      { title: "Breathing pattern corrected",  description: "Vedic Pranayama restored diaphragmatic breathing, reducing the anxiety-asthma feedback loop within three weeks" },
+      { title: "Claustrophobia resolved",      description: "Able to use lifts and enclosed spaces comfortably and independently by week eight" },
+      { title: "Inhaler use down 100%",        description: "Asthma completely under control at twelve weeks — inhaler use reduced from daily to occasional" },
     ],
+
+    // 05 · Results & Feedback
+    result: "Claustrophobia fully resolved, 100% recovery from asthma",
     keyInsights: [
       "Claustrophobia and asthma frequently share a root mechanism — chronic respiratory dysregulation and vagus nerve under-activation",
       "Vedic Pranayama is a precise technical system, not breath awareness alone — the sequence and ratios matter clinically",
       "Diaphragmatic breathing restoration reduces both anxiety reactivity and bronchial hypersensitivity simultaneously",
       "Medicine-free healing of this kind requires methodical expertise — the same technical precision Ravinder applied in his own professional work",
     ],
-    understandingPattern:
-      "Claustrophobia and asthma are typically treated as entirely separate conditions by separate specialists. This case demonstrates that both arise from the same physiological root — chronic respiratory pattern dysfunction and autonomic nervous system dysregulation. Kapil's methodical Vedic Pranayama protocol addresses this shared root, resolving both conditions simultaneously without pharmaceutical escalation.",
+    closeQuote: "A real expert in technical, medicine-free healing. He understood my body better than I did — and he gave it back to me.",
+
+    // 06 · Clinical Note
+    understandingPattern: "Claustrophobia and asthma are typically treated as entirely separate conditions by separate specialists. This case demonstrates that both arise from the same physiological root — chronic respiratory pattern dysfunction and autonomic nervous system dysregulation. Kapil's methodical Vedic Pranayama protocol addresses this shared root, resolving both conditions simultaneously without pharmaceutical escalation.",
   },
+
+  // ─── CASE STUDY #2 ────────────────────────────────────────────────────────
   {
+    // Card Meta
     id: 2,
     slug: "gastric-pain-vedic-sound-therapy-ayurvedic-diet",
     caseNumber: "Case Study #2",
     category: "digestive",
     tag: "Digestive Health",
     title: "Old Painful Gastric Issues Fixed by Vedic Sound Therapy and Ayurvedic Diet",
+
+    // 01 · Patient Snapshot
     patient: "Vedprakash Pande",
     location: "Indore",
     age: 44,
     duration: "4 weeks",
-    summary:
-      "Vedprakash, a mechanical engineer, had lived with painful gastric problems for years. Antacids became a daily ritual; meals were anxiety-inducing. A structured Ayurvedic diet plan combined with Vedic sound therapy corrected his digestive rhythm and eliminated the pain — simply, scientifically, and quickly.",
-    result: "Gastric pain fully resolved, no antacids for 6+ months",
-    quote: "I had been popping antacids after every meal for so long that I forgot what it felt like to eat without worrying about what would come next.",
-    closeQuote: "Simple, scientific, and instant — those are the words I use when people ask. The pain just stopped.",
+    summary: "Vedprakash, a mechanical engineer, had lived with painful gastric problems for years. Antacids became a daily ritual; meals were anxiety-inducing. A structured Ayurvedic diet plan combined with Vedic sound therapy corrected his digestive rhythm and eliminated the pain — simply, scientifically, and quickly.",
+
+    // 02 · The Problem
     startingPoints: [
-      { label: "Gastric Pain", description: "Chronic burning, bloating, and post-meal discomfort for over three years" },
-      { label: "Dietary Habits", description: "Irregular meals, high stress eating, excessive tea consumption — common in engineering work culture" },
+      { label: "Gastric Pain",          description: "Chronic burning, bloating, and post-meal discomfort for over three years" },
+      { label: "Dietary Habits",        description: "Irregular meals, high stress eating, excessive tea consumption — common in engineering work culture" },
       { label: "Medication Dependency", description: "Daily antacid use with diminishing effect, occasional PPI prescriptions" },
-      { label: "Sleep Quality", description: "Acid reflux disturbing sleep, frequently waking with burning sensation" },
-      { label: "Life Context", description: "High-pressure job with long desk hours, irregular meal timing — all aggravating the condition" },
+      { label: "Sleep Quality",         description: "Acid reflux disturbing sleep, frequently waking with burning sensation" },
+      { label: "Life Context",          description: "High-pressure job with long desk hours, irregular meal timing — all aggravating the condition" },
     ],
+
+    // 03 · Life Impact
+    quote: "I had been popping antacids after every meal for so long that I forgot what it felt like to eat without worrying about what would come next.",
+
+    // 04 · Treatment Plan
     progressPoints: [
-      { title: "Pain reduced in week one", description: "Post-meal burning and bloating decreased significantly within the first week on Ayurvedic diet" },
-      { title: "Sound therapy accelerates healing", description: "Vedic sound therapy regulated the enteric nervous system, reducing spasm and acid secretion" },
-      { title: "Full resolution by week four", description: "No gastric discomfort, antacids discontinued entirely with no relapse" },
+      { title: "Pain reduced in week one",        description: "Post-meal burning and bloating decreased significantly within the first week on Ayurvedic diet" },
+      { title: "Sound therapy accelerates healing",description: "Vedic sound therapy regulated the enteric nervous system, reducing spasm and acid secretion" },
+      { title: "Full resolution by week four",    description: "No gastric discomfort, antacids discontinued entirely with no relapse" },
     ],
+
+    // 05 · Results & Feedback
+    result: "Gastric pain fully resolved, no antacids for 6+ months",
     keyInsights: [
       "Vedic sound therapy directly calms the enteric nervous system — the gut's own nervous network — reducing acid and spasm",
       "Ayurvedic dietary principles restore agni (digestive fire) without restriction or calorie counting",
       "Meal timing aligned with Vedic dinacharya is as important as what is eaten",
       "Chronic gastric issues are a stress-and-lifestyle condition — not primarily a pharmaceutical deficiency",
     ],
-    understandingPattern:
-      "Gastric disorders in working professionals are typically driven by stress, irregular eating, and nervous system dysregulation rather than structural pathology. This case demonstrates that combining Ayurvedic dietary correction with Vedic sound therapy addresses the neurological and metabolic roots simultaneously — producing swift, lasting relief without pharmaceutical dependency.",
+    closeQuote: "Simple, scientific, and instant — those are the words I use when people ask. The pain just stopped.",
+
+    // 06 · Clinical Note
+    understandingPattern: "Gastric disorders in working professionals are typically driven by stress, irregular eating, and nervous system dysregulation rather than structural pathology. This case demonstrates that combining Ayurvedic dietary correction with Vedic sound therapy addresses the neurological and metabolic roots simultaneously — producing swift, lasting relief without pharmaceutical dependency.",
   },
+
+  // ─── CASE STUDY #3 ────────────────────────────────────────────────────────
   {
+    // Card Meta
     id: 3,
     slug: "vedic-logic-priests-clarity",
     caseNumber: "Case Study #3",
     category: "vedic-logic",
     tag: "Vedic Logic",
     title: "A Priest's Journey from Ritual Doubt to Scientific Vedic Clarity",
+
+    // 01 · Patient Snapshot
     patient: "Aditya Chaturvedi",
     location: "Jaipur",
     age: 47,
     duration: "Ongoing",
-    summary:
-      "Aditya, a priest at Hanuman Temple in Jaipur's RajAngan Colony, had spent decades performing rituals without fully understanding their meaning. Quiet intellectual doubt had accumulated beneath decades of devoted practice. Through Kapil's structured Vedic logic and Supreme knowledge framework, he found clarity — a profound, scientific way to understand the ancient scriptures that transformed both his faith and his teaching.",
-    result: "Clear philosophical foundation, now teaches Vedic science to his congregation",
-    quote: "I had been reciting the same shlokas for twenty-five years. But when educated young people in my temple asked me why — I had no real answer. I was shaken.",
-    closeQuote: "The logic didn't weaken my faith. It gave it a foundation that nothing can shake.",
+    summary: "Aditya, a priest at Hanuman Temple in Jaipur's RajAngan Colony, had spent decades performing rituals without fully understanding their meaning. Quiet intellectual doubt had accumulated beneath decades of devoted practice. Through Kapil's structured Vedic logic and Supreme knowledge framework, he found clarity — a profound, scientific way to understand the ancient scriptures that transformed both his faith and his teaching.",
+
+    // 02 · The Problem
     startingPoints: [
-      { label: "Spiritual State", description: "Performing rituals mechanically, increasingly disconnected from their inner meaning" },
+      { label: "Spiritual State",   description: "Performing rituals mechanically, increasingly disconnected from their inner meaning" },
       { label: "Intellectual Conflict", description: "Rational doubt quietly building over years of practice without understanding" },
       { label: "Teaching Ability", description: "Unable to explain the logic of Vedic rituals to an educated, questioning congregation" },
-      { label: "Personal Crisis", description: "Sense of inauthenticity growing after two decades of devoted priestly service" },
-      { label: "Life Context", description: "Educated younger devotees demanding scientific explanations that tradition alone could not provide" },
+      { label: "Personal Crisis",  description: "Sense of inauthenticity growing after two decades of devoted priestly service" },
+      { label: "Life Context",     description: "Educated younger devotees demanding scientific explanations that tradition alone could not provide" },
     ],
+
+    // 03 · Life Impact
+    quote: "I had been reciting the same shlokas for twenty-five years. But when educated young people in my temple asked me why — I had no real answer. I was shaken.",
+
+    // 04 · Treatment Plan
     progressPoints: [
       { title: "Philosophical clarity found", description: "A coherent framework connecting Vedic ritual to natural law, science, and cosmic order" },
-      { title: "Teaching transformed", description: "Now delivers structured, logic-based Vedic education to the congregation every week" },
-      { title: "Faith deepened", description: "Rational understanding did not diminish spiritual practice — it made it unshakeable" },
+      { title: "Teaching transformed",        description: "Now delivers structured, logic-based Vedic education to the congregation every week" },
+      { title: "Faith deepened",              description: "Rational understanding did not diminish spiritual practice — it made it unshakeable" },
     ],
+
+    // 05 · Results & Feedback
+    result: "Clear philosophical foundation, now teaches Vedic science to his congregation",
     keyInsights: [
       "Vedic rituals are codified natural science — they do not require blind faith to be practised with depth",
       "Hawan (fire ritual) produces measurable antimicrobial, atmospheric, and psychological effects",
       "The Vedic Dharma framework resolves the science-spirituality conflict at its intellectual root",
       "Priests who understand the logic of their tradition become far more effective guides and teachers",
     ],
-    understandingPattern:
-      "This case reflects a growing pattern among devoted practitioners who seek rational validation of their practice. When the scientific basis of Vedic rituals is understood, spiritual practice transforms from habit to conviction — and teaching transforms from recitation to genuine transmission. Aditya's journey shows that intellectual rigour and deep faith are not in conflict; one strengthens the other.",
+    closeQuote: "The logic didn't weaken my faith. It gave it a foundation that nothing can shake.",
+
+    // 06 · Clinical Note
+    understandingPattern: "This case reflects a growing pattern among devoted practitioners who seek rational validation of their practice. When the scientific basis of Vedic rituals is understood, spiritual practice transforms from habit to conviction — and teaching transforms from recitation to genuine transmission. Aditya's journey shows that intellectual rigour and deep faith are not in conflict; one strengthens the other.",
   },
+
+  // ─── CASE STUDY #4 ────────────────────────────────────────────────────────
   {
+    // Card Meta
     id: 4,
     slug: "superstition-to-vedic-dharma-rajesh",
     caseNumber: "Case Study #4",
     category: "vedic-logic",
     tag: "Vedic Dharma",
     title: "From Superstition to True Dharma — A Hairdresser's Transformation",
+
+    // 01 · Patient Snapshot
     patient: "Rajesh Sain",
     location: "Jaipur",
     age: 38,
     duration: "3 months",
-    summary:
-      "Rajesh, a hairdresser from Jagatpura, grew up surrounded by folk beliefs and superstitions that blended with religious practice in ways he couldn't untangle. After engaging with Acharya Kapil's Vedic meditation teachings and logical wisdom, he gradually distinguished true Dharma from inherited superstition — and built a way of living rooted in the scientific wisdom of the Rishis.",
-    result: "Superstitions replaced by Vedic Dharma, lives by Rishi wisdom daily",
-    quote: "I had always been religious. But I also knew some of what I believed made no sense. I just didn't know which part was true and which part was fear.",
-    closeQuote: "Now I live by the scientific wisdom of the Rishis — and I understand why every part of it works.",
+    summary: "Rajesh, a hairdresser from Jagatpura, grew up surrounded by folk beliefs and superstitions that blended with religious practice in ways he couldn't untangle. After engaging with Acharya Kapil's Vedic meditation teachings and logical wisdom, he gradually distinguished true Dharma from inherited superstition — and built a way of living rooted in the scientific wisdom of the Rishis.",
+
+    // 02 · The Problem
     startingPoints: [
-      { label: "Belief System", description: "Mix of genuine devotion and inherited superstitions passed down through family and community" },
+      { label: "Belief System",  description: "Mix of genuine devotion and inherited superstitions passed down through family and community" },
       { label: "Inner Conflict", description: "Tension between religious practice and modern rational thinking, unresolved for years" },
-      { label: "Daily Life", description: "Decisions influenced by superstitious fear rather than Dharmic wisdom — affecting confidence and peace" },
-      { label: "Mental State", description: "Low-grade anxiety rooted in fear-based religiosity rather than informed spiritual understanding" },
-      { label: "Life Context", description: "Seeking a path that was both genuinely spiritual and intellectually honest" },
+      { label: "Daily Life",     description: "Decisions influenced by superstitious fear rather than Dharmic wisdom — affecting confidence and peace" },
+      { label: "Mental State",   description: "Low-grade anxiety rooted in fear-based religiosity rather than informed spiritual understanding" },
+      { label: "Life Context",   description: "Seeking a path that was both genuinely spiritual and intellectually honest" },
     ],
+
+    // 03 · Life Impact
+    quote: "I had always been religious. But I also knew some of what I believed made no sense. I just didn't know which part was true and which part was fear.",
+
+    // 04 · Treatment Plan
     progressPoints: [
-      { title: "Vedic foundation built", description: "A clear understanding of what Dharma actually means — aligned with cosmic law, not folk fear" },
-      { title: "Superstitions released", description: "Beliefs examined logically; those without Vedic basis dropped without guilt or anxiety" },
+      { title: "Vedic foundation built",      description: "A clear understanding of what Dharma actually means — aligned with cosmic law, not folk fear" },
+      { title: "Superstitions released",      description: "Beliefs examined logically; those without Vedic basis dropped without guilt or anxiety" },
       { title: "Meditation integrated daily", description: "Vedic meditation became the anchor of his morning routine, replacing ritualistic anxiety with calm clarity" },
     ],
+
+    // 05 · Results & Feedback
+    result: "Superstitions replaced by Vedic Dharma, lives by Rishi wisdom daily",
     keyInsights: [
       "Superstition and genuine Dharma look similar on the surface but produce opposite results in daily life",
       "Vedic logic provides the tool to distinguish authentic spiritual practice from fear-based conditioning",
       "Acharya Kapil's approach teaches meditation not as technique alone but as a path to Rishi-level wisdom",
       "When Dharma is understood scientifically, it creates freedom — not obligation",
     ],
-    understandingPattern:
-      "Across rural and semi-urban India, folk religion and genuine Vedic wisdom are often inextricably mixed. This case demonstrates that structured Vedic logic — rather than dismissing tradition outright — can refine it, separating the authentic from the inherited. Rajesh's story is a model of how intellectual engagement with Vedic teaching produces not scepticism, but deeper and more stable faith.",
+    closeQuote: "Now I live by the scientific wisdom of the Rishis — and I understand why every part of it works.",
+
+    // 06 · Clinical Note
+    understandingPattern: "Across rural and semi-urban India, folk religion and genuine Vedic wisdom are often inextricably mixed. This case demonstrates that structured Vedic logic — rather than dismissing tradition outright — can refine it, separating the authentic from the inherited. Rajesh's story is a model of how intellectual engagement with Vedic teaching produces not scepticism, but deeper and more stable faith.",
   },
+
+  // ─── CASE STUDY #5 ────────────────────────────────────────────────────────
   {
+    // Card Meta
     id: 5,
     slug: "vedic-formless-god-scientific-vedas",
     caseNumber: "Case Study #5",
     category: "vedic-logic",
     tag: "Vedic Research",
     title: "Uncovering the Hidden Scientific Vedas — An Educator's Account",
+
+    // 01 · Patient Snapshot
     patient: "Anto Jacob",
     location: "Jaipur",
     age: 58,
     duration: "Ongoing",
-    summary:
-      "Anto Jacob, a retired school principal with decades in education, was drawn to Kaptan Singh Sir's work through a curiosity about the Vedic conception of a Formless God. What began as intellectual inquiry became a profound engagement with the hidden scientific content of the Vedas — revealing a logical, systematic understanding of reality that his academic background had never exposed him to.",
-    result: "Deep Vedic scientific understanding, continues active study and Q&A engagement",
-    quote: "I spent forty years in education. I thought I understood rational thinking. But the Vedic framework for the Formless God was something I had never encountered — and I couldn't dismiss it.",
-    closeQuote: "This is not mythology. It is a precise, scientific system — and once you see it, you cannot unsee it.",
+    summary: "Anto Jacob, a retired school principal with decades in education, was drawn to Kaptan Singh Sir's work through a curiosity about the Vedic conception of a Formless God. What began as intellectual inquiry became a profound engagement with the hidden scientific content of the Vedas — revealing a logical, systematic understanding of reality that his academic background had never exposed him to.",
+
+    // 02 · The Problem
     startingPoints: [
       { label: "Intellectual Background", description: "Forty years in education with a deeply analytical, evidence-based worldview" },
-      { label: "Spiritual Gap", description: "Unsatisfied by both organised religion and secular materialism — seeking a coherent framework" },
-      { label: "Vedic Exposure", description: "Limited prior exposure to Vedic philosophy beyond surface-level cultural familiarity" },
-      { label: "Key Question", description: "Seeking a rational understanding of what the Vedas actually mean by God — beyond anthropomorphic form" },
-      { label: "Life Context", description: "Post-retirement pursuit of deep philosophical inquiry with time and freedom to explore seriously" },
+      { label: "Spiritual Gap",           description: "Unsatisfied by both organised religion and secular materialism — seeking a coherent framework" },
+      { label: "Vedic Exposure",          description: "Limited prior exposure to Vedic philosophy beyond surface-level cultural familiarity" },
+      { label: "Key Question",            description: "Seeking a rational understanding of what the Vedas actually mean by God — beyond anthropomorphic form" },
+      { label: "Life Context",            description: "Post-retirement pursuit of deep philosophical inquiry with time and freedom to explore seriously" },
     ],
+
+    // 03 · Life Impact
+    quote: "I spent forty years in education. I thought I understood rational thinking. But the Vedic framework for the Formless God was something I had never encountered — and I couldn't dismiss it.",
+
+    // 04 · Treatment Plan
     progressPoints: [
-      { title: "Vedic Formless God understood", description: "Rational framework for nirguna Brahman — the formless, attributeless cosmic intelligence — clearly grasped" },
-      { title: "Hidden scientific content revealed", description: "Vedic verses understood not as mythology but as encoded natural science and cosmology" },
-      { title: "Ongoing deep study", description: "Active participation in Q&A sessions, applying Vedic logic to modern scientific questions" },
+      { title: "Vedic Formless God understood",   description: "Rational framework for nirguna Brahman — the formless, attributeless cosmic intelligence — clearly grasped" },
+      { title: "Hidden scientific content revealed",description: "Vedic verses understood not as mythology but as encoded natural science and cosmology" },
+      { title: "Ongoing deep study",              description: "Active participation in Q&A sessions, applying Vedic logic to modern scientific questions" },
     ],
+
+    // 05 · Results & Feedback
+    result: "Deep Vedic scientific understanding, continues active study and Q&A engagement",
     keyInsights: [
       "The Vedic Formless God (nirguna Brahman) is a precisely logical concept — not a belief requiring suspension of reason",
       "The Vedas contain encoded natural science, cosmology, and psychology that translates directly into modern frameworks",
       "Kapil's methodology reveals this hidden content through logical decoding, not faith-based interpretation",
       "Educated individuals are often the most receptive to Vedic science once it is presented rigorously",
     ],
-    understandingPattern:
-      "Highly educated individuals often resist Vedic wisdom because it is frequently presented through the lens of ritual or mythology rather than logic. Kapil's approach inverts this — presenting the Vedas as a rigorous scientific system. Anto Jacob's account demonstrates that when Vedic knowledge meets a prepared, analytical mind, the resulting understanding is both deep and transformative.",
+    closeQuote: "This is not mythology. It is a precise, scientific system — and once you see it, you cannot unsee it.",
+
+    // 06 · Clinical Note
+    understandingPattern: "Highly educated individuals often resist Vedic wisdom because it is frequently presented through the lens of ritual or mythology rather than logic. Kapil's approach inverts this — presenting the Vedas as a rigorous scientific system. Anto Jacob's account demonstrates that when Vedic knowledge meets a prepared, analytical mind, the resulting understanding is both deep and transformative.",
   },
+
+  // ─── CASE STUDY #6 ────────────────────────────────────────────────────────
   {
+    // Card Meta
     id: 6,
     slug: "cervical-spondylitis-child-yoga-neurotherapy",
     caseNumber: "Case Study #6",
     category: "child-health",
     tag: "Child Wellness",
     title: "5-Year Cervical Spondylitis — 100% Cured Through Yoga Therapy and Neurotherapy",
+
+    // 01 · Patient Snapshot
     patient: "Mimansa Choudhary",
     location: "Jaipur",
     age: 32,
     duration: "8 weeks",
-    summary:
-      "Mimansa, a housewife from Jaipur, had been living with cervical spondylitis for five years. The condition had gradually worsened — stiffness, radiating pain, and restricted neck movement had become part of daily life. Doctors managed her symptoms but offered no path to cure. Kapil's targeted Yoga therapy combined with Neurotherapy addressed the structural and neurological roots of her condition with precision. Within eight weeks, she achieved a 100% cure — completely free of pain and medication.",
-    result: "100% cure — full resolution of 5-year cervical spondylitis without any medication",
-    quote: "Five years of neck pain, stiffness, and radiating aches. I had accepted it as something I would just have to live with. Nobody told me it could actually be cured.",
-    closeQuote: "I move freely, I sleep well, I have no pain. One hundred percent cured — and not a single medicine.",
+    summary: "Mimansa, a housewife from Jaipur, had been living with cervical spondylitis for five years. The condition had gradually worsened — stiffness, radiating pain, and restricted neck movement had become part of daily life. Doctors managed her symptoms but offered no path to cure. Kapil's targeted Yoga therapy combined with Neurotherapy addressed the structural and neurological roots of her condition with precision. Within eight weeks, she achieved a 100% cure — completely free of pain and medication.",
+
+    // 02 · The Problem
     startingPoints: [
-      { label: "Diagnosis", description: "Cervical spondylitis persisting for five years — progressive neck stiffness, pain on movement, and limited rotation" },
-      { label: "Physical Symptoms", description: "Daily neck pain radiating into the shoulders, frequent cervicogenic headaches, difficulty sleeping on either side" },
+      { label: "Diagnosis",              description: "Cervical spondylitis persisting for five years — progressive neck stiffness, pain on movement, and limited rotation" },
+      { label: "Physical Symptoms",      description: "Daily neck pain radiating into the shoulders, frequent cervicogenic headaches, difficulty sleeping on either side" },
       { label: "Conventional Treatment", description: "Five years of pain management — physiotherapy, muscle relaxants, and anti-inflammatories — with no lasting cure" },
-      { label: "Neurological Signs", description: "Nerve compression at the cervical level causing tingling in the arms and persistent muscular tension" },
-      { label: "Life Context", description: "Housewife managing a household daily — the condition impacted every physical task from cooking to childcare" },
+      { label: "Neurological Signs",     description: "Nerve compression at the cervical level causing tingling in the arms and persistent muscular tension" },
+      { label: "Life Context",           description: "Housewife managing a household daily — the condition impacted every physical task from cooking to childcare" },
     ],
+
+    // 03 · Life Impact
+    quote: "Five years of neck pain, stiffness, and radiating aches. I had accepted it as something I would just have to live with. Nobody told me it could actually be cured.",
+
+    // 04 · Treatment Plan
     progressPoints: [
-      { title: "Pain and stiffness reduced", description: "Yoga therapy began decompressing the cervical spine and restoring mobility within the first two weeks" },
-      { title: "Neurotherapy resolves nerve compression", description: "Neurotherapy directly corrected the nerve irritation at the cervical level, eliminating radiating pain and tingling" },
-      { title: "100% cure at eight weeks", description: "Full, pain-free neck movement restored — completely symptom-free with no further intervention required" },
+      { title: "Pain and stiffness reduced",           description: "Yoga therapy began decompressing the cervical spine and restoring mobility within the first two weeks" },
+      { title: "Neurotherapy resolves nerve compression",description: "Neurotherapy directly corrected the nerve irritation at the cervical level, eliminating radiating pain and tingling" },
+      { title: "100% cure at eight weeks",             description: "Full, pain-free neck movement restored — completely symptom-free with no further intervention required" },
     ],
+
+    // 05 · Results & Feedback
+    result: "100% cure — full resolution of 5-year cervical spondylitis without any medication",
     keyInsights: [
       "Cervical spondylitis is a structural and neurological condition — treating only one dimension explains why conventional therapy rarely achieves a full cure",
       "Yoga therapy decompresses intervertebral joints and restores correct cervical alignment at the mechanical root",
       "Neurotherapy corrects nerve dysregulation that persists even after structural improvement — both must be addressed together",
       "A 5-year chronic condition achieving 100% cure demonstrates that chronicity does not mean irreversibility",
     ],
-    understandingPattern:
-      "Cervical spondylitis is typically managed as a chronic, progressive condition — patients are given pain relief but rarely offered a cure. This case challenges that assumption. By combining Yoga therapy (structural correction) with Neurotherapy (neurological correction), Mimansa's five-year condition was fully resolved in eight weeks. The case underlines that complete recovery is possible when both the mechanical and nervous system dimensions of the condition are treated simultaneously.",
+    closeQuote: "I move freely, I sleep well, I have no pain. One hundred percent cured — and not a single medicine.",
+
+    // 06 · Clinical Note
+    understandingPattern: "Cervical spondylitis is typically managed as a chronic, progressive condition — patients are given pain relief but rarely offered a cure. This case challenges that assumption. By combining Yoga therapy (structural correction) with Neurotherapy (neurological correction), Mimansa's five-year condition was fully resolved in eight weeks. The case underlines that complete recovery is possible when both the mechanical and nervous system dimensions of the condition are treated simultaneously.",
   },
+
+  // ─── CASE STUDY #7 ────────────────────────────────────────────────────────
   {
+    // Card Meta
     id: 7,
     slug: "vedic-wisdom-methodical-logic-kanwaljeet",
     caseNumber: "Case Study #7",
     category: "vedic-logic",
     tag: "Vedic Science",
     title: "A Government Officer's Encounter with Methodical Vedic Logic",
+
+    // 01 · Patient Snapshot
     patient: "Kanwaljeet Sarowa",
     location: "New Delhi",
     age: 52,
     duration: "Ongoing",
-    summary:
-      "Kanwaljeet, an Assistant Audit Officer in Defence Audit, New Delhi, was not looking for spiritual guidance. He was looking for intellectual rigour. His repeated Q&A debates with Kapil on Vedic wisdom left him convinced that the ancient technical science encoded in the Vedas represents a depth of systematic knowledge that modern scholarship has barely begun to unpack.",
-    result: "Ongoing active study, recommends Vedic science framework to peers in government service",
-    quote: "I come from an audit background. I look for evidence, internal consistency, and logical rigour. I walked in expecting to find gaps. I didn't find them.",
-    closeQuote: "Debating Vedic wisdom with Kapil is not a spiritual exercise — it is a rigorous intellectual encounter. Every session leaves me with more clarity, not less.",
+    summary: "Kanwaljeet, an Assistant Audit Officer in Defence Audit, New Delhi, was not looking for spiritual guidance. He was looking for intellectual rigour. His repeated Q&A debates with Kapil on Vedic wisdom left him convinced that the ancient technical science encoded in the Vedas represents a depth of systematic knowledge that modern scholarship has barely begun to unpack.",
+
+    // 02 · The Problem
     startingPoints: [
       { label: "Professional Background", description: "Career in government audit demanding precision, evidence, and systematic verification of claims" },
-      { label: "Initial Scepticism", description: "Strong prior scepticism toward anything presented as spiritual or traditional — expecting logical inconsistency" },
-      { label: "Intellectual Inquiry", description: "Genuine curiosity about what the Vedas actually say — separate from religious or devotional context" },
-      { label: "Prior Exposure", description: "Some knowledge of Sanskrit texts but no systematic framework to evaluate their technical content" },
-      { label: "Life Context", description: "Seeking intellectual depth beyond a demanding career — philosophical engagement as a serious discipline" },
+      { label: "Initial Scepticism",      description: "Strong prior scepticism toward anything presented as spiritual or traditional — expecting logical inconsistency" },
+      { label: "Intellectual Inquiry",    description: "Genuine curiosity about what the Vedas actually say — separate from religious or devotional context" },
+      { label: "Prior Exposure",          description: "Some knowledge of Sanskrit texts but no systematic framework to evaluate their technical content" },
+      { label: "Life Context",            description: "Seeking intellectual depth beyond a demanding career — philosophical engagement as a serious discipline" },
     ],
+
+    // 03 · Life Impact
+    quote: "I come from an audit background. I look for evidence, internal consistency, and logical rigour. I walked in expecting to find gaps. I didn't find them.",
+
+    // 04 · Treatment Plan
     progressPoints: [
-      { title: "Logical framework accepted", description: "After multiple rigorous Q&A sessions, found no fundamental inconsistency in Kapil's Vedic methodology" },
-      { title: "Ancient technical science grasped", description: "Vedic encoding of mathematics, cosmology, and natural law understood with precision" },
-      { title: "Ongoing peer influence", description: "Now actively shares Vedic science framework with colleagues and peers in government and academic circles" },
+      { title: "Logical framework accepted",     description: "After multiple rigorous Q&A sessions, found no fundamental inconsistency in Kapil's Vedic methodology" },
+      { title: "Ancient technical science grasped",description: "Vedic encoding of mathematics, cosmology, and natural law understood with precision" },
+      { title: "Ongoing peer influence",         description: "Now actively shares Vedic science framework with colleagues and peers in government and academic circles" },
     ],
+
+    // 05 · Results & Feedback
+    result: "Ongoing active study, recommends Vedic science framework to peers in government service",
     keyInsights: [
       "Vedic science withstands rigorous logical scrutiny when presented correctly — it does not require suspension of critical thinking",
       "The technical content of the Vedas spans mathematics, cosmology, acoustics, and natural law at a systems level",
       "Kapil's Q&A methodology is designed for analytical minds — it invites challenge rather than avoiding it",
       "The most credible advocates for Vedic science are often those who engaged with it most sceptically",
     ],
-    understandingPattern:
-      "Government and technical professionals represent an important but often neglected audience for Vedic knowledge. Kanwaljeet's case shows that when Vedic science is presented through rigorous logic rather than devotional appeal, it not only survives scrutiny — it compels it. His ongoing engagement and peer advocacy reflect the natural consequence of genuine intellectual conviction.",
+    closeQuote: "Debating Vedic wisdom with Kapil is not a spiritual exercise — it is a rigorous intellectual encounter. Every session leaves me with more clarity, not less.",
+
+    // 06 · Clinical Note
+    understandingPattern: "Government and technical professionals represent an important but often neglected audience for Vedic knowledge. Kanwaljeet's case shows that when Vedic science is presented through rigorous logic rather than devotional appeal, it not only survives scrutiny — it compels it. His ongoing engagement and peer advocacy reflect the natural consequence of genuine intellectual conviction.",
   },
+
+  // ─── CASE STUDY #8 ────────────────────────────────────────────────────────
   {
+    // Card Meta
     id: 8,
     slug: "stress-depression-vedic-meditation-sound-healing",
     caseNumber: "Case Study #8",
     category: "depression",
     tag: "Mental Wellness",
     title: "Stress and Depression Replaced by Mental Clarity Through Vedic Meditation",
+
+    // 01 · Patient Snapshot
     patient: "Kaushal Yogi",
     location: "Jaipur",
     age: 46,
     duration: "10 weeks",
-    summary:
-      "Kaushal, a bank branch manager, was operating at the edge of burnout. The stress of managing targets, staff, and customer pressure had pushed him into a persistent depression that medication only partially addressed. Under Yoga Master Kapil's guidance, Vedic meditation combined with sound healing process systematically dismantled the stress-depression loop — replacing it with the mental clarity he had not felt in years.",
-    result: "No depressive episodes in 9+ months, medication tapered with GP approval",
-    quote: "I was technically functioning — meetings, targets, managing the branch. But inside I felt hollow. I had forgotten what it meant to actually feel okay.",
-    closeQuote: "He is a true master of his craft. I don't say that lightly. What he restored in me, medication couldn't touch.",
+    summary: "Kaushal, a bank branch manager, was operating at the edge of burnout. The stress of managing targets, staff, and customer pressure had pushed him into a persistent depression that medication only partially addressed. Under Yoga Master Kapil's guidance, Vedic meditation combined with sound healing process systematically dismantled the stress-depression loop — replacing it with the mental clarity he had not felt in years.",
+
+    // 02 · The Problem
     startingPoints: [
-      { label: "Mental State", description: "Persistent low mood, emotional flatness, and periodic depressive episodes lasting days at a time" },
-      { label: "Stress Levels", description: "Chronic workplace stress from banking targets, staff management, and regulatory pressure" },
-      { label: "Medication", description: "On antidepressants for eighteen months with partial response — functional but not well" },
-      { label: "Sleep Quality", description: "Non-restorative sleep, waking unrested, high cortisol patterning in the morning" },
-      { label: "Life Context", description: "Senior managerial responsibility with no mental health outlet — professional performance masking internal deterioration" },
+      { label: "Mental State",   description: "Persistent low mood, emotional flatness, and periodic depressive episodes lasting days at a time" },
+      { label: "Stress Levels",  description: "Chronic workplace stress from banking targets, staff management, and regulatory pressure" },
+      { label: "Medication",     description: "On antidepressants for eighteen months with partial response — functional but not well" },
+      { label: "Sleep Quality",  description: "Non-restorative sleep, waking unrested, high cortisol patterning in the morning" },
+      { label: "Life Context",   description: "Senior managerial responsibility with no mental health outlet — professional performance masking internal deterioration" },
     ],
+
+    // 03 · Life Impact
+    quote: "I was technically functioning — meetings, targets, managing the branch. But inside I felt hollow. I had forgotten what it meant to actually feel okay.",
+
+    // 04 · Treatment Plan
     progressPoints: [
-      { title: "Stress response recalibrated", description: "Vedic meditation shifted the baseline nervous system state within four weeks" },
+      { title: "Stress response recalibrated",   description: "Vedic meditation shifted the baseline nervous system state within four weeks" },
       { title: "Sound healing deepens the shift", description: "Mantra-based sound therapy reduced cortisol and broke the rumination cycle" },
-      { title: "Depression lifted", description: "No depressive episodes by week ten — first sustained period of genuine wellbeing in over two years" },
+      { title: "Depression lifted",               description: "No depressive episodes by week ten — first sustained period of genuine wellbeing in over two years" },
     ],
+
+    // 05 · Results & Feedback
+    result: "No depressive episodes in 9+ months, medication tapered with GP approval",
     keyInsights: [
       "Vedic meditation activates the parasympathetic nervous system, directly countering the chronic cortisol elevation that drives depression",
       "Sound healing (mantra-based therapy) produces measurable neurological calming — not placebo, but acoustic regulation of the nervous system",
       "Workplace stress and depression are often the same root problem — chronic sympathetic activation — not two separate conditions",
       "Medication suppresses symptoms; Vedic practice resolves the underlying regulatory dysfunction",
     ],
-    understandingPattern:
-      "Depression in high-functioning professionals is often masked by performance and mismanaged through medication alone. This case demonstrates that structured Vedic meditation combined with sound healing addresses the root — nervous system dysregulation — rather than its symptoms. Kaushal's recovery was not a suppression of depression but a genuine restoration of his natural mental baseline.",
+    closeQuote: "He is a true master of his craft. I don't say that lightly. What he restored in me, medication couldn't touch.",
+
+    // 06 · Clinical Note
+    understandingPattern: "Depression in high-functioning professionals is often masked by performance and mismanaged through medication alone. This case demonstrates that structured Vedic meditation combined with sound healing addresses the root — nervous system dysregulation — rather than its symptoms. Kaushal's recovery was not a suppression of depression but a genuine restoration of his natural mental baseline.",
   },
+
+  // ─── CASE STUDY #9 ────────────────────────────────────────────────────────
   {
+    // Card Meta
     id: 9,
     slug: "chronic-fever-yogic-purification-nature-cure",
     caseNumber: "Case Study #9",
     category: "child-health",
     tag: "Child Wellness",
     title: "Son's Chronic Fever Resolved Through Yogic Purification and Nature Cure",
+
+    // 01 · Patient Snapshot
     patient: "Manisha Kumari",
     location: "Jaipur",
     age: 36,
     duration: "6 weeks",
-    summary:
-      "Manisha's young son had been battling recurring fever for months. Doctors kept prescribing antibiotics that suppressed the episodes temporarily — only for them to return. After learning Kapil's yogic purification and nature cure approach, the fever cleared completely. Her son now thrives without any medication.",
-    result: "Chronic fever fully resolved, no medication in 8+ months",
-    quote: "Every few weeks, the fever would return. Each time the doctor gave another course of antibiotics. I was terrified — what was really happening inside my son's body?",
-    closeQuote: "Now he thrives naturally — no pills, no panic, no guessing. I finally understand what real health looks like.",
+    summary: "Manisha's young son had been battling recurring fever for months. Doctors kept prescribing antibiotics that suppressed the episodes temporarily — only for them to return. After learning Kapil's yogic purification and nature cure approach, the fever cleared completely. Her son now thrives without any medication.",
+
+    // 02 · The Problem
     startingPoints: [
       { label: "Physical Symptoms", description: "Recurring fever every 3–4 weeks, fatigue, loss of appetite, and poor weight gain" },
-      { label: "Medical History", description: "Multiple antibiotic courses over eight months with only temporary relief each time" },
-      { label: "Gut Health", description: "Suspected toxic accumulation and weakened digestive fire — common in children on repeated antibiotics" },
-      { label: "Immunity", description: "Low immune resilience, frequent infections, pale complexion" },
-      { label: "Life Context", description: "Mother increasingly anxious, seeking a root-cause approach rather than repeat suppression" },
+      { label: "Medical History",   description: "Multiple antibiotic courses over eight months with only temporary relief each time" },
+      { label: "Gut Health",        description: "Suspected toxic accumulation and weakened digestive fire — common in children on repeated antibiotics" },
+      { label: "Immunity",          description: "Low immune resilience, frequent infections, pale complexion" },
+      { label: "Life Context",      description: "Mother increasingly anxious, seeking a root-cause approach rather than repeat suppression" },
     ],
+
+    // 03 · Life Impact
+    quote: "Every few weeks, the fever would return. Each time the doctor gave another course of antibiotics. I was terrified — what was really happening inside my son's body?",
+
+    // 04 · Treatment Plan
     progressPoints: [
-      { title: "Fever cycles broken", description: "No fever episodes from week three onward after beginning yogic purification protocol" },
+      { title: "Fever cycles broken",          description: "No fever episodes from week three onward after beginning yogic purification protocol" },
       { title: "Appetite and energy restored", description: "Noticeable improvement in eating, play, and daily energy within four weeks" },
       { title: "Medication-free at six weeks", description: "Child fully stable and thriving with no pharmaceutical intervention" },
     ],
+
+    // 05 · Results & Feedback
+    result: "Chronic fever fully resolved, no medication in 8+ months",
     keyInsights: [
       "Repeated antibiotic use in children suppresses symptoms while weakening gut flora and immune defence",
       "Yogic purification restores digestive fire and clears accumulated toxins that drive recurring illness",
       "Nature cure addresses the terrain — not just the fever — enabling the body to self-regulate",
       "Children respond rapidly to gentle naturopathic protocols when the root cause is addressed",
     ],
-    understandingPattern:
-      "Chronic recurring fever in children is frequently a sign of toxic accumulation and poor digestive function rather than persistent infection. This case shows that yogic purification practices and nature cure methods can restore the body's self-regulatory capacity — breaking the cycle of suppression and relapse that conventional antibiotic treatment often creates.",
+    closeQuote: "Now he thrives naturally — no pills, no panic, no guessing. I finally understand what real health looks like.",
+
+    // 06 · Clinical Note
+    understandingPattern: "Chronic recurring fever in children is frequently a sign of toxic accumulation and poor digestive function rather than persistent infection. This case shows that yogic purification practices and nature cure methods can restore the body's self-regulatory capacity — breaking the cycle of suppression and relapse that conventional antibiotic treatment often creates.",
   },
+
+  // ─── CASE STUDY #10 ───────────────────────────────────────────────────────
   {
+    // Card Meta
     id: 10,
     slug: "ibs-constipation-shankha-prakshalan",
     caseNumber: "Case Study #10",
     category: "digestive",
     tag: "Digestive Health",
     title: "Chronic Constipation and IBS Completely Cured Through Shankha Prakshalan",
+
+    // 01 · Patient Snapshot
     patient: "Kuldeep Gurjar",
     location: "Jaipur",
     age: 42,
     duration: "6 weeks",
-    summary:
-      "Kuldeep, a mathematics teacher at DAV IOS School in Jaipur, had battled constipation and IBS for years. Laxatives offered temporary relief but no resolution — bloating, irregular bowel habits, and post-meal discomfort had become an accepted part of life. Kapil's clinical, systematic application of the ancient Shankha Prakshalan methodology addressed the condition at its root — completely curing both constipation and IBS within six weeks, with no medication required.",
-    result: "Constipation and IBS completely cured, no further laxatives or medication",
-    quote: "I had been relying on laxatives for so long that I forgot what natural digestion felt like. Doctors kept telling me to eat more fibre. Nothing changed.",
-    closeQuote: "Life-changing — that is the only word for it. A clinical, scientific approach that finally addressed what was actually wrong.",
+    summary: "Kuldeep, a mathematics teacher at DAV IOS School in Jaipur, had battled constipation and IBS for years. Laxatives offered temporary relief but no resolution — bloating, irregular bowel habits, and post-meal discomfort had become an accepted part of life. Kapil's clinical, systematic application of the ancient Shankha Prakshalan methodology addressed the condition at its root — completely curing both constipation and IBS within six weeks, with no medication required.",
+
+    // 02 · The Problem
     startingPoints: [
-      { label: "Constipation", description: "Chronic constipation persisting for several years — infrequent, effortful, and incomplete bowel movements" },
-      { label: "IBS Symptoms", description: "Bloating, cramping, alternating constipation and loose stools — classic IBS presentation with no clear dietary trigger identified" },
+      { label: "Constipation",          description: "Chronic constipation persisting for several years — infrequent, effortful, and incomplete bowel movements" },
+      { label: "IBS Symptoms",          description: "Bloating, cramping, alternating constipation and loose stools — classic IBS presentation with no clear dietary trigger" },
       { label: "Medication Dependency", description: "Regular laxative use with diminishing effectiveness and growing dependency" },
-      { label: "Gut Health", description: "Accumulated bowel toxicity, sluggish peristalsis, and disrupted gut-brain signalling" },
-      { label: "Life Context", description: "Schoolteacher managing a full timetable — chronic digestive distress affecting energy, focus, and daily comfort" },
+      { label: "Gut Health",            description: "Accumulated bowel toxicity, sluggish peristalsis, and disrupted gut-brain signalling" },
+      { label: "Life Context",          description: "Schoolteacher managing a full timetable — chronic digestive distress affecting energy, focus, and daily comfort" },
     ],
+
+    // 03 · Life Impact
+    quote: "I had been relying on laxatives for so long that I forgot what natural digestion felt like. Doctors kept telling me to eat more fibre. Nothing changed.",
+
+    // 04 · Treatment Plan
     progressPoints: [
       { title: "Gut purification initiated", description: "Shankha Prakshalan protocol systematically cleared accumulated bowel toxicity and restored peristaltic function" },
-      { title: "IBS symptoms resolved", description: "Bloating, cramping, and irregular bowel movements normalised within the first three weeks of the protocol" },
+      { title: "IBS symptoms resolved",      description: "Bloating, cramping, and irregular bowel movements normalised within the first three weeks of the protocol" },
       { title: "Complete cure at six weeks", description: "Regular, effortless bowel function restored — laxatives discontinued entirely with no relapse" },
     ],
+
+    // 05 · Results & Feedback
+    result: "Constipation and IBS completely cured, no further laxatives or medication",
     keyInsights: [
       "Shankha Prakshalan is a complete intestinal cleansing system — not just a detox, but a clinical reset of bowel function from mouth to colon",
       "Chronic constipation and IBS are typically driven by accumulated bowel toxicity and disrupted gut motility — both addressable through Vedic gut cleansing",
       "Laxative dependency worsens gut muscle tone over time; the Shankha Prakshalan method restores autonomous function",
       "A clinical, systematic approach to ancient gut cleansing produces results that years of dietary modification alone cannot achieve",
     ],
-    understandingPattern:
-      "IBS and chronic constipation are among the most prevalent and poorly managed conditions in modern gastroenterology. Patients are typically given symptom management — laxatives, antispasmodics, dietary advice — without addressing the toxic accumulation and motility dysfunction at the root. This case demonstrates that Kapil's clinical application of the Shankha Prakshalan methodology delivers a complete cure where conventional management repeatedly fails. The results are not just symptomatic relief — they represent a full restoration of natural gut function.",
+    closeQuote: "Life-changing — that is the only word for it. A clinical, scientific approach that finally addressed what was actually wrong.",
+
+    // 06 · Clinical Note
+    understandingPattern: "IBS and chronic constipation are among the most prevalent and poorly managed conditions in modern gastroenterology. Patients are typically given symptom management — laxatives, antispasmodics, dietary advice — without addressing the toxic accumulation and motility dysfunction at the root. This case demonstrates that Kapil's clinical application of the Shankha Prakshalan methodology delivers a complete cure where conventional management repeatedly fails.",
   },
+
 ];
 
 export default caseStudies;

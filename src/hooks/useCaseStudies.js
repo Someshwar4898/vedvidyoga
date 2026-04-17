@@ -4,44 +4,51 @@ import mockCaseStudies from "../data/mockCaseStudies";
 const WP_API = "https://api.vedvidyoga.com/wp-json/wp/v2/case-studies?per_page=100";
 
 // ─────────────────────────────────────────────────────────────────────────────
-// WORDPRESS CONTENT TEMPLATE
-// Write case studies in the WP editor using this format:
+// WORDPRESS CONTENT TEMPLATE  (paste this in the WP Code editor, fill in values)
 //
-//   patient: Full Name Here
+//   — CARD META (top of content, no section tag needed) —
+//   patient: Full Name or Anonymous
 //   location: City Name
 //   age: 45
 //   duration: 8 weeks
-//   category: digestive          ← child-health | digestive | respiratory | depression | vedic-logic
+//   category: digestive
 //   tag: Digestive Health
 //
+//   — 01 · PATIENT SNAPSHOT —
+//   (patient / location / age / duration above are used here automatically)
 //   [summary]
-//   The main paragraph describing the case...
+//   One or two sentences — the hook line shown under the patient details.
 //
-//   [result]
-//   One-line outcome statement shown on the card.
-//
-//   [quote]
-//   Opening patient quote (shown in the "What Daily Life Felt Like" section).
-//
-//   [closeQuote]
-//   Closing patient quote (shown at the bottom of progress section).
-//
+//   — 02 · THE PROBLEM —
 //   [startingPoints]
-//   Label One | Description of this starting point
-//   Label Two | Description of this starting point
+//   Symptom Label | Full description of this symptom or situation
+//   Another Label | Full description here
 //
+//   — 03 · LIFE IMPACT —
+//   [quote]
+//   The patient's own words describing how the condition affected daily life.
+//
+//   — 04 · TREATMENT PLAN —
 //   [progressPoints]
-//   Milestone Title | What changed during this phase
-//   Next Milestone | What changed in this phase
+//   Phase or Step Title | What was done and how it helped
+//   Next Phase Title | What happened in this phase
+//
+//   — 05 · RESULTS & FEEDBACK —
+//   [result]
+//   One-line outcome statement (also shown on the listing card).
 //
 //   [keyInsights]
-//   First key insight text goes here
-//   Second key insight text goes here
+//   First improvement or insight bullet
+//   Second improvement or insight bullet
 //
+//   [closeQuote]
+//   The patient's closing words after recovery.
+//
+//   — 06 · CLINICAL NOTE —
 //   [understandingPattern]
-//   The closing analysis paragraph for this case.
+//   A paragraph explaining the clinical reasoning behind this case.
 //
-// Excerpt field in WP → used as fallback for result/summary if not provided above.
+// Excerpt field in WP → fallback for [result] and [summary] if not provided.
 // ─────────────────────────────────────────────────────────────────────────────
 
 function stripHtml(html) {

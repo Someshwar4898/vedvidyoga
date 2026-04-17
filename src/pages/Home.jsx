@@ -118,13 +118,6 @@ function Home() {
             <p className="mt-3 max-w-xl text-base leading-7 text-stone-500 dark:text-stone-400">
               Documented recoveries from depression, chronic pain, diabetes, and more — through Yoga Therapy, Ayurveda, and Vedic Wisdom. Find the case study closest to your struggle.
             </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {["Depression", "Back Pain", "Diabetes", "Vedic Logic"].map((tag) => (
-                <span key={tag} className="rounded-full bg-saffron/10 px-3 py-1 text-xs font-semibold text-saffron">
-                  {tag}
-                </span>
-              ))}
-            </div>
           </div>
           <Link
             to="/case-studies"
