@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const WP_API = "https://api.vedvidyoga.com/wp-json/wp/v2/case-studies?per_page=100";
+const WP_API = "https://api.vedvidyoga.com/wp-json/wp/v2/case-studies?per_page=100&orderby=menu_order&order=asc";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // WORDPRESS CONTENT TEMPLATE  (paste this in the WP Code editor, fill in values)
@@ -173,7 +173,7 @@ function transformWpPost(post, index) {
   return {
     id: `wp-${post.id}`,
     slug: post.slug,
-    caseNumber: `Case Study #${mockCaseStudies.length + index + 1}`,
+    caseNumber: `Case Study #${index + 1}`,
     category,
     tag: tag || "Healing Story",
     title,

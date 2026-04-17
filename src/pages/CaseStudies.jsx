@@ -1,9 +1,23 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useCaseStudies } from "../hooks/useCaseStudies";
 
+const PER_PAGE = 10;
+
+function getPageNumbers(current, total) {
+  if (total <= 5) return Array.from({ length: total }, (_, i) => i + 1);
+  if (current <= 3) return [1, 2, 3, 4, 5];
+  if (current >= total - 1) return [1, "...", total - 2, total - 1, total];
+  return [1, "...", current - 1, current, current + 1];
+}
+
 function CaseStudies() {
   const { caseStudies } = useCaseStudies();
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(caseStudies.length / PER_PAGE);
+  const paginated = caseStudies.slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE);
 
   return (
     <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 py-10 md:py-14 space-y-10 md:space-y-14">
@@ -23,7 +37,7 @@ function CaseStudies() {
 
       {/* ── CARDS GRID ──────────────────────────────────────────────────── */}
       <div className="grid sm:grid-cols-2 gap-6">
-        {caseStudies.map((cs) => (
+        {paginated.map((cs) => (
           <Link
             key={cs.id}
             to={`/case-studies/${cs.slug}`}
@@ -72,6 +86,34 @@ function CaseStudies() {
           </Link>
         ))}
       </div>
+
+      {/* ── PAGINATION ──────────────────────────────────────────────────── */}
+      {totalPages > 1 && (
+        <div className="flex justify-center items-center gap-2">
+          {getPageNumbers(currentPage, totalPages).map((p, i) =>
+            p === "..." ? (
+              <span
+                key={`ellipsis-${i}`}
+                className="w-8 h-8 flex items-center justify-center text-sm text-stone-400"
+              >
+                ...
+              </span>
+            ) : (
+              <button
+                key={p}
+                onClick={() => { setCurrentPage(p); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+                className={`h-8 rounded-full text-sm font-semibold transition-all duration-300 ${
+                  p === currentPage
+                    ? "w-10 bg-saffron text-white shadow-[0_6px_20px_rgba(242,140,40,0.35)]"
+                    : "w-8 bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-400 hover:bg-saffron/10 hover:text-saffron"
+                }`}
+              >
+                {p}
+              </button>
+            )
+          )}
+        </div>
+      )}
 
       {/* ── CTA BLOCK ───────────────────────────────────────────────────── */}
       <div className="rounded-[2rem] border border-[#f0e3d3] dark:border-stone-700 bg-white dark:bg-stone-900 p-8 sm:p-10 shadow-[0_20px_60px_rgba(102,74,44,0.08)] text-center">

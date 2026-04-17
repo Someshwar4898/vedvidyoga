@@ -204,20 +204,27 @@ function Testimonials() {
             })}
           </div>
 
-          {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-8">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setActiveIndex(i)}
-                className={`rounded-full transition-all duration-300 ${
-                  i === activeIndex
-                    ? "w-5 h-2 bg-saffron"
-                    : "w-2 h-2 bg-stone-300 dark:bg-stone-600 hover:bg-saffron/40"
-                }`}
-              />
-            ))}
-          </div>
+          {/* Dot indicators — max 5 visible, sliding window */}
+          {testimonials.length > 1 && (() => {
+            const total = testimonials.length;
+            const start = total <= 5 ? 0 : Math.min(Math.max(activeIndex - 2, 0), total - 5);
+            const visible = Array.from({ length: Math.min(5, total) }, (_, i) => start + i);
+            return (
+              <div className="flex justify-center gap-2 mt-8">
+                {visible.map((i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveIndex(i)}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === activeIndex
+                        ? "w-5 h-2 bg-saffron"
+                        : "w-2 h-2 bg-stone-300 dark:bg-stone-600 hover:bg-saffron/40"
+                    }`}
+                  />
+                ))}
+              </div>
+            );
+          })()}
 
         </div>
       )}
