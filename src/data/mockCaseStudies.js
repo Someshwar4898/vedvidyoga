@@ -301,14 +301,14 @@ const caseStudies = [
     caseNumber: "Case Study #9",
     category: "respiratory",
     tag: "Respiratory Health",
-    title: "Claustrophobia Cured and Asthma Inhaler Use Reduced 75% by Vedic Pranayama",
+    title: "From Chronic Suffering to 100% Recovery: How Vedic Science Defeated Asthma, Claustrophobia, and Anxiety",
     patient: "Ravinder Singh Kalsi",
     location: "Jaipur",
     age: 49,
     duration: "12 weeks",
     summary:
-      "Everything changed when I met Kaptan Singh Choudhary. He didn't just give me general advice; he created a special diet and taught me specific Vedic Pranayama just for my condition. It’s like a miracle—I’m finally off the inhaler for good! Before this, he also helped me completely get over my claustrophobia with just one technique. I used to be so nervous in front of my boss, but his spiritual therapy gave me the confidence to lead my own team meetings now. If you're tired of pills and want a therapist who actually understands how the body works, you have to talk to Kaptan sir.",
-    result: "Claustrophobia fully resolved, asthma inhaler use reduced by 75%",
+      `Everything changed when I met Kaptan Singh Choudhary. Instead of giving generic advice, he designed a personalized lifestyle and guided me through specific Vedic Pranayama tailored to my condition. After struggling with chronic asthma for 15 years, I’ve now completely come off inhalers—it honestly feels like a miracle. He also helped me overcome claustrophobia with a single powerful technique, something I never thought was possible. Earlier, I used to feel extremely nervous even speaking in front of my boss, but through his spiritual therapy and methodical approach, I’ve gained the confidence to lead my own team meetings with clarity and control. Today, I’m free from pills, physically stronger, and mentally sharper. If you’re tired of depending on medications and want someone who truly understands how the body and mind work together, Kaptan sir is the person to trust.`,
+    result: "Claustrophobia fully resolved, 100% recovery from asthma",
     quote: "I’ve been dealing with chronic asthma since 2007. I tried everything—Allopathy, Homeopathy, even different Ayurveda doctors—but I was still stuck using my inhaler every day. I even joined yoga groups, but nothing really stuck.",
     closeQuote: "A real expert in technical, medicine-free healing. He understood my body better than I did — and he gave it back to me.",
     startingPoints: [

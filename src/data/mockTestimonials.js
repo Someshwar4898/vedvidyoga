@@ -68,7 +68,7 @@ const testimonials = [
     name: "Ravinder Singh Kalsi",
     designation: "Scientific Officer, Govt. IT Office, Jaipur",
     content:
-      "His methodical Vedic Pranayama cured my claustrophobia and reduced my asthma inhaler use by 75%. A real expert in technical, medicine-free healing.",
+      "His methodical Vedic Pranayama cured my claustrophobia and reduced my asthma inhaler use by 100%. A real expert in technical, medicine-free healing.",
     avatar: null,
   }
 ];
