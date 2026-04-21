@@ -1,3 +1,7 @@
+# Claude AI files
+CLAUDE.md
+.claude/
+
 # Environment variables (never commit secrets)
 .env
 .env.local
