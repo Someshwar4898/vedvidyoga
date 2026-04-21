@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+"use client";
+import Link from "next/link";
 import {
   ScrollText,
   Library,
@@ -58,7 +59,7 @@ function HomeCategories() {
               return (
                 <Link
                   key={cat.slug}
-                  to={`/${cat.slug}`}
+                  href={`/${cat.slug}`}
                   className="rounded-[1.5rem] border border-[#f0e3d3] bg-[#ffffff] dark:bg-stone-800 dark:border-stone-700 p-5 text-left shadow-sm transition hover:-translate-y-1 hover:border-[#f6d7b3] hover:shadow-[0_18px_40px_rgba(102,74,44,0.08)] block"
                 >
                   <Icon className="mb-3 text-saffron" size={20} />

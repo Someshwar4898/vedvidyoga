@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import authorImg from "../assets/author_image.webp";
+import Link from "next/link";
 
 function AboutAuthor() {
   return (
@@ -8,7 +7,7 @@ function AboutAuthor() {
       {/* Left: author photo */}
       <div className="overflow-hidden rounded-[1.75rem] w-full md:w-[280px] h-[320px] shrink-0 border-2 border-saffron/30 dark:border-saffron/20">
         <img
-          src={authorImg}
+          src="/assets/author_image.webp"
           alt="Kaptan Singh Choudhary (Kapil)"
           className="h-full w-full object-cover object-top"
         />
@@ -33,7 +32,7 @@ function AboutAuthor() {
         </p>
 
         <p className="text-sm leading-7 text-stone-600 dark:text-stone-400">
-          His life’s work is rooted in independent research into Vedic spirituality and specific techniques of healing. Through VedVidYoga, he merges his clinical experience in Naturopathy and Ayurveda to restore health and purpose without drugs. His methodical approach transforms how individuals behave toward themselves and others, using the scientific depth of ancient traditions to simplify the path to the Almighty.
+          His life's work is rooted in independent research into Vedic spirituality and specific techniques of healing. Through VedVidYoga, he merges his clinical experience in Naturopathy and Ayurveda to restore health and purpose without drugs. His methodical approach transforms how individuals behave toward themselves and others, using the scientific depth of ancient traditions to simplify the path to the Almighty.
         </p>
 
         {/* Experience highlight */}
@@ -60,19 +59,19 @@ function AboutAuthor() {
         {/* Links row */}
         <div className="flex flex-wrap gap-3 pt-2">
           <Link
-            to="/contact"
+            href="/contact"
             className="inline-flex items-center gap-2 rounded-full border border-[#eadbc7] dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-2 text-xs font-medium text-stone-600 dark:text-stone-300 hover:border-saffron/50 hover:bg-saffron-light hover:text-saffron dark:hover:bg-stone-700 dark:hover:border-saffron/30 dark:hover:text-saffron transition"
           >
             ✉ Contact
           </Link>
           <Link
-            to="/blog"
+            href="/blog"
             className="inline-flex items-center gap-2 rounded-full border border-[#eadbc7] dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-2 text-xs font-medium text-stone-600 dark:text-stone-300 hover:border-saffron/50 hover:bg-saffron-light hover:text-saffron dark:hover:bg-stone-700 dark:hover:border-saffron/30 dark:hover:text-saffron transition"
           >
             ✍ All Articles
           </Link>
           <Link
-            to="/about"
+            href="/about"
             className="inline-flex items-center gap-2 rounded-full border border-[#eadbc7] dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-2 text-xs font-medium text-stone-600 dark:text-stone-300 hover:border-saffron/50 hover:bg-saffron-light hover:text-saffron dark:hover:bg-stone-700 dark:hover:border-saffron/30 dark:hover:text-saffron transition"
           >
             📖 About Page

@@ -1,3 +1,4 @@
+"use client";
 import { useState, useEffect } from "react";
 import { Flame } from "lucide-react";
 import PostCard from "./PostCard";

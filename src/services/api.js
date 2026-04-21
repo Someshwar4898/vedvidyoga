@@ -1,5 +1,5 @@
 // WordPress REST API — no auth needed for public posts and categories
-const BASE = import.meta.env.VITE_WP_API_URL ?? "https://api.vedvidyoga.com";
+const BASE = process.env.NEXT_PUBLIC_WP_API_URL ?? "https://api.vedvidyoga.com";
 export const API = `${BASE.replace(/\/+$/g, "")}/wp-json/wp/v2`;
 
 export const isWPConnected = () => Boolean(BASE);
