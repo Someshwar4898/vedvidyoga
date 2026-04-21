@@ -17,7 +17,7 @@
 
 import { useEffect } from "react";
 
-const BASE = import.meta.env.VITE_WP_API_URL ?? "";
+const BASE = process.env.NEXT_PUBLIC_WP_API_URL ?? "";
 
 // Style IDs we want to harvest from WordPress's HTML output.
 // WordPress outputs these as <style id="..."> in the <head>.
@@ -101,7 +101,7 @@ export function useWPStyles(postId) {
   useEffect(() => {
     if (!BASE || !postId) return;
 
-    const url = `${BASE}/wp-json/wp/v2/posts/${postId}?_embed`;
+    const url = `${BASE}/?p=${postId}`;
     harvestStylesFromURL(url).then(injectStyles);
   }, [postId]);
 }

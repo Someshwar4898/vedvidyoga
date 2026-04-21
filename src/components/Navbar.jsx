@@ -1,9 +1,10 @@
-import { Link, useLocation } from "react-router-dom";
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { ChevronDown, ChevronRight, ArrowRight, Search, Menu, X } from "lucide-react";
 import SearchModal from "./SearchModal";
 import CategoryName from "./CategoryName";
-import logo from "../assets/vedvidyoga-logo.webp";
 import { useCategories } from "../hooks/useCategories";
 
 function Navbar() {
@@ -13,9 +14,9 @@ function Navbar() {
   const [mobileExpandedCat, setMobileExpandedCat] = useState(null);
   const [hoveredCat, setHoveredCat] = useState(null);
   const [desktopBlogOpen, setDesktopBlogOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => pathname === path;
   const { categories, loading: categoriesLoading } = useCategories();
 
   // Lock body scroll when mobile menu is open
@@ -29,7 +30,7 @@ function Navbar() {
     setMobileOpen(false);
     setMobileBlogOpen(false);
     setMobileExpandedCat(null);
-  }, [location.pathname]);
+  }, [pathname]);
 
   // Close everything at once
   function closeMobileMenu() {
@@ -45,18 +46,18 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between py-2">
 
         {/* Logo */}
-        <Link to="/" onClick={mobileOpen ? closeMobileMenu : undefined} className="flex items-center gap-3">
-          <img src={logo} alt="VedVidYoga" className="h-12" />
+        <Link href="/" onClick={mobileOpen ? closeMobileMenu : undefined} className="flex items-center gap-3">
+          <img src="/vedvidyoga-logo.webp" alt="VedVidYoga" className="h-12" />
           <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-[#b96a1b] via-[#f28c28] to-[#e67d17] bg-clip-text text-transparent">VedVidYoga</span>
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-8">
-          <Link to="/" className={`text-sm font-medium transition ${isActive("/") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>
+          <Link href="/" className={`text-sm font-medium transition ${isActive("/") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>
             Home
           </Link>
-          <Link to="/about" className={`text-sm font-medium transition ${isActive("/about") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>About Us</Link>
-          <Link to="/case-studies" className={`text-sm font-medium transition ${isActive("/case-studies") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>Case Studies</Link>
+          <Link href="/about" className={`text-sm font-medium transition ${isActive("/about") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>About Us</Link>
+          <Link href="/case-studies" className={`text-sm font-medium transition ${isActive("/case-studies") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>Case Studies</Link>
           {/* Blog mega dropdown */}
           <div
             className="relative"
@@ -79,7 +80,7 @@ function Navbar() {
                 {/* Left panel — category list */}
                 <div className="w-56 border-r border-[#f3e7d8] dark:border-stone-700 pr-3 flex flex-col">
                   <Link
-                    to="/blog"
+                    href="/blog"
                     onMouseEnter={() => setHoveredCat(null)}
                     className="mb-2 flex shrink-0 w-full items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium text-stone-700 dark:text-stone-100 hover:bg-saffron-light hover:text-saffron dark:hover:bg-stone-800 transition"
                   >
@@ -90,7 +91,7 @@ function Navbar() {
                     {categories.map((cat) => (
                       <Link
                         key={cat.slug}
-                        to={`/${cat.slug}`}
+                        href={`/${cat.slug}`}
                         onMouseEnter={() => setHoveredCat(cat.slug)}
                         className={`flex w-full items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium transition ${
                           hoveredCat === cat.slug
@@ -115,7 +116,7 @@ function Navbar() {
                         {activeCatData.subcategories.map((sub) => (
                           <Link
                             key={sub.slug}
-                            to={`/${activeCatData.slug}/${sub.slug}`}
+                            href={`/${activeCatData.slug}/${sub.slug}`}
                             className="block rounded-2xl px-3 py-3 text-sm text-stone-700 dark:text-stone-100 hover:bg-saffron-light hover:text-saffron dark:hover:bg-stone-800 transition"
                           >
                             <span className="block font-medium"><CategoryName name={sub.name} slug={sub.slug} /></span>
@@ -130,10 +131,10 @@ function Navbar() {
                     </>
                   ) : (
                     <>
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-saffron-muted">Editorial Structure</p>
-                      <h3 className="mt-3 text-xl font-semibold text-stone-900 dark:text-stone-100 leading-snug">Every blog view keeps the same clean flow</h3>
+                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-saffron-muted">KNOWLEDGE LIBRARY</p>
+                      <h3 className="mt-3 text-xl font-semibold text-stone-900 dark:text-stone-100 leading-snug">Explore everything in one seamless space</h3>
                       <p className="mt-3 text-sm leading-7 text-stone-600 dark:text-stone-400">
-                        Hover a category to explore its subcategories and navigate directly to the content you want.
+                        Browse across all categories without switching views. Discover insights from Ayurveda, Yoga, and ancient wisdom—all organized for a smooth reading experience.
                       </p>
                     </>
                   )}
@@ -144,7 +145,7 @@ function Navbar() {
           </div>
 
 
-          <Link to="/contact" className={`text-sm font-medium transition ${isActive("/contact") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>Contact Us</Link>
+          <Link href="/contact" className={`text-sm font-medium transition ${isActive("/contact") ? "text-saffron" : "text-stone-700 dark:text-stone-100 hover:text-saffron"}`}>Contact Us</Link>
         </div>
 
         {/* Search + hamburger */}
@@ -168,9 +169,9 @@ function Navbar() {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-[#eadbc7] dark:border-stone-800 px-5 py-4 space-y-2 overflow-y-auto max-h-[calc(100dvh-64px)]">
-          <Link to="/" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Home</Link>
-          <Link to="/about" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">About Us</Link>
-          <Link to="/case-studies" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Case Studies</Link>
+          <Link href="/" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Home</Link>
+          <Link href="/about" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">About Us</Link>
+          <Link href="/case-studies" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Case Studies</Link>
 
           <button
             onClick={() => setMobileBlogOpen((v) => !v)}
@@ -181,7 +182,7 @@ function Navbar() {
 
           {mobileBlogOpen && (
             <div className="space-y-2 rounded-[1.5rem] border border-[#f0e3d3] bg-[#fffdf9] dark:bg-stone-900 dark:border-stone-800 p-3">
-              <Link to="/blog" onClick={closeMobileMenu} className="block rounded-2xl px-4 py-3 text-sm font-medium text-stone-600 dark:text-stone-200 hover:bg-saffron-light hover:text-saffron dark:hover:bg-stone-800 transition">All Blogs</Link>
+              <Link href="/blog" onClick={closeMobileMenu} className="block rounded-2xl px-4 py-3 text-sm font-medium text-stone-600 dark:text-stone-200 hover:bg-saffron-light hover:text-saffron dark:hover:bg-stone-800 transition">All Blogs</Link>
               {categoriesLoading ? (
                 <p className="px-4 py-3 text-sm text-stone-400 dark:text-stone-500">Loading categories…</p>
               ) : categories.map((cat) => (
@@ -189,7 +190,7 @@ function Navbar() {
                   {/* Row: tapping the name navigates; tapping the chevron expands */}
                   <div className="flex w-full items-center justify-between rounded-xl px-3 py-2">
                     <Link
-                      to={`/${cat.slug}`}
+                      href={`/${cat.slug}`}
                       onClick={closeMobileMenu}
                       className="flex-1 text-sm font-medium text-stone-700 dark:text-stone-100"
                     >
@@ -207,7 +208,7 @@ function Navbar() {
                       {cat.subcategories.map((sub) => (
                         <Link
                           key={sub.slug}
-                          to={`/${cat.slug}/${sub.slug}`}
+                          href={`/${cat.slug}/${sub.slug}`}
                           onClick={closeMobileMenu}
                           className="block rounded-2xl px-4 py-2.5 text-sm text-stone-600 dark:text-stone-200 hover:bg-saffron-light hover:text-saffron dark:hover:bg-stone-800 transition"
                         >
@@ -222,8 +223,8 @@ function Navbar() {
             </div>
           )}
 
-          <Link to="/contact" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Contact Us</Link>
-          <Link to="/privacy" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Privacy Policy</Link>
+          <Link href="/contact" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Contact Us</Link>
+          <Link href="/privacy" onClick={closeMobileMenu} className="block rounded-2xl border border-[#f0e3d3] bg-white dark:bg-stone-900 dark:border-stone-800 dark:text-stone-100 px-4 py-3 text-sm font-medium text-stone-700">Privacy Policy</Link>
         </div>
       )}
     </nav>

@@ -1,4 +1,4 @@
-const BASE = import.meta.env.VITE_WP_API_URL ?? "";
+const BASE = process.env.NEXT_PUBLIC_WP_API_URL ?? "";
 
 // Increment the Post Views Counter for a given post ID.
 // Fires on every page load — no deduplication.

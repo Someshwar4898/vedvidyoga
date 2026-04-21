@@ -1,5 +1,6 @@
+"use client";
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { Search, X } from "lucide-react";
 import { usePosts } from "../hooks/usePosts";
 import { useCategories } from "../hooks/useCategories";
@@ -7,7 +8,7 @@ import { useCategories } from "../hooks/useCategories";
 function SearchModal({ onClose }) {
   const [query, setQuery] = useState("");
   const inputRef = useRef(null);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const { posts } = usePosts();
   const { categories } = useCategories();
@@ -41,7 +42,7 @@ function SearchModal({ onClose }) {
   const hasResults = matchedPosts.length > 0 || matchedCategories.length > 0 || matchedSubcategories.length > 0;
 
   function go(path) {
-    navigate(path);
+    router.push(path);
     onClose();
   }
 

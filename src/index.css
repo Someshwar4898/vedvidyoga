@@ -29,13 +29,18 @@ html {
 }
 
 /* ── Logo loader ─────────────────────────────────────────────────────────────
-   Flips the logo left → right while fading it in and out */
+   Flips the logo left → right while fading, then pulses the dots */
 @keyframes logo-flip-fade {
-  0%   { opacity: 0.2; transform: scaleX(1);    }
-  25%  { opacity: 1;   transform: scaleX(1);    }
-  50%  { opacity: 1;   transform: scaleX(-1);   }
-  75%  { opacity: 1;   transform: scaleX(-1);   }
-  100% { opacity: 0.2; transform: scaleX(1);    }
+  0%   { opacity: 0.15; transform: scaleX(1);  }
+  25%  { opacity: 1;    transform: scaleX(1);  }
+  50%  { opacity: 1;    transform: scaleX(-1); }
+  75%  { opacity: 1;    transform: scaleX(-1); }
+  100% { opacity: 0.15; transform: scaleX(1);  }
+}
+
+@keyframes loader-dot {
+  0%, 80%, 100% { transform: scale(0.6); opacity: 0.3; }
+  40%           { transform: scale(1);   opacity: 1;   }
 }
 
 .logo-loader {

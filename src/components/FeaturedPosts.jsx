@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { BookmarkCheck } from "lucide-react";
 import PostCard from "./PostCard";
 
@@ -23,7 +23,7 @@ function FeaturedPosts({ posts, loading }) {
           </p>
         </div>
         <Link
-          to="/blog"
+          href="/blog"
           className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-saffron hover:text-saffron-muted transition shrink-0"
         >
           View all →

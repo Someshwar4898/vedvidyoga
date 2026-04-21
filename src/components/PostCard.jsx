@@ -1,4 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+"use client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowRight, Eye } from "lucide-react";
 
 function formatViews(n) {
@@ -8,14 +10,14 @@ function formatViews(n) {
 }
 
 function PostCard({ post, onPostClick }) {
-  const navigate = useNavigate();
+  const router = useRouter();
   const url = post.subcategorySlug
     ? `/${post.categorySlug}/${post.subcategorySlug}/${post.slug}`
     : `/post/${post.slug}`;
 
   function handleCardClick() {
     onPostClick(post.slug);
-    navigate(url);
+    router.push(url);
   }
 
   return (
@@ -48,14 +50,14 @@ function PostCard({ post, onPostClick }) {
         {/* Category + subcategory pills */}
         <div className="mb-4 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em]">
           <Link
-            to={`/${post.categorySlug}`}
+            href={`/${post.categorySlug}`}
             onClick={(e) => e.stopPropagation()}
             className="rounded-full bg-saffron-pill dark:bg-stone-800 dark:text-saffron px-3 py-1.5 text-saffron-muted hover:bg-saffron hover:text-white transition"
           >
             {post.categoryName}
           </Link>
           <Link
-            to={`/${post.categorySlug}/${post.subcategorySlug}`}
+            href={`/${post.categorySlug}/${post.subcategorySlug}`}
             onClick={(e) => e.stopPropagation()}
             className="rounded-full bg-sub-pill dark:bg-stone-800 dark:text-stone-400 dark:hover:bg-stone-700 dark:hover:text-stone-200 px-3 py-1.5 text-stone-500 hover:bg-stone-200 hover:text-stone-700 transition"
           >
