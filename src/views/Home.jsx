@@ -49,12 +49,6 @@ function Home() {
               Explore all blogs <ArrowRight size={16} />
             </Link>
             <Link
-              href="/vedas"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#eadbc7] bg-white dark:bg-stone-900 dark:border-stone-700 dark:text-stone-300 px-6 py-3.5 text-sm font-semibold text-stone-700 hover:border-saffron/40 hover:text-saffron transition"
-            >
-              Start with Vedas
-            </Link>
-            <Link
               href="/case-studies"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-[#eadbc7] bg-white dark:bg-stone-900 dark:border-stone-700 dark:text-stone-300 px-6 py-3.5 text-sm font-semibold text-stone-700 hover:border-saffron/40 hover:text-saffron transition"
             >

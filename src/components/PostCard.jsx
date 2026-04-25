@@ -76,9 +76,9 @@ function PostCard({ post, onPostClick }) {
         </p>
 
         {/* Author + views */}
-        <div className="mt-5 flex items-center justify-between text-sm text-stone-500 dark:text-stone-500">
-          <span>{post.author}</span>
-          <span className="inline-flex items-center gap-1.5">
+        <div className="mt-5 flex items-center justify-between gap-3 text-sm text-stone-500 dark:text-stone-500">
+          <span className="min-w-0 truncate">{post.author}</span>
+          <span className="shrink-0 inline-flex items-center gap-1.5">
             <Eye size={13} />
             {post.views != null ? formatViews(post.views) : "—"}
           </span>

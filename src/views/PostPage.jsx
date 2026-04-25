@@ -7,6 +7,10 @@ import { usePosts } from "../hooks/usePosts";
 import { useWPStyles } from "../hooks/useWPStyles";
 import LogoLoader from "../components/LogoLoader";
 import RelatedPosts from "../components/RelatedPosts";
+import TableOfContents, { injectHeadingIds } from "../components/TableOfContents";
+import PostFAQ from "../components/PostFAQ";
+import PostDisclaimer from "../components/PostDisclaimer";
+import PostAuthorCard from "../components/PostAuthorCard";
 import { incrementPostView } from "../services/views";
 
 function formatViews(n) {
@@ -93,11 +97,14 @@ function PostPage() {
           </div>
         )}
 
+        {/* Table of Contents — auto-parsed from post headings */}
+        {post.content && <TableOfContents content={post.content} />}
+
         {/* Body — WP HTML content or placeholder */}
         {post.content ? (
           <div
             className="wp-content post-content entry-content"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: injectHeadingIds(post.content) }}
           />
         ) : (
           <div className="space-y-6 text-stone-700 dark:text-stone-300 leading-8">
@@ -110,6 +117,15 @@ function PostPage() {
             </p>
           </div>
         )}
+
+        {/* About the Author — static, shown on every post */}
+        <PostAuthorCard />
+
+        {/* Disclaimer — from ACF textarea on the blog post */}
+        <PostDisclaimer content={post.disclaimer} />
+
+        {/* FAQs — parsed from ACF textarea on the blog post */}
+        <PostFAQ raw={post.faqs} />
 
         {/* Related posts — passes all WP category IDs so both category and subcategory matches are included */}
         <RelatedPosts

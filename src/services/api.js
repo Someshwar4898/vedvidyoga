@@ -143,6 +143,8 @@ function mapPost(wp, catMap) {
     categoryName:    catName,
     subcategorySlug: subSlug,
     subcategoryName: subName,
+    faqs:            wp.acf?.faqs || "",
+    disclaimer:      wp.acf?.disclaimer || "",
   };
 }
 

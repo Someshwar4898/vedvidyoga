@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/vedvidyoga-logo.webp" type="image/webp" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
