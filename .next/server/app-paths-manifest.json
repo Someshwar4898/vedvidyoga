@@ -1,8 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/privacy/page": "app/privacy/page.js",
-  "/medical-disclaimer/page": "app/medical-disclaimer/page.js",
-  "/case-studies/page": "app/case-studies/page.js",
-  "/case-studies/[slug]/page": "app/case-studies/[slug]/page.js",
-  "/contact/page": "app/contact/page.js"
-}
