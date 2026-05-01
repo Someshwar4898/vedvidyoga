@@ -31,7 +31,7 @@ function PostCard({ post, onPostClick }) {
         {post.image ? (
           <img
             src={post.image}
-            alt={post.title}
+            alt={post.imageAlt || post.title}
             className="h-56 w-full object-cover transition duration-500 group-hover:scale-105"
             onError={(e) => {
               e.currentTarget.onerror = null;

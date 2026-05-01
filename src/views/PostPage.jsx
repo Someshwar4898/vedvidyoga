@@ -93,7 +93,7 @@ function PostPage() {
         {/* Hero image — WordPress featured image */}
         {post.image && (
           <div className="rounded-[1.75rem] overflow-hidden mb-12">
-            <img src={post.image} alt={post.title} className="w-full" />
+            <img src={post.image} alt={post.imageAlt || post.title} className="w-full" />
           </div>
         )}
 

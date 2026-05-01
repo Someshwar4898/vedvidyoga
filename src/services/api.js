@@ -133,6 +133,7 @@ function mapPost(wp, catMap) {
     excerpt:         (wp.excerpt?.rendered ?? "").replace(/<[^>]+>/g, "").trim(),
     content:         wp.content?.rendered ?? "",
     image:           wp._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? null,
+    imageAlt:        wp._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || null,
     author:          wp._embedded?.author?.[0]?.name ?? "Author",
     date:            new Date(wp.date).toLocaleDateString("en-GB", { day:"2-digit", month:"short", year:"numeric" }),
     readTime:        `${Math.max(1, Math.ceil((wp.content?.rendered ?? "").replace(/<[^>]+>/g,"").split(/\s+/).length / 200))} min read`,
