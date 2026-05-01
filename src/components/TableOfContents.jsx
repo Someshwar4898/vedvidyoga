@@ -27,6 +27,34 @@ export function extractHeadings(html) {
   return headings;
 }
 
+function parseRankMathLinks(tocHtml) {
+  const headings = [];
+  const regex = /(<ul>|<\/ul>|<a[^>]+href="([^"]*)"[^>]*>([\s\S]*?)<\/a>)/gi;
+  let depth = 0;
+  let m;
+  while ((m = regex.exec(tocHtml)) !== null) {
+    if (m[1].toLowerCase() === "<ul>") { depth++; }
+    else if (m[1].toLowerCase() === "</ul>") { depth--; }
+    else if (m[2]) {
+      const id = m[2].replace(/^#/, "");
+      const text = decodeEntities(m[3].replace(/<[^>]+>/g, "").trim());
+      if (text) headings.push({ level: depth <= 1 ? 2 : 3, text, id });
+    }
+  }
+  return headings;
+}
+
+export function extractRankMathTOC(content) {
+  if (!content.includes("wp-block-rank-math-toc-block")) {
+    return { headings: null, cleanContent: content };
+  }
+  const match = content.match(/<div[^>]*wp-block-rank-math-toc-block[^>]*>[\s\S]*?<\/nav>\s*<\/div>/i);
+  if (!match) return { headings: null, cleanContent: content };
+  const headings = parseRankMathLinks(match[0]);
+  const cleanContent = content.replace(match[0], "").trim();
+  return { headings: headings.length >= 2 ? headings : null, cleanContent };
+}
+
 // Injects id attributes into h2/h3 tags so TOC anchor links work.
 // Strips any existing id to avoid duplicates.
 export function injectHeadingIds(html) {
@@ -39,9 +67,9 @@ export function injectHeadingIds(html) {
   });
 }
 
-function TableOfContents({ content }) {
+function TableOfContents({ content, headings: headingsProp }) {
   const [open, setOpen] = useState(true);
-  const headings = extractHeadings(content);
+  const headings = headingsProp ?? extractHeadings(content ?? "");
 
   if (headings.length < 2) return null;
 

@@ -7,7 +7,7 @@ import { usePosts } from "../hooks/usePosts";
 import { useWPStyles } from "../hooks/useWPStyles";
 import LogoLoader from "../components/LogoLoader";
 import RelatedPosts from "../components/RelatedPosts";
-import TableOfContents, { injectHeadingIds } from "../components/TableOfContents";
+import TableOfContents, { injectHeadingIds, extractRankMathTOC } from "../components/TableOfContents";
 import PostFAQ from "../components/PostFAQ";
 import PostDisclaimer from "../components/PostDisclaimer";
 import PostAuthorCard from "../components/PostAuthorCard";
@@ -24,6 +24,9 @@ function PostPage() {
   const { posts, loading } = usePosts();
 
   const post = posts.find((p) => p.slug === slug);
+  const { headings: rankMathHeadings, cleanContent } = post?.content
+    ? extractRankMathTOC(post.content)
+    : { headings: null, cleanContent: "" };
 
   // Harvest WordPress's generated <style> tags (global styles CSS variables,
   // per-block styles, etc.) and inject them into the React <head>.
@@ -97,14 +100,21 @@ function PostPage() {
           </div>
         )}
 
-        {/* Table of Contents — auto-parsed from post headings */}
-        {post.content && <TableOfContents content={post.content} />}
+        {/* Table of Contents — RankMath headings if block found, else auto-parsed */}
+        {rankMathHeadings
+          ? <TableOfContents headings={rankMathHeadings} />
+          : post.content && <TableOfContents content={post.content} />
+        }
 
-        {/* Body — WP HTML content or placeholder */}
+        {/* Body — RankMath: stripped clean content; otherwise inject heading IDs for anchor links */}
         {post.content ? (
           <div
             className="wp-content post-content entry-content"
-            dangerouslySetInnerHTML={{ __html: injectHeadingIds(post.content) }}
+            dangerouslySetInnerHTML={{
+              __html: rankMathHeadings
+                ? cleanContent
+                : injectHeadingIds(post.content),
+            }}
           />
         ) : (
           <div className="space-y-6 text-stone-700 dark:text-stone-300 leading-8">
