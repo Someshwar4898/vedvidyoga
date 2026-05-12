@@ -4,3 +4,11 @@ dist
 .gitignore
 *.md
 .env*
+.next
+build
+Dockerfile
+README.md
+.vscode
+.env
+.env.local
+npm-debug.log

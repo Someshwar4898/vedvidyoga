@@ -1,6 +1,18 @@
 # Claude AI files
 CLAUDE.md
 .claude/
+# production build
+.next
+dist
+build
+out
+
+# cache
+.cache
+.eslintcache
+
+# temporary
+*.tmp
 
 # Environment variables (never commit secrets)
 .env
@@ -8,6 +20,8 @@ CLAUDE.md
 .env.*.local
 .env.development
 .env.production
+.env.development.local
+.env.production.local
 
 # Logs
 logs
@@ -33,6 +47,7 @@ out/
 .claude
 .idea
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
