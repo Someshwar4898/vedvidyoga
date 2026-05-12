@@ -131,6 +131,11 @@ function Home() {
       {/* ── NEWSLETTER ───────────────────────────────────────────── */}
       <Newsletter />
 
+      {/* ── Copyrights ─────────────────────────────────────────────────── */}
+      <div className="trademark">
+        
+      </div>
+
     </div>
   );
 }

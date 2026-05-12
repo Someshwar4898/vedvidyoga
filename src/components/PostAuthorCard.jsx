@@ -2,7 +2,7 @@ import { UserCircle } from "lucide-react";
 
 function PostAuthorCard() {
   return (
-    <section className="rounded-[2rem] border border-[#f0e3d3] dark:border-stone-700 bg-white/80 dark:bg-stone-900/80 p-6 sm:p-8 shadow-[0_20px_60px_rgba(102,74,44,0.08)] mt-16">
+    <section className="rounded-4xl border border-border-mid  dark:border-stone-700 bg-white/80 dark:bg-stone-900/80 p-6 sm:p-8 shadow-[0_20px_60px_rgba(102,74,44,0.08)] mt-16">
       <div className="mb-5 inline-flex items-center gap-2 text-saffron-muted">
         <UserCircle size={18} />
         <p className="text-sm font-semibold uppercase tracking-[0.24em]">About the Author</p>
