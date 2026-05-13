@@ -3,6 +3,7 @@ import Navbar from "../src/components/Navbar";
 import Footer from "../src/components/Footer";
 import ThemeToggle from "../src/components/ThemeToggle";
 import ScrollToTop from "../src/components/ScrollToTop";
+import script from "next/script";
 
 export const metadata = {
   title: "VedVidYoga",
@@ -29,6 +30,15 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://api.vedvidyoga.com/wp-includes/css/dist/block-library/theme.min.css"
         />
+        {/* <!-- Google Tag Manager --> */}
+          <script>
+           {` (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MXLGGKD7'); `}
+          </script>
+        {/* <!-- End Google Tag Manager --> */}
         <script
           dangerouslySetInnerHTML={{
             __html: `if(localStorage.getItem('theme')==='dark'){document.documentElement.classList.add('dark')}`,
@@ -36,6 +46,12 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        {/* <!-- Google Tag Manager (noscript) --> */}
+          <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MXLGGKD7"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+          </noscript>
+        {/* <!-- End Google Tag Manager (noscript) --> */}
         <ScrollToTop />
         <Navbar />
         {children}
