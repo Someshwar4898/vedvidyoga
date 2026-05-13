@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const config = {
-  siteUrl: "https://yourdomain.com",
+  siteUrl: "https://vedvidyoga.com",
   generateRobotsTxt: true,
 };
 
