@@ -1,6 +1,7 @@
 # *
 User-agent: *
-Disallow: /*?v
+Allow: /
+
 # Host
 Host: https://vedvidyoga.com
 

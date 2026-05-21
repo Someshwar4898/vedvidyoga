@@ -8,6 +8,22 @@ const nextConfig = {
       },
     ],
   },
+
+  async redirects() {
+    return [
+      {
+        source: "/",
+        has: [
+          {
+            type: "query",
+            key: "v",
+          },
+        ],
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

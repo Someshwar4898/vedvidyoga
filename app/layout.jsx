@@ -9,6 +9,10 @@ export const metadata = {
   title: "VedVidYoga",
   description:
     "Understanding Vedic Cult: A Scientific Perspective — Vedas, Upanishads, Ayurveda, and Yoga explained with logic and clarity.",
+  metadataBase: new URL("https://vedvidyoga.com"),
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({ children }) {

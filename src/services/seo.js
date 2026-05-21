@@ -84,6 +84,9 @@ export async function getPostPageMeta(slug) {
     canonical:   wpData.link,
     image:       wpData.image,
     type:        "article",
+    alternates: {
+      canonical: `https://vedvidyoga.com/post/${slug}`,
+    },
   });
 }
 
