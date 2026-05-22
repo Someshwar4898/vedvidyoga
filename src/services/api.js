@@ -137,7 +137,7 @@ function mapPost(wp, catMap) {
     author:          wp._embedded?.author?.[0]?.name ?? "Author",
     date:            new Date(wp.date).toLocaleDateString("en-GB", { day:"2-digit", month:"short", year:"numeric" }),
     readTime:        `${Math.max(1, Math.ceil((wp.content?.rendered ?? "").replace(/<[^>]+>/g,"").split(/\s+/).length / 200))} min read`,
-    views:           wp.meta?.post_views_count ?? wp.meta?.["_post_views_count"] ?? null,
+    views: Number(wp.post_views_count) || 0,
     categoryIds: wp.categories,
     featured:        tags.includes("featured"),
     categorySlug:    catSlug || "uncategorized",
@@ -164,7 +164,7 @@ export async function getTrendingPosts() {
   return data
     .map(p => ({
       ...mapPost(p, catMap),
-      views: p.meta?.post_views_count ?? 0,
+      views: Number(p.post_views_count) || 0,
     }))
     .sort((a, b) => b.views - a.views)
     .slice(0, 4);

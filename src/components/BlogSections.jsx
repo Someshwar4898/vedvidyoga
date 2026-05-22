@@ -2,7 +2,9 @@
 import { useState } from "react";
 import PostCard from "./PostCard";
 
-const CLICKS_KEY = "adishiv_post_clicks";
+const CLICKS_KEY = "vedvidyoga_post_clicks";
+const INITIAL_VISIBLE = 6;
+
 
 function getClickCounts() {
   try {
@@ -40,6 +42,18 @@ const sectionConfig = [
 function BlogSections({ posts, label = "All Blogs" }) {
   // forceUpdate triggers re-render so trending re-sorts after a click
   const [, forceUpdate] = useState(0);
+  const [visibleCounts, setVisibleCounts] = useState({
+    featured: INITIAL_VISIBLE,
+    trending: INITIAL_VISIBLE,
+    latest: INITIAL_VISIBLE,
+  });
+
+  function showMore(sectionKey) {
+    setVisibleCounts((prev) => ({
+      ...prev,
+      [sectionKey]: prev[sectionKey] + 6,
+    }));
+  }
 
   function handlePostClick(slug) {
     const counts = getClickCounts();
@@ -56,23 +70,24 @@ function BlogSections({ posts, label = "All Blogs" }) {
   // Trending: all posts in scope sorted by click count descending
   const trending = [...posts]
     .sort((a, b) => (clickCounts[b.slug] ?? 0) - (clickCounts[a.slug] ?? 0))
-    .slice(0, 6);
 
   // Latest: all posts in scope sorted by publish date descending
   const latest = [...posts]
     .sort((a, b) => parseDate(b.date) - parseDate(a.date))
-    .slice(0, 6);
 
   const sections = [
     { config: sectionConfig[0], items: featured },
     { config: sectionConfig[1], items: trending },
     { config: sectionConfig[2], items: latest },
-  ];
+  ];    
 
   return (
     <div className="space-y-10 md:space-y-14">
       {sections.map(({ config, items }) => {
+        
         if (items.length === 0) return null;
+        const visibleItems = items.slice(0, visibleCounts[config.key]);
+        const hasMore = visibleItems.length < items.length;
 
         return (
           <section key={config.key} className="space-y-6">
@@ -94,7 +109,7 @@ function BlogSections({ posts, label = "All Blogs" }) {
 
             {/* Cards */}
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {items.map((post) => (
+              {visibleItems.map((post) => (
                 <PostCard
                   key={`${config.key}-${post.id}`}
                   post={post}
@@ -102,6 +117,18 @@ function BlogSections({ posts, label = "All Blogs" }) {
                 />
               ))}
             </div>
+
+            {/* Show More button */}
+            {hasMore && (
+              <div className="flex justify-center pt-2">
+                <button
+                  onClick={() => showMore(config.key)}
+                  className="rounded-full border border-saffron px-6 py-3 text-sm font-semibold text-saffron hover:bg-saffron hover:text-white transition cursor-pointer"
+                >
+                  Show More
+                </button>
+              </div>
+            )}
 
           </section>
         );

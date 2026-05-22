@@ -10,25 +10,25 @@
 
 ---
 
+> Note: The canonical site is implemented with Next.js inside the `app/` directory. The `src/` folder contains a component library and legacy/local-development React entrypoints (`App.jsx`, `main.jsx`). Use `app/` for routing and production pages.
+
 ## 🛠 Technology Stack
 
-### Frontend Framework
-- **Framework**: Next.js 16.2.4
-- **React Version**: 19.2.5
-- **Styling**: Tailwind CSS 4.2.4 with PostCSS
-- **UI Icons**: Lucide React 1.9.0
-- **Build Tool**: Vite (originally), now Next.js
+### Frontend
+- **Framework**: Next.js (app router) with React
+- **Styling**: Tailwind CSS via PostCSS (configured in `postcss.config.mjs`)
+- **UI Icons**: Lucide React (used in components)
 
-### Backend Integration
-- **CMS**: WordPress with REST API
+### Backend & Integrations
+- **CMS**: WordPress (headless) via REST API
 - **API Base**: `NEXT_PUBLIC_WP_API_URL` (environment variable)
-- **SEO Plugin**: RankMath (for headless SEO optimization)
-- **Analytics**: Post Views Counter plugin
+- **SEO**: RankMath integration (RankMath data used when available)
+- **Analytics**: Post Views Counter (optional WP plugin integration)
 
 ### Development Tools
-- **Linting**: ESLint 9.39.4 with Next.js config
-- **Font Loading**: Google Fonts (Inter family)
-- **CSS Libraries**: Block library styles from WordPress
+- **Linting**: ESLint with project config (`eslint.config.js`)
+- **Fonts**: Google Fonts (Inter)
+- **Build**: Next.js build system and tooling
 
 ---
 
@@ -56,19 +56,20 @@ NEXT.Blog/
 ├── src/
 │   ├── components/              # Reusable React components
 │   ├── views/                   # Page-level view components
-│   ├── services/                # API & external services
+│   ├── lib/
+│   │   └── services/            # API & external services (e.g. `src/lib/services/api.js`)
 │   ├── hooks/                   # Custom React hooks
 │   ├── utils/                   # Utility functions
 │   ├── data/                    # Static/mock data
 │   ├── assets/                  # Images, fonts, etc.
-│   ├── App.jsx & main.jsx       # Legacy entries
+│   ├── App.jsx & main.jsx       # Legacy entries (utility / local dev)
 │   ├── index.css & App.css      # Global styles
 ├── public/                       # Static assets
 ├── Dockerfile                    # Container configuration
 ├── next.config.mjs              # Next.js configuration
 ├── nginx.conf                   # Nginx reverse proxy config
 ├── package.json                 # Dependencies & scripts
-├── tailwind.config.js           # Tailwind configuration
+├── postcss.config.mjs           # PostCSS (Tailwind configured via PostCSS)
 └── eslint.config.js             # ESLint rules
 
 ```
@@ -210,7 +211,7 @@ NEXT.Blog/
 
 ## 🔌 Services & APIs
 
-### `api.js` - WordPress REST API Integration
+### `src/lib/services/api.js` - WordPress REST API Integration
 **Base URL**: `NEXT_PUBLIC_WP_API_URL` environment variable
 
 **Key Functions**:
@@ -227,7 +228,7 @@ NEXT.Blog/
 - Maps WordPress taxonomy to custom structures
 - Calculates read time (words ÷ 200 per minute)
 
-### `seo.js` - SEO & Meta Tags
+### `src/lib/services/seo.js` - SEO & Meta Tags
 **Features**:
 - **RankMath Integration**: Fetches SEO meta tags from RankMath plugin
 - **Fallback Data**: Uses WordPress post/category data if RankMath unavailable
@@ -237,7 +238,7 @@ NEXT.Blog/
   - `getPostPageMeta(slug)`: Complete meta for post pages (RankMath + WP fallback)
   - `getCategoryPageMeta(slug)`: Complete meta for category pages
 
-### `views.js` - Analytics
+### `src/lib/services/views.js` - Analytics
 **Features**:
 - **`incrementPostView(postId)`**: Fires on every page load
 - Integrates with WordPress "Post Views Counter" plugin
@@ -298,7 +299,7 @@ Located in `src/data/categories.js` - provides offline-first content for the 4 m
 ## 🎨 Styling & Design
 
 ### Design System
-- **Framework**: Tailwind CSS v4.2.4
+- **Framework**: Tailwind CSS (configured via PostCSS)
 - **Color Palette**:
   - **Primary**: Saffron (orange-gold) `#F28C28` (Vedic symbol color)
   - **Background**: Cream `#F9F5F0` (light mode)
