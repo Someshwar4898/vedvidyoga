@@ -80,7 +80,7 @@ function PostCard({ post, onPostClick }) {
           <span className="min-w-0 truncate">{post.author}</span>
           <span className="shrink-0 inline-flex items-center gap-1.5">
             <Eye size={13} />
-            {post.views != null ? formatViews(post.views) : "—"}
+            {formatViews(Number(post.views) || 0)}
           </span>
         </div>
 

@@ -1,28 +1,17 @@
-// const BASE = process.env.NEXT_PUBLIC_WP_API_URL ?? "";
-
-// // Increment the Post Views Counter for a given post ID.
-// // Fires on every page load — no deduplication.
-// export async function incrementPostView(postId) {
-//   if (!postId || !BASE) return;
-//   try {
-//     await fetch(`${BASE}/wp-json/post-views-counter/v1/post/${postId}`, {
-//       method: "POST",
-//     });
-//   } catch {
-//     // View counting is non-critical — fail silently
-//   }
-// }
-const BASE = process.env.NEXT_PUBLIC_WP_API_URL ?? "";
+const BASE = "https://api.vedvidyoga.com";
 
 export async function incrementPostView(postId) {
-  if (!postId || !BASE) return;
+  if (!postId || !BASE) return null;
 
   try {
-    await fetch(`${BASE}/wp-json/post-views-counter/v1/post/${postId}`, {
-      method: "GET",
+    const res = await fetch(`${BASE}/wp-json/vedvidyoga/v1/count-view/${postId}`, {
+      method: "POST",
       cache: "no-store",
     });
-  } catch {
-    // View counting is non-critical
+
+    return await res.json();
+  } catch (error) {
+    console.error("View count failed:", error);
+    return null;
   }
 }

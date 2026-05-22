@@ -1,7 +1,7 @@
 "use client";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useState , useEffect } from "react";
 import { ArrowLeft, Eye } from "lucide-react";
 import { usePosts } from "../hooks/usePosts";
 import { useWPStyles } from "../hooks/useWPStyles";
@@ -24,6 +24,7 @@ function PostPage() {
   const { posts, loading } = usePosts();
 
   const post = posts.find((p) => p.slug === slug);
+  const [liveViews, setLiveViews] = useState(null);
   const { headings: rankMathHeadings, cleanContent } = post?.content
     ? extractRankMathTOC(post.content)
     : { headings: null, cleanContent: "" };
@@ -35,7 +36,17 @@ function PostPage() {
 
   // Increment view count once per browser session per post
   useEffect(() => {
-    if (post?.id) incrementPostView(post.id);
+    if (!post?.id) return;
+
+    async function updateViews() {
+      const result = await incrementPostView(post.id);
+
+      if (result?.views != null) {
+        setLiveViews(result.views);
+      }
+    }
+
+    updateViews();
   }, [post?.id]);
 
   if (loading) {
@@ -89,7 +100,7 @@ function PostPage() {
           <span>·</span>
           <span className="inline-flex items-center gap-1.5">
             <Eye size={13} />
-            {post.views != null ? formatViews(post.views) : "—"}
+            {formatViews(Number(liveViews ?? post.views) || 0)}
           </span>
         </div>
 

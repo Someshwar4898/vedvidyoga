@@ -126,6 +126,7 @@ function mapPost(wp, catMap) {
       catName = info?.name ?? decodeHTML(first.name);
     }
   }
+
   return {
     id:              wp.id,
     slug:            wp.slug,
@@ -164,7 +165,7 @@ export async function getTrendingPosts() {
   return data
     .map(p => ({
       ...mapPost(p, catMap),
-      views: Number(p.post_views_count) || 0,
+      views: Number(p.post_views_count ?? p.views ?? p.pvc_views ?? 0),    
     }))
     .sort((a, b) => b.views - a.views)
     .slice(0, 4);
