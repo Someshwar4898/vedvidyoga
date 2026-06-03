@@ -1,20 +1,40 @@
 "use client";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useCategories } from "../hooks/useCategories";
 import BlogSections from "../components/BlogSections";
 import LogoLoader from "../components/LogoLoader";
 import { usePosts } from "../hooks/usePosts";
+import { useEffect } from "react";
 
 function CategoryPage() {
   const { category, subcategory } = useParams();
+  const router = useRouter();
   const { posts: allPosts, loading } = usePosts({ categorySlug: category, subcategorySlug: subcategory });
-  const { categories } = useCategories();
+  const { categories, loading: catsLoading } = useCategories();
 
   const categoryData   = categories.find((c) => c.slug === category);
   const subcategoryData = subcategory
     ? categoryData?.subcategories.find((s) => s.slug === subcategory)
     : null;
+
+  // Redirect to 404 if category doesn't exist
+  useEffect(() => {
+    if (!catsLoading && !categoryData) {
+      // Category doesn't exist in the system - return 404
+      router.push("/not-found");
+    }
+    if (!catsLoading && subcategory && !subcategoryData) {
+      // Subcategory doesn't exist - return 404
+      router.push("/not-found");
+    }
+  }, [catsLoading, categoryData, subcategoryData, subcategory, router]);
+
+  // Show loading state while checking categories
+  if (catsLoading || !categoryData) {
+    return <LogoLoader />;
+  }
 
   const eyebrow       = categoryData?.name ?? category;
   const pageTitle     = subcategoryData

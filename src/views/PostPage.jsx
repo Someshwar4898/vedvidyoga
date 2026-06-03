@@ -1,5 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState , useEffect } from "react";
 import { ArrowLeft, Eye } from "lucide-react";
@@ -21,9 +22,23 @@ function formatViews(n) {
 
 function PostPage() {
   const { slug } = useParams();
+  const router = useRouter();
   const { posts, loading } = usePosts();
 
   const post = posts.find((p) => p.slug === slug);
+
+  // Redirect to 404 if post doesn't exist
+  useEffect(() => {
+    if (!loading && !post) {
+      router.push("/not-found");
+    }
+  }, [loading, post, router]);
+
+  // Show loading state while checking posts
+  if (loading || !post) {
+    return <LogoLoader />;
+  }
+
   const [liveViews, setLiveViews] = useState(null);
   const { headings: rankMathHeadings, cleanContent } = post?.content
     ? extractRankMathTOC(post.content)

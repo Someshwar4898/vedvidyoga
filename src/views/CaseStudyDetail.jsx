@@ -1,8 +1,11 @@
 "use client";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useEffect } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, User, MapPin, Clock, AlertCircle, Lightbulb, TrendingUp, Heart } from "lucide-react";
 import { useCaseStudies } from "../hooks/useCaseStudies";
+import LogoLoader from "../components/LogoLoader";
 
 const SECTIONS = [
   { key: "snapshot",   num: "01", icon: User,         label: "Patient Snapshot"  },
@@ -37,24 +40,26 @@ function SectionShell({ num, icon: Icon, label, children }) {
 
 function CaseStudyDetail() {
   const { slug } = useParams();
-  const { caseStudies } = useCaseStudies();
+  const router = useRouter();
+  const { caseStudies, loading } = useCaseStudies();
 
   const currentIndex = caseStudies.findIndex((c) => c.slug === slug);
   const cs = caseStudies[currentIndex];
 
+  // Redirect to 404 if case study doesn't exist
+  useEffect(() => {
+    if (!loading && !cs) {
+      router.push("/not-found");
+    }
+  }, [loading, cs, router]);
+
+  // Show loading state while checking case studies
+  if (loading || !cs) {
+    return <LogoLoader />;
+  }
+
   const prevCs = currentIndex > 0 ? caseStudies[currentIndex - 1] : null;
   const nextCs = currentIndex < caseStudies.length - 1 ? caseStudies[currentIndex + 1] : null;
-
-  if (!cs) {
-    return (
-      <div className="max-w-7xl mx-auto px-5 py-20 text-center space-y-4">
-        <p className="text-stone-500 dark:text-stone-400">Case study not found.</p>
-        <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm font-medium text-saffron hover:underline">
-          <ArrowLeft size={14} /> Back to All Stories
-        </Link>
-      </div>
-    );
-  }
 
   const hookLine = cs.summary ? cs.summary.split(/[.!?]/)[0].trim() : "";
 

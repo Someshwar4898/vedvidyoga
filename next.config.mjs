@@ -11,16 +11,61 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // Remove ?v query param from all paths
       {
-        source: "/",
+        source: "/:path*",
         has: [
           {
             type: "query",
             key: "v",
           },
         ],
+        destination: "/:path*",
+        permanent: true,
+      },
+      // Block /lander routes entirely
+      {
+        source: "/lander/:path*",
         destination: "/",
         permanent: true,
+      },
+      {
+        source: "/lander",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
+
+  async headers() {
+    return [
+      // Block indexing of API and admin routes with noindex header
+      {
+        source: "/wp-admin/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow",
+          },
+        ],
+      },
+      {
+        source: "/wp-json/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow",
+          },
+        ],
+      },
+      {
+        source: "/api/:path*",
+        headers: [
+          {
+            key: "X-Robots-Tag",
+            value: "noindex, nofollow",
+          },
+        ],
       },
     ];
   },

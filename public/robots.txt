@@ -1,6 +1,32 @@
 # *
 User-agent: *
 Allow: /
+Allow: /post/
+Allow: /case-studies/
+Allow: /blog
+Allow: /about
+Allow: /contact
+Allow: /medical-disclaimer
+Allow: /privacy
+Allow: /terms
+Disallow: /wp-admin
+Disallow: /wp-login.php
+Disallow: /wp-json
+Disallow: /api/
+Disallow: /api
+Disallow: /lander
+Disallow: /lander/
+Disallow: /?
+Disallow: /*?
+Disallow: /?v
+Disallow: /?v=
+Disallow: /?*=
+Disallow: /_next
+Disallow: /_next/
+
+# AhrefsBot,SemrushBot,DotBot
+User-agent: AhrefsBot,SemrushBot,DotBot
+Disallow: /
 
 # Host
 Host: https://vedvidyoga.com
