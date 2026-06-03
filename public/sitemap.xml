@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>https://vedvidyoga.com/sitemap/pages.xml</loc><lastmod>2026-06-03T10:46:58.525Z</lastmod></sitemap>
-  <sitemap><loc>https://vedvidyoga.com/sitemap/posts.xml</loc><lastmod>2026-06-03T10:46:58.526Z</lastmod></sitemap>
-  <sitemap><loc>https://vedvidyoga.com/sitemap/case-studies.xml</loc><lastmod>2026-06-03T10:46:58.526Z</lastmod></sitemap>
-  <sitemap><loc>https://vedvidyoga.com/sitemap/categories.xml</loc><lastmod>2026-06-03T10:46:58.526Z</lastmod></sitemap>
+  <sitemap>
+    <loc>https://vedvidyoga.com/sitemap/pages.xml</loc>
+    <lastmod>2026-06-03T12:33:17.659Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://vedvidyoga.com/sitemap/blog.xml</loc>
+    <lastmod>2026-06-03T12:33:17.660Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://vedvidyoga.com/sitemap/posts.xml</loc>
+    <lastmod>2026-06-03T12:33:17.660Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://vedvidyoga.com/sitemap/case-studies.xml</loc>
+    <lastmod>2026-06-03T12:33:17.660Z</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://vedvidyoga.com/sitemap/testimonials.xml</loc>
+    <lastmod>2026-06-03T12:33:17.660Z</lastmod>
+  </sitemap>
 </sitemapindex>
