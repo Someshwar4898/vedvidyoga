@@ -9,6 +9,9 @@ Allow: /contact
 Allow: /medical-disclaimer
 Allow: /privacy
 Allow: /terms
+Allow: /sitemap-page
+Allow: /sitemap.xml
+Allow: /sitemap/
 Disallow: /wp-admin
 Disallow: /wp-login.php
 Disallow: /wp-json

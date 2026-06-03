@@ -34,6 +34,12 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      // Redirect /sitemap to /sitemap-page (interactive HTML sitemap)
+      {
+        source: "/sitemap",
+        destination: "/sitemap-page",
+        permanent: false,
+      },
     ];
   },
 

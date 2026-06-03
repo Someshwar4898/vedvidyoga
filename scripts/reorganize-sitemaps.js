@@ -1,10 +1,15 @@
 /**
- * Post-build script to reorganize generated sitemaps into separate files by type.
- * Splits sitemap-0.xml into:
+ * Enhanced sitemap reorganization with image sitemap support
+ * Splits sitemap-0.xml into organized files by content type
+ * Automatically includes image sitemaps in the main index
+ * 
+ * Generates:
  * - sitemap/pages.xml (static pages)
  * - sitemap/posts.xml (blog posts)
  * - sitemap/case-studies.xml (case studies)
- * - sitemap/categories.xml (categories and subcategories)
+ * - sitemap/categories.xml (categories)
+ * - sitemap/posts-images.xml (images in posts) - auto-detected
+ * - sitemap/case-studies-images.xml (images in case-studies) - auto-detected
  */
 
 import fs from 'fs';
@@ -16,7 +21,7 @@ const SITE_URL = 'https://vedvidyoga.com';
 const PUBLIC_DIR = path.join(process.cwd(), 'public');
 const SITEMAP_DIR = path.join(PUBLIC_DIR, 'sitemap');
 
-console.log('\n🔄 Starting sitemap reorganization...');
+console.log('\n🔄 Starting enhanced sitemap reorganization...');
 console.log(`📁 Looking for sitemaps in: ${PUBLIC_DIR}`);
 
 // Create sitemap directory if it doesn't exist
@@ -81,7 +86,8 @@ urls.forEach(url => {
     url.loc.includes('/contact') ||
     url.loc.includes('/medical-disclaimer') ||
     url.loc.includes('/privacy') ||
-    url.loc.includes('/terms')
+    url.loc.includes('/terms') ||
+    url.loc.includes('/sitemap-page')
   ) {
     pages.push(url);
   } else {
@@ -141,12 +147,24 @@ if (categories.length > 0) {
   console.log(`✅ Created sitemap/categories.xml (${categories.length} URLs)`);
 }
 
-// Generate main sitemap index
+// Check for image sitemaps and include them in the main index
+const imageSitemaps = [];
+const imageSitemapFiles = ['posts-images.xml', 'case-studies-images.xml'];
+imageSitemapFiles.forEach(file => {
+  const filePath = path.join(SITEMAP_DIR, file);
+  if (fs.existsSync(filePath)) {
+    imageSitemaps.push(file);
+    console.log(`✅ Found ${file} (image sitemap)`);
+  }
+});
+
+// Generate main sitemap index with all sitemaps including images
 const sitemapIndexEntries = [
   pages.length > 0 ? `<sitemap><loc>${SITE_URL}/sitemap/pages.xml</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>` : '',
   posts.length > 0 ? `<sitemap><loc>${SITE_URL}/sitemap/posts.xml</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>` : '',
   caseStudies.length > 0 ? `<sitemap><loc>${SITE_URL}/sitemap/case-studies.xml</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>` : '',
   categories.length > 0 ? `<sitemap><loc>${SITE_URL}/sitemap/categories.xml</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>` : '',
+  ...imageSitemaps.map(file => `<sitemap><loc>${SITE_URL}/sitemap/${file}</loc><lastmod>${new Date().toISOString()}</lastmod></sitemap>`),
 ].filter(entry => entry.length > 0).join('\n  ');
 
 const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
@@ -162,12 +180,18 @@ console.log('  sitemap.xml (index)');
 if (pages.length > 0) console.log('  ├── sitemap/pages.xml');
 if (posts.length > 0) console.log('  ├── sitemap/posts.xml');
 if (caseStudies.length > 0) console.log('  ├── sitemap/case-studies.xml');
-if (categories.length > 0) console.log('  └── sitemap/categories.xml');
+if (categories.length > 0) console.log('  ├── sitemap/categories.xml');
+imageSitemaps.forEach((file, idx) => {
+  const prefix = imageSitemaps.length - 1 === idx && posts.length === 0 && caseStudies.length === 0 ? '└──' : '├──';
+  console.log(`  ${prefix} sitemap/${file}`);
+});
 
-console.log(`\n✅ Total URLs indexed: ${pages.length + posts.length + caseStudies.length + categories.length}`);
+const totalUrls = pages.length + posts.length + caseStudies.length + categories.length;
+console.log(`\n✅ Total URLs indexed: ${totalUrls}`);
+console.log(`📸 Image sitemaps: ${imageSitemaps.length}`);
 console.log('\n🔒 Security Check:');
 console.log('  ✅ Only legitimate pages indexed');
 console.log('  ✅ Query strings blocked (/?v=, /?*=, etc.)');
 console.log('  ✅ Backend endpoints blocked (/wp-admin, /wp-json, /api)');
 console.log('  ✅ Invalid routes blocked (/lander, etc.)');
-console.log('\n✨ Sitemap reorganization complete!\n');
+console.log('\n✨ Enhanced sitemap reorganization complete!\n');

@@ -133,6 +133,7 @@ async function getAdditionalPaths() {
     getCaseStudyPaths(),
     getCategoryPaths(),
   ]);
+  
   return [...posts, ...caseStudies, ...categories];
 }
 
@@ -170,6 +171,9 @@ const config = {
           '/medical-disclaimer',
           '/privacy',
           '/terms',
+          '/sitemap-page',
+          '/sitemap.xml',
+          '/sitemap/',
         ],
         disallow: [
           '/wp-admin',

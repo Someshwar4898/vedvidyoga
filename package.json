@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next-sitemap && node scripts/reorganize-sitemaps.js",
+    "build": "next build && next-sitemap && node scripts/generate-image-sitemaps.js && node scripts/reorganize-sitemaps.js",
     "start": "next start",
     "lint": "next lint"
   },
