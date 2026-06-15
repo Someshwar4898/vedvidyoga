@@ -22,6 +22,11 @@ function transformWpTestimonial(post) {
   let designation = "Reader";
   const lines = rawText.split("\n").map((l) => l.trim()).filter(Boolean);
   const bodyLines = [];
+  const content = bodyLines.join(" ").trim()
+    || stripHtml(post.excerpt?.rendered || "").replace(/\n/g, " ").trim();
+
+  // Featured image → avatar (sent by admin after user emails their photo)
+  const avatar = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? null;
 
   for (const line of lines) {
     const match = line.match(/^designation:\s*(.+)$/i);
@@ -31,13 +36,6 @@ function transformWpTestimonial(post) {
       bodyLines.push(line);
     }
   }
-
-  const content = bodyLines.join(" ").trim()
-    || stripHtml(post.excerpt?.rendered || "").replace(/\n/g, " ").trim();
-
-  // Featured image → avatar (sent by admin after user emails their photo)
-  const avatar =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? null;
 
   return {
     id: `wp-${post.id}`,

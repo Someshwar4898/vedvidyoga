@@ -37,7 +37,7 @@ function LatestPosts({ posts, loading }) {
           ? Array.from({ length: 4 }).map((_, i) => (
               <div
                 key={i}
-                className="animate-pulse rounded-[1.75rem] border border-[#f0e3d3] dark:border-stone-700 bg-[#fffdf9] dark:bg-stone-800 h-80"
+                className="animate-pulse rounded-[1.75rem] border border-border-mid dark:border-stone-700 bg-[#fffdf9] dark:bg-stone-800 h-80"
               />
             ))
           : latest.map((post) => (

@@ -22,14 +22,15 @@ async function loadPosts() {
 
 // Returns { posts, loading, error }
 export function usePosts({ categorySlug, subcategorySlug } = {}) {
+  const [loading, setLoading] = useState(!_cache);
+  const [error, setError] = useState(null);
   const [posts, setPosts] = useState(() => {
     if (!_cache) return [];
     if (subcategorySlug) return _cache.filter((p) => p.subcategorySlug === subcategorySlug);
     if (categorySlug) return _cache.filter((p) => p.categorySlug === categorySlug);
     return _cache;
   });
-  const [loading, setLoading] = useState(!_cache);
-  const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     if (_cache) {

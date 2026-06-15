@@ -33,7 +33,7 @@ function RelatedPosts({ postId, categoryIds }) {
   if (loading || posts.length === 0) return null;
 
   return (
-    <section className="mt-16 pt-10 border-t border-[#f0e3d3] dark:border-stone-700">
+    <section className="mt-16 pt-10 border-t border-border-mid dark:border-stone-700">
       <h2 className="mb-6 text-xl font-semibold text-stone-900 dark:text-stone-100">Related posts</h2>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map(post => (
