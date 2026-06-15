@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import PostCard from "./PostCard";
 import { getRelatedPosts } from "../services/api";
