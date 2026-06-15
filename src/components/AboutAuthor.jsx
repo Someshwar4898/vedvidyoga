@@ -23,7 +23,9 @@ function AboutAuthor() {
             Kaptan Singh Choudhary (Kapil)
           </h2>
           <span className="mt-3 inline-block rounded-full border border-[#f6d7b3] bg-saffron-light dark:bg-stone-800 dark:border-stone-700 px-4 py-1 text-xs font-semibold text-saffron-muted">
-            Founder &amp; Author, VedVidYoga
+            Founder &amp; Author, Vedvidyoga.com
+          </span> <span className="mt-3 inline-block rounded-full border border-[#f6d7b3] bg-saffron-light dark:bg-stone-800 dark:border-stone-700 px-4 py-1 text-xs font-semibold text-saffron-muted">
+            Therapeutic Yoga Consultant | Naturopath| Ayurveda Wellness Coach
           </span>
         </div>
 
@@ -38,15 +40,13 @@ function AboutAuthor() {
         {/* Experience highlight */}
         <div className="rounded-[1.25rem] border border-[#f6d7b3] bg-[#fffaf4] dark:bg-stone-800 dark:border-stone-700 px-5 py-4">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-muted mb-3">
-            Clinical Experience — Yoga Therapist &amp; Naturopath
+            Professional Profile & Expertise
           </p>
           <ul className="space-y-2">
             {[
-              "VEDVIDYOGA Institute of Yoga Therapy & Wellness",
-              "Baba Balwant Singh Panchgavya Chikitsa and Anusandhan Kendra",
-              "AMBAA Yoga and Naturopathy Centre",
-              "Inaya Foundation, Jaipur",
-              "Lions Club, Jaipur",
+              "Core Expertise: Vedic & Sound Sciences, Holistic Healing, and Martial Arts & Music.",
+              "Education & Credentials: M.A. in Yoga, Diplomas in Naturopathy (NDDY) & Medical Yoga (IIAS), Music Degrees (Visharad & Prathama), and currently pursuing B.P.Ed.",
+              "Professional Experience: 12+ years of clinical/coaching experience; Former P.E.T./Yoga Educator at various premium schools; Clinical Intern at Baba Balwant Rai Centre.",
             ].map((place, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-stone-700 dark:text-stone-300 leading-6">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-saffron/60" />
@@ -74,7 +74,7 @@ function AboutAuthor() {
             href="/about"
             className="inline-flex items-center gap-2 rounded-full border border-[#eadbc7] dark:border-stone-700 bg-white dark:bg-stone-800 px-4 py-2 text-xs font-medium text-stone-600 dark:text-stone-300 hover:border-saffron/50 hover:bg-saffron-light hover:text-saffron dark:hover:bg-stone-700 dark:hover:border-saffron/30 dark:hover:text-saffron transition"
           >
-            📖 About Page
+            📖 More About Us
           </Link>
         </div>
       </div>

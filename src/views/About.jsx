@@ -70,27 +70,29 @@ function About() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-saffron-muted">The Architect Behind the Vision</p>
             <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100">Kaptan Singh Choudhary</h2>
+            <span className="mt-3 inline-block rounded-full border border- [#f6d7b3] bg-saffron-light dark:bg-stone-800 dark:border-stone-700 px-4 py-1 text-xs font-semibold text-saffron-muted">
+              Therapeutic Yoga Consultant | Naturopath| Ayurveda Wellness Coach
+            </span>
             <p className="mt-4 text-sm font-medium text-stone-500 dark:text-stone-400 leading-7">
               M.A. (Yoga) · B.P.Ed. · Consultant Yoga Therapist (IIAS) · Certified Naturopath · Ayurveda Wellness Coach · Vedic Meditation Expert · Visharad (Indian Classical Vocal) · Prathama (Bamboo Flute) · Black Belt 1st Dan (Taekwondo) · National Referee & Licensed Coach · Writer, Poet & Researcher
             </p>
           </div>
         </div>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-stone-600 dark:text-stone-400">
-          With over 15 years of clinical experience, Kapil has dedicated his life to proving that our Sages (<SanskritTerm term="Rishis" devanagari="ऋषि" meaning="Vedic seers" />) were the world's first scientists.
+          With over 12+ years of clinical experience, Kapil has dedicated his life to proving that our Sages (<SanskritTerm term="Rishis" devanagari="ऋषि" meaning="Vedic seers" />) were the world's first scientists.
         </p>
 
-        {/* Experience card */}
+        {/* Expertise card */}
         <div className="mt-6 rounded-[1.5rem] border border-[#f6d7b3] bg-[#fffaf4] dark:bg-stone-800 dark:border-stone-700 p-6">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-muted mb-4">
-            Clinical Experience — Yoga Therapist &amp; Naturopath
+            Core expertise &amp; specializations
           </p>
           <ul className="space-y-3">
             {[
-              "VEDVIDYOGA Institute of Yoga Therapy & Wellness",
-              "Baba Balwant Singh Panchgavya Chikitsa and Anusandhan Kendra",
-              "AMBAA Yoga and Naturopathy Centre",
-              "Inaya Foundation, Jaipur",
-              "Lions Club, Jaipur",
+              "Vedic & Sound Sciences: Vedic Meditation, Sound Healing, Music Therapy, and Research on Vedic Mantra Frequencies.",
+              "Holistic Healing: Naturopathy, Ayurvedic Lifestyle & Therapeutic Massage, and Pranic Healing.",
+              "Clinical Therapy: Neuro-somatic Healing and Root-Cause Elimination of Chronic Illnesses.",
+              "Sports & Music: Physical Education, Taekwondo Coaching, Indian Classical Vocal, and Indian Bamboo Flute.",
             ].map((place, i) => (
               <li key={i} className="flex items-start gap-3 text-stone-700 dark:text-stone-300 leading-7">
                 <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-saffron/60" />
@@ -99,8 +101,49 @@ function About() {
             ))}
           </ul>
         </div>
+        {/* Education & Music Credentials */}
+        <div className="mt-6 rounded-[1.5rem] border border-[#f6d7b3] bg-[#fffaf4] dark:bg-stone-800 dark:border-stone-700 p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-muted mb-4">
+            EDUCATION &amp; MUSIC CREDENTIALS
+          </p>
+          <ul className="space-y-3">
+            {[
+              "Master of Arts (M.A.) in Yoga – Maharaja Agrasen Himalayan Garhwal University, Uttarakhand.",
+              "Visharad (5-Year Diploma) in Indian Classical Music (Vocal).",
+              "Prathama (2-Year Diploma) in Light Instrumental Music (Indian Bamboo Flute).",
+              "Diploma in Naturopathy & Yoga (NDDY) – Gandhi National Academy of Naturopathy, New Delhi.",
+              "Diploma in Medical Yoga – IIAS (Institute of Indian Ancient Sciences), Delhi.",
+              "Bachelor of Physical Education (B.P.Ed.) – Pursuing (Maa Shakumbhari University, U.P.).",
+            ].map((place, i) => (
+              <li key={i} className="flex items-start gap-3 text-stone-700 dark:text-stone-300 leading-7">
+                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-saffron/60" />
+                <span className="text-base font-medium">{place}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* Experience card */}
+        <div className="mt-6 rounded-[1.5rem] border border-[#f6d7b3] bg-[#fffaf4] dark:bg-stone-800 dark:border-stone-700 p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-saffron-muted mb-4">
+            Professional Experience
+          </p>
+          <ul className="space-y-3">
+            {[
+              "Honorary Yoga Instructor | International Yoga Day – Invited by BSNL Office (2016, 2017, 2019) and Salt Commissioner Organisation / Lawan Bhavan (2024), Jaipur.",
+              "Physical Education Teacher (P.E.T.) & Yoga Instructor – Served at India Overseas School (DAV associated), Rawat Public School, K Twelve Schools, and St. Thomas School, Jaipur.",
+              "Yoga Therapist, Physio & Licensed Taekwondo Coach – Kang-Dae, Champions, and BDS Taekwondo Academies.",
+              "Clinical Internship – Baba Balwant Rai Panchagavya Yoga and Naturopathy Centre.",
+            ].map((place, i) => (
+              <li key={i} className="flex items-start gap-3 text-stone-700 dark:text-stone-300 leading-7">
+                <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-saffron/60" />
+                <span className="text-base font-medium">{place}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
         <p className="mt-4 max-w-3xl text-lg leading-8 text-stone-600 dark:text-stone-400">
-          His career is built on Case-Based Studies. He has successfully treated patients with Slip Disc, Asthma, Sinusitis, and Depression using only Nature Cure and Ayurvedic principles. As a Visharad in Classical Music, he also integrates Raga-Chikitsa and the precise Physics of Sanskrit Sound to heal the human nervous system.
+          His career is built on Case-Based Studies. He has successfully treated chronic disorders such as Asthma, Sinus, Migraine, Diabetes, Obesity, Hypertension, Insomnia, Anxiety, Arthritis, Slip Disc, and Chronic Digestive Issues through medicine-free natural wellness. As a Visharad in Classical Music, he also integrates Raga-Chikitsa and the precise Physics of Sanskrit Sound to heal the human nervous system.
         </p>
       </section>
 
