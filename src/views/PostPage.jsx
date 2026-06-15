@@ -26,19 +26,6 @@ function PostPage() {
   const { posts, loading } = usePosts();
 
   const post = posts.find((p) => p.slug === slug);
-
-  // Redirect to 404 if post doesn't exist
-  useEffect(() => {
-    if (!loading && !post) {
-      router.push("/not-found");
-    }
-  }, [loading, post, router]);
-
-  // Show loading state while checking posts
-  if (loading || !post) {
-    return <LogoLoader />;
-  }
-
   const [liveViews, setLiveViews] = useState(null);
   const { headings: rankMathHeadings, cleanContent } = post?.content
     ? extractRankMathTOC(post.content)
@@ -48,6 +35,13 @@ function PostPage() {
   // per-block styles, etc.) and inject them into the React <head>.
   // Falls back silently if WordPress CORS isn't enabled for page requests.
   useWPStyles(post?.id);
+
+  // Redirect to 404 if post doesn't exist
+  useEffect(() => {
+    if (!loading && !post) {
+      router.push("/not-found");
+    }
+  }, [loading, post, router]);
 
   // Increment view count once per browser session per post
   useEffect(() => {
@@ -63,6 +57,11 @@ function PostPage() {
 
     updateViews();
   }, [post?.id]);
+
+    // Show loading state while checking posts
+  if (loading || !post) {
+    return <LogoLoader />;
+  }
 
   if (loading) {
     return <LogoLoader />;
@@ -108,7 +107,7 @@ function PostPage() {
         </h1>
 
         {/* Meta */}
-        <div className="flex items-center gap-4 text-sm text-stone-400 dark:text-stone-500 mb-10 pb-10 border-b border-[#f0e3d3] dark:border-stone-700">
+        <div className="flex items-center gap-4 text-sm text-stone-400 dark:text-stone-500 mb-10 pb-10 border-b border-border-mid dark:border-stone-700">
           <span>{post.author}</span>
           <span>·</span>
           <span>{post.date}</span>
@@ -170,7 +169,7 @@ function PostPage() {
         />
 
         {/* Back link */}
-        <div className="mt-16 pt-10 border-t border-[#f0e3d3] dark:border-stone-700">
+        <div className="mt-16 pt-10 border-t border-border-mid dark:border-stone-700">
           <Link
             href={post.subcategorySlug ? `/${post.categorySlug}/${post.subcategorySlug}` : `/${post.categorySlug}`}
             className="inline-flex items-center gap-2 text-saffron font-medium hover:text-saffron-dark transition"
