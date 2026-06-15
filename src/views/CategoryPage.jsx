@@ -7,6 +7,7 @@ import BlogSections from "../components/BlogSections";
 import LogoLoader from "../components/LogoLoader";
 import { usePosts } from "../hooks/usePosts";
 import { useEffect } from "react";
+import { notFound } from "next/navigation";
 
 function CategoryPage() {
   const { category, subcategory } = useParams();
@@ -23,11 +24,11 @@ function CategoryPage() {
   useEffect(() => {
     if (!catsLoading && !categoryData) {
       // Category doesn't exist in the system - return 404
-      router.push("/not-found");
+      notFound(); // Render 404 page if category not found
     }
     if (!catsLoading && subcategory && !subcategoryData) {
       // Subcategory doesn't exist - return 404
-      router.push("/not-found");
+      notFound(); // Render 404 page if Subcategory not found
     }
   }, [catsLoading, categoryData, subcategoryData, subcategory, router]);
 

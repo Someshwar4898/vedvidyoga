@@ -14,6 +14,7 @@ import TermsAndConditions from './pages/TermsAndConditions'
 import Footer from './components/Footer'
 import ThemeToggle from './components/ThemeToggle'
 import ScrollToTop from './components/ScrollToTop'
+import { notFound } from 'next/navigation'
 
 function App() {
   return(
@@ -34,6 +35,7 @@ function App() {
         <Route path="/:category" element={<CategoryPage />} />
         <Route path="/:category/:subcategory" element={<CategoryPage />} />
         <Route path="/:category/:subcategory/:slug" element={<PostPage />} />
+        <Route path="*" element={<notFound />} />
       </Routes>
       <Footer />
       <ThemeToggle />

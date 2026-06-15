@@ -1,43 +1,32 @@
-# *
+# General Rules for all Search Engines
 User-agent: *
-Allow: /
-Allow: /blog
-Allow: /blog/
-Allow: /case-studies
-Allow: /case-studies/
-Allow: /about
-Allow: /contact
-Allow: /privacy
-Allow: /terms
-Allow: /medical-disclaimer
-Allow: /post/
-Allow: /testimonials/
-Allow: /ayurveda/
-Allow: /yoga/
-Allow: /vedas/
-Allow: /upanishads/
-Disallow: /wp-admin
-Disallow: /wp-login.php
-Disallow: /wp-json
-Disallow: /wp-content
-Disallow: /api/
-Disallow: /api
+
+# Specific Page Blocks
 Disallow: /lander
 Disallow: /lander/
-Disallow: /?
-Disallow: /*?
-Disallow: /?v
-Disallow: /?v=
-Disallow: /?*=
-Disallow: /_next
+
+# Headless WordPress & Next.js Core Blocks
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /wp-json/
+Disallow: /wp-content/
+Disallow: /api/
 Disallow: /_next/
 
-# AhrefsBot,SemrushBot,DotBot
-User-agent: AhrefsBot,SemrushBot,DotBot
+# Aggressive Query Parameter Blocks (Stops all ?v=, ?ref=, etc.)
+Disallow: /*?v=*
+Disallow: /*?*
+
+# SEO Tool Block (Each bot separated correctly)
+User-agent: AhrefsBot
 Disallow: /
 
-# Host
-Host: https://vedvidyoga.com
+User-agent: SemrushBot
+Disallow: /
 
-# Sitemaps
+User-agent: DotBot
+Disallow: /
+
+# Host & Sitemaps
+Host: https://vedvidyoga.com
 Sitemap: https://vedvidyoga.com/sitemap.xml

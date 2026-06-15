@@ -59,7 +59,20 @@ const testimonials = [];
 
 urls.forEach(url => {
   const loc = url.loc;
-  
+
+  // ==========================================
+  // ADDED SECURITY FILTER AGAINST JUNK PAGES
+  // ==========================================
+  if (
+    loc.includes('/lander') || 
+    loc.includes('?v=') || 
+    loc.includes('?v')
+  ) {
+    // Instantly skip this URL and do not add it to any sitemap
+    return;
+  }
+  // ==========================================
+
   if (
     loc === SITE_URL ||
     loc === SITE_URL + '/' ||

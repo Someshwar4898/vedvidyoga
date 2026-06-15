@@ -21,6 +21,12 @@ export default function NotFound() {
         >
           Browse Blog
         </Link>
+        <Link
+          href="/case-studies"
+          className="inline-block px-6 py-3 border border-saffron text-saffron font-semibold rounded-lg hover:bg-saffron/10 transition"
+        >
+          Browse Case Studies
+        </Link>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, User, MapPin, Clock, AlertCircle, Lightbulb, TrendingUp, Heart } from "lucide-react";
 import { useCaseStudies } from "../hooks/useCaseStudies";
 import LogoLoader from "../components/LogoLoader";
+import { notFound } from "next/navigation";
 
 const SECTIONS = [
   { key: "snapshot",   num: "01", icon: User,         label: "Patient Snapshot"  },
@@ -49,7 +50,7 @@ function CaseStudyDetail() {
   // Redirect to 404 if case study doesn't exist
   useEffect(() => {
     if (!loading && !cs) {
-      router.push("/not-found");
+      notFound(); // Render 404 page if case study not found
     }
   }, [loading, cs, router]);
 

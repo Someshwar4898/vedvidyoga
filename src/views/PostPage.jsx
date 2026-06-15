@@ -13,6 +13,7 @@ import PostFAQ from "../components/PostFAQ";
 import PostDisclaimer from "../components/PostDisclaimer";
 import PostAuthorCard from "../components/PostAuthorCard";
 import { incrementPostView } from "../services/views";
+import { notFound } from "next/navigation";
 
 function formatViews(n) {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M views`;
@@ -39,7 +40,7 @@ function PostPage() {
   // Redirect to 404 if post doesn't exist
   useEffect(() => {
     if (!loading && !post) {
-      router.push("/not-found");
+      notFound(); // Render 404 page if post not found
     }
   }, [loading, post, router]);
 
