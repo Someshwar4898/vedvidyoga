@@ -74,7 +74,7 @@ function About() {
               Therapeutic Yoga Consultant | Naturopath| Ayurveda Wellness Coach
             </span>
             <p className="mt-4 text-sm font-medium text-stone-500 dark:text-stone-400 leading-7">
-              M.A. (Yoga) · B.P.Ed. · Consultant Yoga Therapist (IIAS) · Certified Naturopath · Ayurveda Wellness Coach · Vedic Meditation Expert · Visharad (Indian Classical Vocal) · Prathama (Bamboo Flute) · Black Belt 1st Dan (Taekwondo) · National Referee & Licensed Coach · Writer, Poet & Researcher
+              M.A. (Yoga) · B.P.Ed. · Therapeutic Yoga Consultant (IIAS) · Certified Naturopath · Ayurveda Wellness Coach · Vedic Meditation Expert · Visharad (Indian Classical Vocal) · Prathama (Bamboo Flute) · Black Belt 1st Dan (Taekwondo) · National Referee & Licensed Coach · Writer, Poet & Researcher
             </p>
           </div>
         </div>

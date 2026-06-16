@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Sparkles, ArrowRight, BookOpen } from "lucide-react";
+import { useMemo } from "react";
 import { usePosts } from "../hooks/usePosts";
 import KnowledgePillars from "../components/KnowledgePillars";
 import HomeCategories from "../components/HomeCategories";
@@ -136,7 +137,9 @@ import LogoLoader from "../components/LogoLoader";
 // }
 
 function Home({ initialPosts }) {
-  const { posts, loading: postsLoading } = usePosts({ initialPosts });
+  // Stabilize reference to prevent unnecessary re-renders
+  const stablePosts = useMemo(() => initialPosts, [initialPosts]);
+  const { posts, loading: postsLoading } = usePosts({ initialPosts: stablePosts });
 
   if (postsLoading) return <LogoLoader />;
 

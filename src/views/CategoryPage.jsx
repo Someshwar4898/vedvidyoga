@@ -6,7 +6,7 @@ import { useCategories } from "../hooks/useCategories";
 import BlogSections from "../components/BlogSections";
 import LogoLoader from "../components/LogoLoader";
 import { usePosts } from "../hooks/usePosts";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { notFound } from "next/navigation";
 
 // function CategoryPage() {
@@ -125,10 +125,12 @@ import { notFound } from "next/navigation";
 
 function CategoryPage({ initialPosts, initialCategories }) {
   const { category, subcategory } = useParams();
+  // Stabilize reference to prevent unnecessary re-renders
+  const stablePosts = useMemo(() => initialPosts, [initialPosts]);
   const { posts: allPosts, loading } = usePosts({
     categorySlug: category,
     subcategorySlug: subcategory,
-    initialPosts,
+    initialPosts: stablePosts,
   });
   const { categories, loading: catsLoading } = useCategories({ initialCategories });
 

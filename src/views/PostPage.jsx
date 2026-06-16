@@ -2,7 +2,7 @@
 import { useParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState , useEffect } from "react";
+import { useState , useEffect, useMemo } from "react";
 import { ArrowLeft, Eye } from "lucide-react";
 import { usePosts } from "../hooks/usePosts";
 import { useWPStyles } from "../hooks/useWPStyles";
@@ -186,7 +186,13 @@ function formatViews(n) {
 
 function PostPage({ initialPost }) {
   const { slug } = useParams();
-  const { posts, loading } = usePosts({ initialPosts: initialPost ? [initialPost] : undefined });
+  // Stabilize array reference to prevent infinite loop
+  const initialPosts = useMemo(
+    () => (initialPost ? [initialPost] : undefined),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [initialPost ? JSON.stringify(initialPost) : null]
+  );
+  const { posts, loading } = usePosts({ initialPosts });
 
   const post = initialPost ?? posts.find((p) => p.slug === slug);
   const [liveViews, setLiveViews] = useState(null);

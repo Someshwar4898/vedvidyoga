@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { getPosts } from "../services/api";
 
 // Module-level cache — fetches once on first call, reused by every component.
@@ -75,7 +75,8 @@ function filterPosts(posts, { categorySlug, subcategorySlug } = {}) {
 
 // Returns { posts, loading, error }
 export function usePosts({ categorySlug, subcategorySlug, initialPosts } = {}) {
-  const hasInitialPosts = Array.isArray(initialPosts);
+  // Memoize to avoid infinite loop - only changes when the array content actually changes
+  const hasInitialPosts = useMemo(() => Array.isArray(initialPosts), [initialPosts]);
   const [loading, setLoading] = useState(!_cache && !hasInitialPosts);
   const [error, setError] = useState(null);
   const [posts, setPosts] = useState(() => {
@@ -112,9 +113,9 @@ export function usePosts({ categorySlug, subcategorySlug, initialPosts } = {}) {
         }
       })
       .finally(() => { if (!cancelled) setLoading(false); });
-
+      
     return () => { cancelled = true; };
-  }, [categorySlug, subcategorySlug, hasInitialPosts, initialPosts]);
+  }, [categorySlug, subcategorySlug, initialPosts]);
 
   return { posts, loading, error };
 }

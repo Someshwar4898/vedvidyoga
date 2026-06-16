@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import BlogSections from "../components/BlogSections";
 import CategoryName from "../components/CategoryName";
 import LogoLoader from "../components/LogoLoader";
@@ -80,7 +80,9 @@ import { useCategories } from "../hooks/useCategories";
 
 function Blog({ initialPosts, initialCategories }) {
   const [activeFilter, setActiveFilter] = useState("all");
-  const { posts: allPosts, loading } = usePosts({ initialPosts });
+  // Stabilize reference to prevent unnecessary re-renders
+  const stablePosts = useMemo(() => initialPosts, [initialPosts]);
+  const { posts: allPosts, loading } = usePosts({ initialPosts: stablePosts });
   const { categories } = useCategories({ initialCategories });
 
   const filteredPosts = activeFilter === "all"
