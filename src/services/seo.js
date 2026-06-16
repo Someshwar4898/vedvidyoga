@@ -1,7 +1,9 @@
+import { SITE_NAME, absoluteUrl } from "./site";
+
 const BASE = (process.env.NEXT_PUBLIC_WP_API_URL ?? "").replace(/\/+$/, "");
 const API = BASE ? `${BASE}/wp-json/wp/v2` : "";
-const SITE_NAME = "VedVidYoga";
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vedvidyoga.com";
+// const SITE_NAME = "VedVidYoga";
+// const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://vedvidyoga.com";
 
 // ── WordPress data fetchers ───────────────────────────────────────────────────
 
@@ -21,6 +23,27 @@ export async function getPostMeta(slug) {
       title:   decodeEntities(p.title?.rendered ?? ""),
       excerpt: stripTags(p.excerpt?.rendered ?? ""),
       image:   p._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? null,
+    };
+  } catch {
+    return null;
+  }
+}
+
+export async function getCaseStudyMeta(slug) {
+  if (!API) return null;
+  try {
+    const res = await fetch(
+      `${API}/case-studies?slug=${encodeURIComponent(slug)}`,
+      { next: { revalidate: 3600 } }
+    );
+    if (!res.ok) return null;
+    const posts = await res.json();
+    const p = posts[0];
+    if (!p) return null;
+    return {
+      link: p.link,
+      title: decodeEntities(p.title?.rendered ?? ""),
+      description: stripTags(p.excerpt?.rendered ?? "") || "Read this VedVidYoga case study.",
     };
   } catch {
     return null;
@@ -70,39 +93,92 @@ async function tryRankMath(wpPermalink) {
 // ── Public API ────────────────────────────────────────────────────────────────
 
 // For post pages: try RankMath first, fall back to WP post data
-export async function getPostPageMeta(slug) {
+// export async function getPostPageMeta(slug) {
+//   const wpData = await getPostMeta(slug);
+//   if (!wpData) return {};
+
+//   const rankMath = await tryRankMath(wpData.link);
+//   if (rankMath) return rankMath;
+
+//   // Fallback: build meta from WP post fields
+//   return buildMeta({
+//     title:       `${wpData.title} | ${SITE_NAME}`,
+//     description: wpData.excerpt,
+//     canonical:   wpData.link,
+//     image:       wpData.image,
+//     type:        "article",
+//     alternates: {
+//       canonical: `https://vedvidyoga.com/post/${slug}`,
+//     },
+//   });
+// }
+
+export async function getPostPageMeta({ slug, category, subcategory } = {}) {
   const wpData = await getPostMeta(slug);
   if (!wpData) return {};
 
+  const canonicalPath = category
+    ? `/${category}${subcategory ? `/${subcategory}` : ""}/${slug}`
+    : `/post/${slug}`;
+  const canonical = absoluteUrl(canonicalPath);
   const rankMath = await tryRankMath(wpData.link);
-  if (rankMath) return rankMath;
+  if (rankMath) return withCanonical(rankMath, canonical);
 
-  // Fallback: build meta from WP post fields
   return buildMeta({
-    title:       `${wpData.title} | ${SITE_NAME}`,
+    title: wpData.title,
     description: wpData.excerpt,
-    canonical:   wpData.link,
-    image:       wpData.image,
-    type:        "article",
-    alternates: {
-      canonical: `https://vedvidyoga.com/post/${slug}`,
-    },
+    canonical,
+    image: wpData.image,
+    type: "article",
   });
 }
 
 // For category / subcategory pages: try RankMath first, fall back to WP category data
-export async function getCategoryPageMeta(slug) {
+// export async function getCategoryPageMeta(slug) {
+//   const wpData = await getCategoryMeta(slug);
+//   if (!wpData) return {};
+
+//   const rankMath = await tryRankMath(wpData.link);
+//   if (rankMath) return rankMath;
+
+//   return buildMeta({
+//     title:       `${wpData.title} | ${SITE_NAME}`,
+//     description: wpData.description || `Explore ${wpData.title} articles on ${SITE_NAME}.`,
+//     canonical:   wpData.link,
+//     type:        "website",
+//   });
+// }
+
+export async function getCategoryPageMeta({ category, subcategory } = {}) {
+  const slug = subcategory ?? category;
   const wpData = await getCategoryMeta(slug);
   if (!wpData) return {};
 
+  const canonical = absoluteUrl(`/${category}${subcategory ? `/${subcategory}` : ""}`);
   const rankMath = await tryRankMath(wpData.link);
-  if (rankMath) return rankMath;
+  if (rankMath) return withCanonical(rankMath, canonical);
 
   return buildMeta({
-    title:       `${wpData.title} | ${SITE_NAME}`,
+    title: wpData.title,
     description: wpData.description || `Explore ${wpData.title} articles on ${SITE_NAME}.`,
-    canonical:   wpData.link,
-    type:        "website",
+    canonical,
+    type: "website",
+  });
+}
+
+export async function getCaseStudyPageMeta(slug) {
+  const wpData = await getCaseStudyMeta(slug);
+  if (!wpData) return {};
+
+  const canonical = absoluteUrl(`/case-studies/${slug}`);
+  const rankMath = await tryRankMath(wpData.link);
+  if (rankMath) return withCanonical(rankMath, canonical);
+
+  return buildMeta({
+    title: wpData.title,
+    description: wpData.description,
+    canonical,
+    type: "article",
   });
 }
 
@@ -120,6 +196,18 @@ function buildMeta({ title, description, canonical, image, type = "website" }) {
   if (image) meta.twitter.images = [image];
 
   return meta;
+}
+
+function withCanonical(meta, canonical) {
+  const nextMeta = { ...meta, alternates: { canonical } };
+
+  nextMeta.openGraph = {
+    ...(meta.openGraph ?? {}),
+    url: canonical,
+    siteName: meta.openGraph?.siteName ?? SITE_NAME,
+  };
+
+  return nextMeta;
 }
 
 function stripTags(str) {

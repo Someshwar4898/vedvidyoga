@@ -4,22 +4,27 @@ import Footer from "../src/components/Footer";
 import ThemeToggle from "../src/components/ThemeToggle";
 import ScrollToTop from "../src/components/ScrollToTop";
 import Script from "next/script"; // Corrected import capitalized
+import { SITE_NAME, SITE_URL } from "../src/services/site";
 
 export const metadata = {
-  title: "VedVidYoga",
+  title: SITE_NAME,
   description:
     "Understanding Vedic Cult: A Scientific Perspective — Vedas, Upanishads, Ayurveda, and Yoga explained with logic and clarity.",
-  metadataBase: new URL("https://vedvidyoga.com"),
+  metadataBase: new URL(SITE_URL),
   
   // FIX 1: Hardcoding the absolute canonical path to drop URL query strings
-  alternates: {
-    canonical: "https://vedvidyoga.com",
-  },
+  // alternates: {
+  //   canonical: "https://vedvidyoga.com",
+  // },
   
   // FIX 2: Explicitly state the global indexable settings
   robots: {
     index: true,
     follow: true,
+  },
+  openGraph: {
+    siteName: SITE_NAME,
+    type: "website",
   },
 };
 

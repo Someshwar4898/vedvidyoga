@@ -158,6 +158,13 @@ export async function getPosts() {
   return data.map(p => mapPost(p, catMap));
 }
 
+export async function getPostBySlug(slug) {
+  const catMap = await getCategoryMap();
+  const data = await get(`/posts?slug=${encodeURIComponent(slug)}&_embed`);
+  const post = data[0];
+  return post ? mapPost(post, catMap) : null;
+}
+
 // Fetch up to 10 posts and sort by Post Views Counter view count (desc), return top 4
 export async function getTrendingPosts() {
   const catMap = await getCategoryMap();

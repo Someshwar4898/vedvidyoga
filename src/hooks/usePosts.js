@@ -20,24 +20,79 @@ async function loadPosts() {
   return _promise;
 }
 
-// Returns { posts, loading, error }
-export function usePosts({ categorySlug, subcategorySlug } = {}) {
-  const [loading, setLoading] = useState(!_cache);
-  const [error, setError] = useState(null);
-  const [posts, setPosts] = useState(() => {
-    if (!_cache) return [];
-    if (subcategorySlug) return _cache.filter((p) => p.subcategorySlug === subcategorySlug);
-    if (categorySlug) return _cache.filter((p) => p.categorySlug === categorySlug);
-    return _cache;
-  });
+// // Returns { posts, loading, error }
+// export function usePosts({ categorySlug, subcategorySlug } = {}) {
+//   const [loading, setLoading] = useState(!_cache);
+//   const [error, setError] = useState(null);
+//   const [posts, setPosts] = useState(() => {
+//     if (!_cache) return [];
+//     if (subcategorySlug) return _cache.filter((p) => p.subcategorySlug === subcategorySlug);
+//     if (categorySlug) return _cache.filter((p) => p.categorySlug === categorySlug);
+//     return _cache;
+//   });
   
 
+//   useEffect(() => {
+//     if (_cache) {
+//       let data = _cache;
+//       if (subcategorySlug) data = data.filter((p) => p.subcategorySlug === subcategorySlug);
+//       else if (categorySlug) data = data.filter((p) => p.categorySlug === categorySlug);
+//       setPosts(data);
+//       setLoading(false);
+//       return;
+//     }
+
+//     let cancelled = false;
+//     setLoading(true);
+
+//     loadPosts()
+//       .then((all) => {
+//         if (cancelled) return;
+//         let data = all;
+//         if (subcategorySlug) data = data.filter((p) => p.subcategorySlug === subcategorySlug);
+//         else if (categorySlug) data = data.filter((p) => p.categorySlug === categorySlug);
+//         setPosts(data);
+//       })
+//       .catch((err) => {
+//         if (!cancelled) {
+//           console.error("WordPress fetch failed:", err.message);
+//           setError(err.message);
+//         }
+//       })
+//       .finally(() => { if (!cancelled) setLoading(false); });
+
+//     return () => { cancelled = true; };
+//   }, [categorySlug, subcategorySlug]);
+
+//   return { posts, loading, error };
+// }
+
+function filterPosts(posts, { categorySlug, subcategorySlug } = {}) {
+  if (subcategorySlug) return posts.filter((p) => p.subcategorySlug === subcategorySlug);
+  if (categorySlug) return posts.filter((p) => p.categorySlug === categorySlug);
+  return posts;
+}
+
+// Returns { posts, loading, error }
+export function usePosts({ categorySlug, subcategorySlug, initialPosts } = {}) {
+  const hasInitialPosts = Array.isArray(initialPosts);
+  const [loading, setLoading] = useState(!_cache && !hasInitialPosts);
+  const [error, setError] = useState(null);
+  const [posts, setPosts] = useState(() => {
+    if (hasInitialPosts) return filterPosts(initialPosts, { categorySlug, subcategorySlug });
+    if (!_cache) return [];
+    return filterPosts(_cache, { categorySlug, subcategorySlug });
+  });
+
   useEffect(() => {
+    if (hasInitialPosts) {
+      setPosts(filterPosts(initialPosts, { categorySlug, subcategorySlug }));
+      setLoading(false);
+      return;
+    }
+
     if (_cache) {
-      let data = _cache;
-      if (subcategorySlug) data = data.filter((p) => p.subcategorySlug === subcategorySlug);
-      else if (categorySlug) data = data.filter((p) => p.categorySlug === categorySlug);
-      setPosts(data);
+      setPosts(filterPosts(_cache, { categorySlug, subcategorySlug }));
       setLoading(false);
       return;
     }
@@ -48,10 +103,7 @@ export function usePosts({ categorySlug, subcategorySlug } = {}) {
     loadPosts()
       .then((all) => {
         if (cancelled) return;
-        let data = all;
-        if (subcategorySlug) data = data.filter((p) => p.subcategorySlug === subcategorySlug);
-        else if (categorySlug) data = data.filter((p) => p.categorySlug === categorySlug);
-        setPosts(data);
+        setPosts(filterPosts(all, { categorySlug, subcategorySlug }));
       })
       .catch((err) => {
         if (!cancelled) {
@@ -62,7 +114,7 @@ export function usePosts({ categorySlug, subcategorySlug } = {}) {
       .finally(() => { if (!cancelled) setLoading(false); });
 
     return () => { cancelled = true; };
-  }, [categorySlug, subcategorySlug]);
+  }, [categorySlug, subcategorySlug, hasInitialPosts, initialPosts]);
 
   return { posts, loading, error };
 }

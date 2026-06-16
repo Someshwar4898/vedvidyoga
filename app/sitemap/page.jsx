@@ -1,3 +1,15 @@
+import { buildStaticMetadata } from "../../src/services/site";
+
+export const metadata = buildStaticMetadata({
+  title: "Sitemap",
+  description: "Browse the VedVidYoga sitemap index.",
+  path: "/sitemap",
+  robots: {
+    index: false,
+    follow: false,
+  },
+});
+
 export default function SitemapPage() {
   return (
     <div className="min-h-screen flex items-center justify-center">

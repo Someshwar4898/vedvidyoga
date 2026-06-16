@@ -26,14 +26,33 @@ async function loadCategories() {
   return _promise;
 }
 
-export function useCategories() {
-  const [categories, setCategories] = useState(_cache ?? []);
-  const [loading, setLoading] = useState(!_cache);
+// export function useCategories() {
+//   const [categories, setCategories] = useState(_cache ?? []);
+//   const [loading, setLoading] = useState(!_cache);
+
+//   useEffect(() => {
+//     if (_cache) { setCategories(_cache); setLoading(false); return; }
+//     loadCategories().then((cats) => { setCategories(cats); setLoading(false); });
+//   }, []);
+
+//   return { categories, loading };
+// }
+
+export function useCategories({ initialCategories } = {}) {
+  const hasInitialCategories = Array.isArray(initialCategories);
+  const [categories, setCategories] = useState(initialCategories ?? _cache ?? []);
+  const [loading, setLoading] = useState(!_cache && !hasInitialCategories);
 
   useEffect(() => {
+    if (hasInitialCategories) {
+      setCategories(initialCategories);
+      setLoading(false);
+      return;
+    }
+
     if (_cache) { setCategories(_cache); setLoading(false); return; }
     loadCategories().then((cats) => { setCategories(cats); setLoading(false); });
-  }, []);
+  }, [hasInitialCategories, initialCategories]);
 
   return { categories, loading };
 }
