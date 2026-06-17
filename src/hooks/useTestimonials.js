@@ -22,19 +22,25 @@ function transformWpTestimonial(post) {
   let designation = "Reader";
   const lines = rawText.split("\n").map((l) => l.trim()).filter(Boolean);
   const bodyLines = [];
-  const content = bodyLines.join(" ").trim()
+  let content = bodyLines.join(" ").trim()
     || stripHtml(post.excerpt?.rendered || "").replace(/\n/g, " ").trim();
 
   // Featured image → avatar (sent by admin after user emails their photo)
   const avatar = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ?? null;
 
   for (const line of lines) {
-    const match = line.match(/^designation:\s*(.+)$/i);
-    if (match) {
-      designation = match[1].trim();
+    const match1 = line.match(/^designation:\s*(.+)$/i);
+    if (match1) {
+      designation = match1[1].trim();
     } else {
       bodyLines.push(line);
     }
+    const match2 = line.match(/^content:\s*(.+)$/i);
+    if(match2) { content = match2[1].trim();
+    } else {
+      bodyLines.push(line);
+    }
+
   }
 
   return {
