@@ -14,11 +14,49 @@ import PostDisclaimer from "../components/PostDisclaimer";
 import PostAuthorCard from "../components/PostAuthorCard";
 import { incrementPostView } from "../services/views";
 import { notFound } from "next/navigation";
+import FAQSchema from "../components/SEO/FAQSchema";
 
 function formatViews(n) {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M views`;
   if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K views`;
   return `${n} ${n === 1 ? "view" : "views"}`;
+}
+
+// ── FAQ Parsing Helper ──────────────────────────────────────────────────────────
+// This mirrors the parsing logic from PostFAQ component.
+// Reuse this to get structured FAQ data for both display and schema.
+function parseFAQs(raw) {
+  if (!raw || typeof raw !== "string" || !raw.trim()) return [];
+  const lines = raw.split("\n").map((l) => l.trim()).filter(Boolean);
+  const faqs = [];
+  let question = null;
+  let answerLines = [];
+  let inAnswer = false;
+
+  for (const line of lines) {
+    const qMatch = line.match(/^Q\d*[:.]\s*(.+)/i);
+    const aMatch = line.match(/^A\d*[:.]\s*(.+)/i);
+
+    if (qMatch) {
+      if (question && answerLines.length) {
+        faqs.push({ question, answer: answerLines.join(" ") });
+      }
+      question = qMatch[1].trim();
+      answerLines = [];
+      inAnswer = false;
+    } else if (aMatch && question) {
+      answerLines = [aMatch[1].trim()];
+      inAnswer = true;
+    } else if (inAnswer) {
+      answerLines.push(line);
+    }
+  }
+
+  if (question && answerLines.length) {
+    faqs.push({ question, answer: answerLines.join(" ") });
+  }
+
+  return faqs;
 }
 
 // function PostPage() {
@@ -205,6 +243,11 @@ function PostPage({ initialPost }) {
   // Falls back silently if WordPress CORS isn't enabled for page requests.
   useWPStyles(post?.id);
 
+  // ── Parse FAQs for Schema.org structured data ────────────────────────────────
+  // Parse the raw FAQ content to get structured data for JSON-LD schema.
+  // This mirrors the parsing logic used by PostFAQ component.
+  const parsedFAQs = useMemo(() => parseFAQs(post?.faqs), [post?.faqs]);
+
   // Increment view count once per browser session per post
   useEffect(() => {
     if (!post?.id) return;
@@ -307,6 +350,10 @@ function PostPage({ initialPost }) {
 
         {/* Disclaimer — from ACF textarea on the blog post */}
         <PostDisclaimer content={post.disclaimer} />
+
+        {/* FAQ Schema — JSON-LD structured data for search engines */}
+        {/* Only renders when FAQs exist, following Google's FAQPage guidelines */}
+        {parsedFAQs.length > 0 && <FAQSchema faqs={parsedFAQs} />}
 
         {/* FAQs — parsed from ACF textarea on the blog post */}
         <PostFAQ raw={post.faqs} />
