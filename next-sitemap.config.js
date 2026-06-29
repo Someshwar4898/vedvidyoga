@@ -19,7 +19,9 @@ const RESERVED_FRONTEND_SLUGS = new Set([
 ])
 
 // Helper to fetch paginated content from WordPress API
-async function fetchPaginatedContent(endpoint, perPage = 100) {
+async function fetchPaginatedContent(endpoint, options = {}) {
+  const perPage = options.perPage ?? 100;
+  const query = options.query ?? {};
   let allItems = [];
   let page = 1;
   // let hasMore = true;
